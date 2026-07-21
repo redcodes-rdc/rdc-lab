@@ -1,0 +1,1 @@
+https://rdc-lab.netlify.app/* https://lab.reddelacruz.dev/:splat 301!
