@@ -611,7 +611,7 @@ function renderRdcLabPageCtaMarkup(cta) {
     <section class="rdcl-help-work-cta rdcl-global-page-cta rdc-lab-border-2 rdc-bg-dark-5 rdc-p-20 rdc-m-b20">
       <div class="rdc-d-flex rdc-fw-wrap rdc-ai-cen rdc-jc-spb">
         <div class="rdcl-help-work-copy rdcl-global-page-cta-copy rdc-d-flex rdc-ff-col rdc-w-30 rdc-m-b20 rdc-m-w-full">
-          <span class="rdcl-help-work-eyebrow rdcl-global-page-cta-eyebrow rdc-ff-baij rdc-m-t10 rdc-d-flex rdc-w-fit rdc-tt-upc rdc-fw-400 rdc-lab-border-4 rdc-fs-12 rdc-c-yellow">${cta.eyebrow}</span>
+          <span class="rdcl-help-work-eyebrow rdcl-global-page-cta-eyebrow rdc-ff-baij rdc-m-t10 rdc-m-b10 rdc-d-flex rdc-w-fit rdc-tt-upc rdc-fw-400 rdc-lab-border-4 rdc-fs-12 rdc-c-yellow">${cta.eyebrow}</span>
           <h2 class="rdc-c-white-3 rdc-m-b0">${cta.title}</h2>
           <p>${cta.description}</p>
           <a href="${cta.href}" class="rdcl-help-work-btn rdcl-global-page-cta-btn rdc-lab-btn rdc-m-bl10 rdc-lab-3rd-btn rdc-br-4 rdc-d-iflex rdc-ai-cen rdc-td-none rdc-ff-baij rdc-tt-upc">
