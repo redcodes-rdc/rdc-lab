@@ -155,7 +155,7 @@ const genTemplate = `<div class="rdcl-gen-main">
                           <path d="M14.12 16.98C13.44 17.26 12.73 17.4 12 17.4C8.1 17.4 4.9 15.6 2.8 12C3.66 10.53 4.72 9.37 5.96 8.52" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                       </span>
-                      <span class="rdcl-ai-preview-toggle-text">Hide preview</span>
+                      <span class="rdcl-ai-preview-toggle-text">Hide sample</span>
                     </button>
                   </div>
                   <div class="rdcl-ai-preview-image" aria-label="AI prompt sample output preview">
