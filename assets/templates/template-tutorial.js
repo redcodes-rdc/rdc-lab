@@ -548,7 +548,7 @@ function renderTutorialFaqs(faqs) {
   if (!faqs || !Array.isArray(faqs.items) || !faqs.items.length) return "";
 
   return `
-    <section class="rdcl-help-section rdcl-help-faqs rdc-mw-1200 rdc-lab-border-2 rdc-bg-dark-5 rdc-p-20 rdc-m-b20">
+    <section class="rdcl-help-section rdcl-help-faqs rdc-mw-1200 rdc-m-iauto rdc-lab-border-2 rdc-bg-dark-5 rdc-p-20 rdc-m-b20">
       <div class="rdcl-help-section-top rdc-d-flex rdc-fw-wrap rdc-ai-cen rdc-jc-spb rdc-m-b30">
         ${renderTutorialFaqHeader(faqs.title, faqs.description)}
       </div>
