@@ -81,6 +81,32 @@ const rdclTutorialPage = window.rdclTutorialPage || {
       },
     ],
   },
+  faqs: {
+    title: "Frequently Asked Questions",
+    description: "Questions related to this tutorial.",
+    items: [
+      {
+        question: "Question 1",
+        answer: "Answer placeholder...",
+      },
+      {
+        question: "Question 2",
+        answer: "Answer placeholder...",
+      },
+      {
+        question: "Question 3",
+        answer: "Answer placeholder...",
+      },
+      {
+        question: "Question 4",
+        answer: "Answer placeholder...",
+      },
+      {
+        question: "Question 5",
+        answer: "Answer placeholder...",
+      },
+    ],
+  },
 };
 
 window.rdclTutorialPage = rdclTutorialPage;
@@ -172,6 +198,9 @@ const rdclTutorialIcons = {
     <circle cx="8" cy="8" r="5.5" stroke="currentColor" stroke-width="1.5"/>
     <path d="M8 4.8V8.2L10.3 9.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>`,
+  message: `<svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+    <path d="M8 9H24V20H14L8 25V9Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+  </svg>`,
 };
 
 const rdclTutorialPlaceholderVideoUrl =
@@ -192,6 +221,7 @@ function renderRdclTutorialPage(page, library) {
         ${renderTutorialHeader(page)}
         ${renderTutorialVideo(page.video)}
         ${renderWrittenVersion(page.written)}
+        ${renderTutorialFaqs(page.faqs)}
         ${renderRelatedTutorials(relatedTutorials)}
       </div>
     </div>
@@ -505,6 +535,50 @@ function renderCtaBlock(block) {
         <span class="rdc-m-l5" aria-hidden="true">${rdclTutorialIcons.arrow}</span>
       </a>
     </p>
+  `;
+}
+
+function renderTutorialFaqs(faqs) {
+  if (!faqs || !Array.isArray(faqs.items) || !faqs.items.length) return "";
+
+  return `
+    <section class="rdcl-help-section rdcl-help-faqs rdc-lab-border-2 rdc-bg-dark-5 rdc-p-20 rdc-m-b20">
+      <div class="rdcl-help-section-top rdc-d-flex rdc-fw-wrap rdc-ai-cen rdc-jc-spb rdc-m-b30">
+        ${renderTutorialFaqHeader(faqs.title, faqs.description)}
+      </div>
+      <div class="rdcl-help-faq-list rdc-p-5" data-help-faq-list>
+        ${faqs.items.map(renderTutorialFaqItem).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderTutorialFaqHeader(title, description) {
+  return `
+    <div class="rdcl-help-section-head rdc-d-flex rdc-m-w-full rdc-ai-fls">
+      <span class="rdcl-help-section-icon rdc-p-5 rdc-br-6 rdc-m-r20 rdc-d-iflex">${rdclTutorialIcons.message}</span>
+      <span>
+        <h2 class="rdc-gen-mini-h rdc-m-0 rdc-m-b10">${title}</h2>
+        <p class="rdc-m-0">${description}</p>
+      </span>
+    </div>
+  `;
+}
+
+function renderTutorialFaqItem(item, index) {
+  const category = item.category || "tutorial";
+  const panelId = `rdcl-tutorial-faq-panel-${index}`;
+
+  return `
+    <article class="rdcl-help-faq-item rdc-m-b10" data-help-faq-item data-help-faq-category="${escapeHtml(category)}" data-help-faq-search="${escapeHtml(`${item.question} ${item.answer} ${category}`.toLowerCase())}">
+      <button class="rdcl-help-faq-question rdc-darker-hover rdc-lab-border-6 rdc-bg-dark-2 rdc-br-10 rdc-p-20 rdc-w-full rdc-d-flex rdc-ai-cen rdc-jc-spb rdc-cu-poi" type="button" aria-expanded="false" aria-controls="${panelId}" data-help-faq-question>
+        <span class="rdc-ta-lef">${item.question}</span>
+        <span class="rdcl-help-faq-icon" aria-hidden="true">+</span>
+      </button>
+      <div class="rdcl-help-faq-answer rdc-p-20 rdc-m-b20 rdc-d-none" id="${panelId}" data-help-faq-answer>
+        <p class="rdc-m-0 rdc-lh-1-5">${item.answer}</p>
+      </div>
+    </article>
   `;
 }
 

@@ -18,12 +18,12 @@
     const faqItems = getFaqItems();
     const faqSearch = document.querySelector(selectors.faqSearch);
 
-    if (!faqItems.length || !faqSearch) {
+    if (!faqItems.length) {
       requestAnimationFrame(initHelpCenter);
       return;
     }
 
-    bindFaqSearch(faqSearch);
+    if (faqSearch) bindFaqSearch(faqSearch);
     bindFaqTabs();
     bindFaqAccordions();
     updateFaqScrollHint();
