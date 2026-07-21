@@ -106,27 +106,7 @@ function renderHomepage(content) {
     "  </div>",
     "</section>",
     "",
-    '<section class="rdc-lab-sec rdc-lab-featured rdc-mw-1600 rdc-m-iauto rdc-p-20">',
-    '  <div class="rdc-lab-featured-inner rdc-p-bl4r rdc-m-p-bl10">',
-    '    <h2 class="rdc-m-b20">' + content.featured.title + "</h2>",
-    '    <div class="rdc-lab-featured-items rdc-d-flex rdc-fw-wrap" id="' +
-      content.featured.itemsContainerId +
-      '"></div>',
-    "",
-    '    <div class="rdc-mw-1800 rdc-m-iauto rdc-p-10">',
-    '      <h3 class="rdc-p-5 rdc-fs-14">' +
-      content.featured.popularTitle +
-      "</h3>",
-    '      <div class="rlab-cols-main rdc-lab-pop rdc-t-ofx-scr">',
-    '        <div class="rlab-cols-inner rdc-d-flex rdc-t-w-fit rdc-t-fw-nwra" id="' +
-      content.featured.popularContainerId +
-      '"></div>',
-    "      </div>",
-    "    </div>",
-    "",
-    "    " + renderButton(content.featured.cta, "rdc-m-t20"),
-    "  </div>",
-    "</section>",
+    renderFeaturedGeneratorsSection(content.featured),
     "",
     '<section class="rdc-lab-sec rdc-lab-why rdc-bg-dark-4 rdc-m-b4r rdc-m-m-0">',
     '  <div class="rlab-cols-main rdc-c-white-1 rdc-p-20 rdc-mw-1600 rdc-m-iauto">',
@@ -163,6 +143,34 @@ function renderBenefitCard(card) {
     "      </div>",
   ].join("\n");
 }
+
+function renderFeaturedGeneratorsSection(featured = {}) {
+  featured = { ...homepageContent.featured, ...featured };
+
+  return [
+    '<section class="rdc-lab-sec rdc-lab-featured rdc-mw-1600 rdc-m-iauto rdc-p-20">',
+    '  <div class="rdc-lab-featured-inner rdc-p-bl4r rdc-m-p-bl10">',
+    '    <h2 class="rdc-m-b20">' + featured.title + "</h2>",
+    '    <div class="rdc-lab-featured-items rdc-d-flex rdc-fw-wrap" id="' +
+      featured.itemsContainerId +
+      '"></div>',
+    "",
+    '    <div class="rdc-mw-1800 rdc-m-iauto rdc-p-10">',
+    '      <h3 class="rdc-p-5 rdc-fs-14">' + featured.popularTitle + "</h3>",
+    '      <div class="rlab-cols-main rdc-lab-pop rdc-t-ofx-scr">',
+    '        <div class="rlab-cols-inner rdc-d-flex rdc-t-w-fit rdc-t-fw-nwra" id="' +
+      featured.popularContainerId +
+      '"></div>',
+    "      </div>",
+    "    </div>",
+    "",
+    "    " + renderButton(featured.cta, "rdc-m-t20"),
+    "  </div>",
+    "</section>",
+  ].join("\n");
+}
+
+window.renderRdcLabFeaturedGeneratorsSection = renderFeaturedGeneratorsSection;
 
 function renderButton(button, extraClasses = "") {
   const classes = [
