@@ -1,5 +1,33 @@
 const main = document.querySelector("main");
 
+const rdcAiPreviewImages = {
+  twoColumnGenerator: {
+    src: "/assets/images/rdc-lab-2-column-code-generator-sample-ai-prompt-output.jpg",
+    alt: "Sample AI prompt output for the 2-column code generator",
+  },
+  accordionGenerator: {
+    src: "/assets/images/rdc-lab-accordion-code-generator-sample-ai-prompt-output.jpg",
+    alt: "Sample AI prompt output for the accordion code generator",
+  },
+};
+
+function renderRdcAiPreviewImage() {
+  const image = rdcAiPreviewImages[document.body.dataset.seoPage];
+
+  if (image) {
+    return `<img class="rdc-w-full rdc-br-6" src="${image.src}" alt="${image.alt}" loading="lazy" decoding="async" />`;
+  }
+
+  return `<svg width="132" height="92" viewBox="0 0 132 92" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                      <rect x="1.5" y="1.5" width="129" height="89" rx="8.5" stroke="currentColor" stroke-width="3" opacity=".28"/>
+                      <path d="M26 65L48 42L64 58L77 45L104 65H26Z" fill="currentColor" opacity=".18"/>
+                      <circle cx="76" cy="28" r="8" fill="currentColor" opacity=".16"/>
+                      <path d="M15 15H50" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".24"/>
+                      <path d="M82 15H117" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".24"/>
+                    </svg>
+                    <span>AI preview image placeholder</span>`;
+}
+
 const genTemplate = `<div class="rdcl-gen-main">
         <div class="rdcl-gen-inner rdc-mw-1400 rdc-m-iauto">
           ${renderGeneratorBreadcrumb({
@@ -110,7 +138,7 @@ const genTemplate = `<div class="rdcl-gen-main">
                       </svg>
                     </span>
                     <div>
-                      <h3>AI Preview</h3>
+                      <h3>Sample Output</h3>
                       <p>See a sample idea of how AI can enhance your component.</p>
                     </div>
                     <button class="rdcl-ai-preview-toggle" type="button" data-rdcl-ai-preview-toggle aria-expanded="true">
@@ -130,15 +158,8 @@ const genTemplate = `<div class="rdcl-gen-main">
                       <span class="rdcl-ai-preview-toggle-text">Hide preview</span>
                     </button>
                   </div>
-                  <div class="rdcl-ai-preview-image" aria-label="AI before and after preview image placeholder">
-                    <svg width="132" height="92" viewBox="0 0 132 92" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                      <rect x="1.5" y="1.5" width="129" height="89" rx="8.5" stroke="currentColor" stroke-width="3" opacity=".28"/>
-                      <path d="M26 65L48 42L64 58L77 45L104 65H26Z" fill="currentColor" opacity=".18"/>
-                      <circle cx="76" cy="28" r="8" fill="currentColor" opacity=".16"/>
-                      <path d="M15 15H50" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".24"/>
-                      <path d="M82 15H117" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".24"/>
-                    </svg>
-                    <span>AI preview image placeholder</span>
+                  <div class="rdcl-ai-preview-image" aria-label="AI prompt sample output preview">
+                    ${renderRdcAiPreviewImage()}
                   </div>
                   <p class="rdcl-ai-preview-note">Preview is a sample idea only. Results may vary because AI output is not always consistent and depends on your selected tasks, pasted code, and customization notes.</p>
                 </div>
@@ -216,7 +237,9 @@ function initRdcAiRest() {
   const taskList = root.querySelector("[data-rdcl-ai-tasks]");
   const promptList = root.querySelector("[data-rdcl-ai-prompt-list]");
   const contextPreview = root.querySelector("[data-rdcl-ai-context-preview]");
-  const generatorConfigPreview = root.querySelector("[data-rdcl-ai-generator-config-preview]");
+  const generatorConfigPreview = root.querySelector(
+    "[data-rdcl-ai-generator-config-preview]",
+  );
   const notesPreview = root.querySelector("[data-rdcl-ai-notes-preview]");
   const copyButton = root.querySelector("[data-rdcl-ai-copy]");
   const copyButtonText = root.querySelector(".rdcl-ai-copy-btn-text");
@@ -231,7 +254,9 @@ function initRdcAiRest() {
   const generatorType = getRdcAiGeneratorType(generatorName);
   const tasks = getRdcAiTasks(generatorType, generatorName);
   const state = {
-    selected: new Set(tasks.filter((task) => task.defaultSelected).map((task) => task.id)),
+    selected: new Set(
+      tasks.filter((task) => task.defaultSelected).map((task) => task.id),
+    ),
     drafts: Object.fromEntries(tasks.map((task) => [task.id, task.prompt])),
   };
 
@@ -285,7 +310,9 @@ function initRdcAiRest() {
     const isHidden = root.classList.toggle("is-preview-hidden");
 
     if (previewToggleText) {
-      previewToggleText.textContent = isHidden ? "Show preview" : "Hide preview";
+      previewToggleText.textContent = isHidden
+        ? "Show preview"
+        : "Hide preview";
     }
     previewToggle.setAttribute("aria-expanded", String(!isHidden));
     updateRdcAiStickyState();
@@ -324,7 +351,10 @@ function initRdcAiRest() {
       renderRdcAiGeneratorConfig();
       updateRdcAiStickyState();
     });
-    settingsObserver.observe(generatorSettings, { childList: true, subtree: true });
+    settingsObserver.observe(generatorSettings, {
+      childList: true,
+      subtree: true,
+    });
   }
 
   function renderRdcAiTask(task) {
@@ -540,7 +570,9 @@ function getRdcAiControlLabel(control) {
 
   const rowLabel = control.closest(".rdc-d-flex")?.querySelector("label");
 
-  return formatLabel(rowLabel?.textContent?.trim() || control.name || control.id || "");
+  return formatLabel(
+    rowLabel?.textContent?.trim() || control.name || control.id || "",
+  );
 }
 
 function getRdcAiControlSectionTitle(control) {
@@ -556,7 +588,8 @@ function getRdcAiControlSectionTitle(control) {
 }
 
 function getRdcAiControlValue(control) {
-  if (control.type === "checkbox") return control.checked ? "Enabled" : "Disabled";
+  if (control.type === "checkbox")
+    return control.checked ? "Enabled" : "Disabled";
 
   if (control.tagName === "SELECT") {
     const selectedOption = control.options[control.selectedIndex];
@@ -568,7 +601,9 @@ function getRdcAiControlValue(control) {
 
   if (value) return value;
 
-  return control.placeholder ? `Not provided (placeholder: ${control.placeholder})` : "Not provided";
+  return control.placeholder
+    ? `Not provided (placeholder: ${control.placeholder})`
+    : "Not provided";
 }
 
 function escapeHtml(value) {
@@ -592,12 +627,18 @@ function getRdcAiGeneratorName() {
 }
 
 function getRdcAiGeneratorType(generatorName) {
-  const value = `${document.body?.className || ""} ${document.body?.dataset?.seoPage || ""} ${generatorName}`.toLowerCase();
+  const value =
+    `${document.body?.className || ""} ${document.body?.dataset?.seoPage || ""} ${generatorName}`.toLowerCase();
 
   if (value.includes("button")) return "button";
   if (value.includes("accordion") || value.includes("faq")) return "accordion";
   if (value.includes("tabs")) return "tabs";
-  if (value.includes("2-col") || value.includes("twocolumn") || value.includes("column")) return "layout";
+  if (
+    value.includes("2-col") ||
+    value.includes("twocolumn") ||
+    value.includes("column")
+  )
+    return "layout";
   if (value.includes("icon")) return "iconText";
   if (value.includes("timer")) return "timer";
   if (value.includes("progress")) return "progress";
@@ -633,14 +674,16 @@ function getRdcAiTasks(generatorType, generatorName) {
     {
       id: "design",
       label: "Improve Design",
-      description: "Enhance spacing, typography, hierarchy, colors, and polish.",
+      description:
+        "Enhance spacing, typography, hierarchy, colors, and polish.",
       defaultSelected: true,
       prompt: designDetails,
     },
     {
       id: "mobile",
       label: "Improve Mobile Experience",
-      description: "Refine smaller-screen spacing, stacking, and touch behavior.",
+      description:
+        "Refine smaller-screen spacing, stacking, and touch behavior.",
       defaultSelected: true,
       prompt: mobileDetails,
     },
@@ -676,14 +719,16 @@ function getRdcAiTasks(generatorType, generatorName) {
     {
       id: "shopify",
       label: "Convert to Shopify Liquid",
-      description: "Convert the generated code into a useful Shopify Liquid section.",
+      description:
+        "Convert the generated code into a useful Shopify Liquid section.",
       defaultSelected: false,
       prompt: liquidDetails,
     },
     {
       id: "accessibility",
       label: "Improve Accessibility",
-      description: "Add ARIA, semantic structure, contrast, and keyboard support.",
+      description:
+        "Add ARIA, semantic structure, contrast, and keyboard support.",
       defaultSelected: false,
       prompt: [
         "Instruction:",
@@ -902,83 +947,72 @@ function getRdcAiLiquidPrompt(generatorType, generatorName) {
     "- Include setup notes for file placement, theme editor setup, snippets, assets, Shopify limitations, or theme-specific caveats.",
   ];
   const details = {
-    button:
-      [
-        "- For a button generator, keep the Liquid conversion lightweight.",
-        "- Include settings for button label, link URL, link behavior when useful, style, width, radius, and optional aria label.",
-        "- Include color settings only when they are relevant to the pasted code.",
-        "- Do not overbuild blocks unless multiple buttons are clearly requested.",
-        "- If the output is better as a snippet, include snippet instructions and a simple render example.",
-      ].join("\n"),
-    accordion:
-      [
-        "- For an accordion or FAQ, use Shopify blocks for each accordion item.",
-        "- Include settings for question/title and answer rich text.",
-        "- Include an optional heading and intro text for the section when useful.",
-        "- Support one-open-at-a-time only if it makes sense for the pasted behavior.",
-        "- Include accessible button states with aria-expanded and proper panel relationships.",
-        "- Keep IDs unique by using section.id or block.id where needed.",
-      ].join("\n"),
-    tabs:
-      [
-        "- For tabs, use Shopify blocks for each tab.",
-        "- Include settings for tab title and tab content.",
-        "- Generate accessible tablist, tab, and panel markup.",
-        "- Use section.id and block.id to keep controls and panels uniquely connected.",
-      ].join("\n"),
-    layout:
-      [
-        "- For a layout generator, infer the intended purpose from the pasted component and user context.",
-        "- If the purpose cannot be determined with confidence, create a flexible reusable Shopify implementation and explain the assumptions made.",
-        "- Include schema settings for headings, text, images, buttons/links, alignment, column widths, spacing, colors when relevant, and mobile stacking.",
-        "- If blocks are useful, use them for repeatable content. If not, keep the schema simple.",
-        "- Include clear comments showing where image_picker, richtext, URL, and text settings render.",
-        "- If a snippet is better than a section, explain why and include snippet paste/render instructions.",
-      ].join("\n"),
-    iconText:
-      [
-        "- For icon-with-text, use Shopify blocks for each item.",
-        "- Include settings for icon/image, image alt text, title, text, optional link, and optional link label.",
-        "- Include section settings for columns, spacing, alignment, and mobile behavior.",
-        "- Keep the generated output easy to add/remove/reorder in the theme editor.",
-      ].join("\n"),
-    timer:
-      [
-        "- For a timer or announcement bar, include settings for message text, start/end date, colors, links, visibility, and optional button text.",
-        "- Include timezone notes and explain what date/time values the user must update.",
-        "- Make sure the timer does not break if the date is missing or expired.",
-      ].join("\n"),
-    progress:
-      [
-        "- For a progress bar, include settings for colors, labels, thresholds, placement, and behavior.",
-        "- If the bar depends on cart totals or scroll position, explain what data it uses.",
-        "- Document what Shopify template, section area, or theme file should receive the code.",
-      ].join("\n"),
-    modal:
-      [
-        "- For a modal, include settings for trigger text, heading, content, image, button labels, overlay behavior, and close behavior.",
-        "- Include a setting for whether the trigger button should be rendered or hidden.",
-        "- Include accessible focus management, aria-modal, role dialog, labelledby/describedby relationships, and keyboard close behavior.",
-        "- Use unique IDs for trigger, dialog, title, and description relationships.",
-      ].join("\n"),
-    badge:
-      [
-        "- For badges, keep the Liquid conversion lightweight.",
-        "- Include settings for badge text, style, colors, and optional icon/image.",
-        "- Use blocks only if multiple badges are needed.",
-      ].join("\n"),
-    sticky:
-      [
-        "- For sticky add-to-cart or sticky UI, include settings for product text, button label, colors, visibility rules, and mobile behavior.",
-        "- Add notes about testing with the active Shopify theme's product form.",
-        "- Avoid interfering with native product form behavior.",
-      ].join("\n"),
-    tooltip:
-      [
-        "- For tooltips, include settings for trigger text, tooltip content, placement, and optional icon.",
-        "- Include accessible focus and hover behavior.",
-        "- Make sure tooltip content can be reached by keyboard users.",
-      ].join("\n"),
+    button: [
+      "- For a button generator, keep the Liquid conversion lightweight.",
+      "- Include settings for button label, link URL, link behavior when useful, style, width, radius, and optional aria label.",
+      "- Include color settings only when they are relevant to the pasted code.",
+      "- Do not overbuild blocks unless multiple buttons are clearly requested.",
+      "- If the output is better as a snippet, include snippet instructions and a simple render example.",
+    ].join("\n"),
+    accordion: [
+      "- For an accordion or FAQ, use Shopify blocks for each accordion item.",
+      "- Include settings for question/title and answer rich text.",
+      "- Include an optional heading and intro text for the section when useful.",
+      "- Support one-open-at-a-time only if it makes sense for the pasted behavior.",
+      "- Include accessible button states with aria-expanded and proper panel relationships.",
+      "- Keep IDs unique by using section.id or block.id where needed.",
+    ].join("\n"),
+    tabs: [
+      "- For tabs, use Shopify blocks for each tab.",
+      "- Include settings for tab title and tab content.",
+      "- Generate accessible tablist, tab, and panel markup.",
+      "- Use section.id and block.id to keep controls and panels uniquely connected.",
+    ].join("\n"),
+    layout: [
+      "- For a layout generator, infer the intended purpose from the pasted component and user context.",
+      "- If the purpose cannot be determined with confidence, create a flexible reusable Shopify implementation and explain the assumptions made.",
+      "- Include schema settings for headings, text, images, buttons/links, alignment, column widths, spacing, colors when relevant, and mobile stacking.",
+      "- If blocks are useful, use them for repeatable content. If not, keep the schema simple.",
+      "- Include clear comments showing where image_picker, richtext, URL, and text settings render.",
+      "- If a snippet is better than a section, explain why and include snippet paste/render instructions.",
+    ].join("\n"),
+    iconText: [
+      "- For icon-with-text, use Shopify blocks for each item.",
+      "- Include settings for icon/image, image alt text, title, text, optional link, and optional link label.",
+      "- Include section settings for columns, spacing, alignment, and mobile behavior.",
+      "- Keep the generated output easy to add/remove/reorder in the theme editor.",
+    ].join("\n"),
+    timer: [
+      "- For a timer or announcement bar, include settings for message text, start/end date, colors, links, visibility, and optional button text.",
+      "- Include timezone notes and explain what date/time values the user must update.",
+      "- Make sure the timer does not break if the date is missing or expired.",
+    ].join("\n"),
+    progress: [
+      "- For a progress bar, include settings for colors, labels, thresholds, placement, and behavior.",
+      "- If the bar depends on cart totals or scroll position, explain what data it uses.",
+      "- Document what Shopify template, section area, or theme file should receive the code.",
+    ].join("\n"),
+    modal: [
+      "- For a modal, include settings for trigger text, heading, content, image, button labels, overlay behavior, and close behavior.",
+      "- Include a setting for whether the trigger button should be rendered or hidden.",
+      "- Include accessible focus management, aria-modal, role dialog, labelledby/describedby relationships, and keyboard close behavior.",
+      "- Use unique IDs for trigger, dialog, title, and description relationships.",
+    ].join("\n"),
+    badge: [
+      "- For badges, keep the Liquid conversion lightweight.",
+      "- Include settings for badge text, style, colors, and optional icon/image.",
+      "- Use blocks only if multiple badges are needed.",
+    ].join("\n"),
+    sticky: [
+      "- For sticky add-to-cart or sticky UI, include settings for product text, button label, colors, visibility rules, and mobile behavior.",
+      "- Add notes about testing with the active Shopify theme's product form.",
+      "- Avoid interfering with native product form behavior.",
+    ].join("\n"),
+    tooltip: [
+      "- For tooltips, include settings for trigger text, tooltip content, placement, and optional icon.",
+      "- Include accessible focus and hover behavior.",
+      "- Make sure tooltip content can be reached by keyboard users.",
+    ].join("\n"),
   };
 
   return [
