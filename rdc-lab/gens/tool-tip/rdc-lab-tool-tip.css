@@ -1,0 +1,127 @@
+/* WRAP */
+.rlab-tip-preview-wrap {
+  padding: 40px;
+}
+
+/* MAIN */
+.rlab-tip-main {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* TRIGGER */
+.rlab-tip-trigger {
+  width: 16px;
+  height: 16px;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: 2px;
+  background-color: #72bfb5;
+  font-weight: 600;
+  border: unset;
+}
+
+/* BUBBLE */
+.rlab-tip-bubble {
+  position: absolute;
+  min-width: 180px;
+  padding: 8px 10px;
+  background: #bdd4cd;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s ease;
+  z-index: 5;
+}
+.rlab-tip-bubble-inner {
+  color: #000;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.rlab-tip-main.is-active .rlab-tip-bubble {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* POSITION */
+.rlab-tip-pos-top .rlab-tip-bubble {
+  bottom: 100%;
+  margin-bottom: 8px;
+}
+
+.rlab-tip-pos-bottom .rlab-tip-bubble {
+  top: 100%;
+  margin-top: 8px;
+}
+
+/* ALIGNMENT */
+.rlab-tip-align-left .rlab-tip-bubble {
+  left: -200%;
+}
+
+.rlab-tip-align-center .rlab-tip-bubble {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.rlab-tip-align-right .rlab-tip-bubble {
+  right: -200%;
+}
+
+/* =========================
+   BUBBLE STYLE (WITH ARROW)
+========================= */
+
+.rlab-tip-style-bubble .rlab-tip-bubble::after {
+  content: "";
+  position: absolute;
+  border-width: 6px;
+  border-style: solid;
+}
+
+/* arrow top */
+.rlab-tip-style-bubble.rlab-tip-pos-top .rlab-tip-bubble::after {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-color: #bdd4cd transparent transparent transparent;
+}
+
+/* arrow bottom */
+.rlab-tip-style-bubble.rlab-tip-pos-bottom .rlab-tip-bubble::after {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-color: transparent transparent #bdd4cd transparent;
+}
+
+/* =========================
+   CLASSIC STYLE
+========================= */
+
+.rlab-tip-style-classic .rlab-tip-bubble {
+  background: #bdd4cd;
+  max-width: 180px;
+}
+
+/* optional: no arrow for classic */
+.rlab-tip-style-classic .rlab-tip-bubble::after {
+  display: none;
+}
+
+/*HOVER*/
+.rlab-tip-main:hover .rlab-tip-bubble,
+.rlab-tip-main:focus-within .rlab-tip-bubble {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.rlab-tip-preview-wrap {
+  display: flex;
+  justify-content: center;
+}

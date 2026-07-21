@@ -1,0 +1,113 @@
+.rdcl-allgen-filter {
+  background-color: transparent;
+  border: unset;
+  text-align: left;
+}
+
+.rdcl-allgen-icon svg {
+  width: 50px;
+  height: 50px;
+}
+
+.rdcl-allgen-card:hover::after {
+  background-image: linear-gradient(to top right, #ad5bfa, #73f9ed);
+  animation: cardhueHoverGradient1 0.5s linear;
+}
+
+.rdcl-allgen-badge-stack {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  display: flex;
+}
+.rdcl-allgen-badge-stack > span {
+  font-size: 9px;
+  text-transform: uppercase;
+  padding: 4px;
+  font-weight: 700;
+}
+span.rdc-catbadge-popular {
+  background-color: #86beeb;
+  color: #000;
+  border-radius: 2px;
+}
+span.rdcl-allgen-badge-stack.rdcl-allgen-badge-stack-tech {
+  bottom: 0;
+  top: auto;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+span.rdc-catbadge-liquid-kit {
+  border-bottom: 2px solid #48e871;
+}
+span.rdc-catbadge-js {
+  border-bottom: 2px solid #408ac6;
+}
+header.rdcl-allgen-header p {
+  max-width: 500px;
+}
+
+.rdcl-page-intro {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.rdcl-page-intro-copy {
+  max-width: 780px;
+}
+
+.rdcl-page-intro-copy p {
+  color: #c9c5d0;
+  line-height: 1.55;
+}
+
+button.rdcl-allgen-tag {
+  background-color: #2d293f;
+  border: unset;
+  color: #dddce3;
+  padding: 3px 6px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+button.rdcl-allgen-filter {
+  border-radius: 10px;
+}
+
+section.rdcl-allgen-cta {
+  display: none;
+}
+.rdcl-allgen-filter-toggle {
+  background-color: #332d2f;
+  border: unset;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.rdc-catbadge-soon {
+  background-color: #842486;
+  padding: 1px 3px;
+  margin-left: 8px;
+}
+button.rdcl-allgen-filter.is-active {
+  border: 1px dashed #7f7478;
+}
+
+button.rdcl-allgen-tag.is-active {
+  border: 1px solid #5d5357;
+}
+
+button.rdcl-allgen-clear-tags {
+  background-color: #454251;
+  border: unset;
+  padding: 4px 6px;
+}
+
+@media only screen and (max-width: 767px) {
+  .rdcl-page-intro {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

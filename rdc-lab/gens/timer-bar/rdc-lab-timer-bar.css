@@ -1,0 +1,42 @@
+.rlab-timerbar-inner * {
+  color: #fff;
+}
+.rlab-timerbar-inner {
+  gap: 22px;
+}
+.rlab-timerbar-timer {
+  gap: 8px;
+}
+.rlab-timerbar-inner {
+  padding: 8px;
+  background-color: #266aa9;
+}
+
+.rlab-timerbar-timer > div {
+  background-color: #000;
+  padding: 6px;
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+  width: 40px;
+}
+span.rlab-timerbar-num {
+  font-weight: 400;
+}
+.rlab-timerbar-timer span {
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+span.rlab-timerbar-label {
+  font-size: 7px;
+  margin-top: 2px;
+}
+.rlab-timerbar-btn {
+  background-color: #e36800;
+  color: #fff;
+  text-decoration: unset;
+  padding: 8px 20px;
+  font-weight: 600;
+}

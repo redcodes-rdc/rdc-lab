@@ -1,0 +1,13 @@
+.rlab-fs-bar,
+.rlab-fs-bar-fill {
+  height: 10px;
+}
+.rlab-fs-bar {
+  background-color: #505050;
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.rlab-fs-bar-fill {
+  background-color: #44a8a1;
+}

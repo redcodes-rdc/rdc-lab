@@ -1,0 +1,181 @@
+.rdcl-allgen-filter {
+  background-color: transparent;
+  border: unset;
+  text-align: left;
+}
+
+.rdcl-allgen-filter-toggle {
+  background-color: #332d2f;
+  border: unset;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+button.rdcl-allgen-filter {
+  border-radius: 10px;
+}
+
+button.rdcl-allgen-filter.is-active {
+  border: 1px dashed #7f7478;
+}
+
+.rdcl-allgen-tag-head {
+  gap: 10px;
+}
+.rdc-lab-border-h-1:hover {
+  outline: 1px solid #383838;
+}
+
+button.rdcl-allgen-tag {
+  background-color: #2d293f;
+  border: unset;
+  color: #dddce3;
+  padding: 3px 6px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+button.rdcl-allgen-tag.is-active,
+button.rdcl-allgen-tag.is-selected,
+button.rdcl-allgen-tag.rdcl-allgen-tag-selected {
+  border: 1px solid #5d5357;
+}
+
+button.rdcl-allgen-clear-tags {
+  background-color: #454251;
+  border: unset;
+  padding: 4px 6px;
+}
+
+.rdc-catbadge-soon {
+  background-color: #842486;
+  padding: 1px 3px;
+  margin-left: 8px;
+}
+
+header.rdcl-allgen-header p {
+  max-width: 500px;
+}
+
+.rdcl-page-intro {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.rdcl-page-intro-copy {
+  max-width: 780px;
+}
+
+.rdcl-page-intro-copy p {
+  color: #c9c5d0;
+  line-height: 1.55;
+}
+
+.rdcl-search-bar {
+  position: relative;
+}
+
+.rdcl-allgen-search-input {
+  background-color: transparent;
+  border: 1px solid #332d2f;
+  color: #ffffff;
+  border-radius: 8px;
+}
+
+.rdcl-allgen-search-input::placeholder {
+  color: #7f7478;
+}
+
+.rdcl-allgen-search-clear {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: unset;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.rdcl-allgen-card {
+  position: relative;
+}
+
+.rdcl-allgen-card::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  z-index: -1;
+  opacity: 0;
+  border-radius: 8px;
+  transition: opacity 0.2s ease;
+}
+
+.rdcl-allgen-card:hover::after {
+  background-image: linear-gradient(to top right, #ad5bfa, #73f9ed);
+  animation: cardhueHoverGradient1 0.5s linear;
+  opacity: 1;
+}
+
+.rdcl-help-tutorial-card-inner {
+  position: relative;
+  overflow: hidden;
+}
+
+.rdcl-help-tutorial-media {
+  overflow: hidden;
+}
+
+.rdcl-help-tutorial-media img {
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.rdcl-help-tutorial-duration {
+  right: 8px;
+  bottom: 8px;
+  padding: 3px 6px;
+}
+
+.rdcl-help-tutorial-body {
+  flex: 1 1 auto;
+}
+
+.rdcl-help-tutorial-body p {
+  color: #b9b5c1;
+}
+
+.rdcl-help-tutorial-level {
+  color: #c8fa33;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.rdcl-help-tutorial-cta {
+  gap: 6px;
+}
+
+.rdcl-allgen-empty {
+  border: 1px dashed #332d2f;
+  border-radius: 8px;
+}
+
+.rdcl-help-tutorial-cta {
+  gap: 6px;
+}
+.rdcl-help-tutorial-cta svg,
+span.rdcl-help-tutorial-level {
+  display: none;
+}
+
+@media only screen and (max-width: 767px) {
+  .rdcl-page-intro {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

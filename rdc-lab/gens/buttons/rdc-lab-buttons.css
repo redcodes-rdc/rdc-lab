@@ -1,0 +1,462 @@
+.rlab-btn-main {
+  margin-inline: auto;
+  display: flex;
+  border: unset;
+  cursor: pointer;
+  text-decoration: unset;
+  justify-content: center;
+}
+
+/**Button-STYLE 1**/
+.rlab-btn-style1 {
+  padding: 12px 30px;
+  border-radius: 6px;
+  background-color: #0363e4;
+  color: #fff;
+  position: relative;
+  align-items: center;
+  gap: 10px;
+  font-weight: 400;
+  font-size: 14px;
+}
+.rlab-btn-style1::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  background-image: url("/gens/buttons/assets/rlab-button-arrow.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.3s;
+}
+.rlab-btn-style1:hover::after {
+  transform: translateX(5px);
+}
+.rlab-btn-style1:hover {
+  background-color: #0257c6;
+}
+
+/**Button-STYLE 2**/
+.rlab-btn-style2 {
+  padding: 14px 40px;
+  border-radius: 100px;
+  color: #fff;
+  background-image: linear-gradient(to top right, #5939ed, #e3429a);
+}
+.rlab-btn-style2::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-image: url("/gens/buttons/assets/rdc-lab-buttons-spark-icon.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-left: 10px;
+}
+.rlab-btn-style2:hover::after {
+  animation: sparkSize 3s linear infinite;
+}
+@keyframes sparkSize {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.5;
+  }
+  70% {
+    scale: 1;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+/**Button-STYLE 3**/
+.rlab-btn-style3 {
+  position: relative;
+  isolation: isolate;
+  background-color: transparent;
+  padding: 20px 38px;
+  align-items: center;
+  gap: 8px;
+}
+.rlab-btn-style3::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/gens/buttons/assets/button-abstract-bg.svg");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.1s linear;
+  z-index: -1;
+}
+.rlab-btn-style3:hover::before {
+  background-image: url("/gens/buttons/assets/button-abstract-bg-hover.svg");
+}
+.rlab-btn-style3 span {
+  color: #000;
+  font-weight: 500;
+}
+.rlab-btn-style3::after {
+  content: "🎉";
+  flex: 0 0 auto;
+  font-size: 17px;
+  line-height: 1;
+  transition: transform 0.3s;
+}
+.rlab-btn-style3:hover::after {
+  transform: scale(1.45) rotate(-8deg);
+}
+
+/**Button-STYLE 4**/
+.rlab-btn-style4 {
+  position: relative;
+  padding: 14px 40px;
+  border-radius: 10px;
+  background: transparent;
+  border: none;
+  z-index: 1;
+  text-transform: uppercase;
+}
+.rlab-btn-style4 span {
+  color: #86e7ff;
+}
+.rlab-btn-style4::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+
+  background: linear-gradient(90deg, #23c7f0, #2d5aad, #23c7f0);
+  background-size: 140% 100%;
+  background-position: 0% 0%;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  pointer-events: none;
+  transition: background-position 0.3s ease;
+}
+.rlab-btn-style4:hover::before {
+  background-position: -200% 0%;
+}
+
+/**Button-STYLE 5**/
+.rlab-btn-style5 {
+  padding: 14px 40px;
+  border-radius: 10px;
+  background: transparent;
+  outline: 1px solid #fff;
+  min-height: 45px;
+  display: flex;
+  align-items: center;
+}
+.rlab-btn-style5,
+.rlab-btn-style5 span {
+  transition: all 0.3s;
+}
+.rlab-btn-style5:hover {
+  padding: 14px 45px;
+  outline-color: transparent;
+}
+.rlab-btn-style5:hover span {
+  font-size: 12px;
+}
+
+/**Button-STYLE 6**/
+.rlab-btn-style6 {
+  padding: 14px 40px;
+  border-radius: 5px;
+  background: transparent;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.rlab-btn-style6 span {
+  z-index: 1;
+}
+.rlab-btn-style6::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-image: url("assets/rdc-lab-button-arrow-bg-red.svg");
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  z-index: 0;
+  transition: all 0.3s;
+}
+.rlab-btn-style6:hover {
+  outline: 1px solid #fff;
+}
+.rlab-btn-style6:hover::before {
+  margin-left: 200%;
+}
+
+/**Button-STYLE 7**/
+.rlab-btn-style7 {
+  padding: 14px 30px;
+  border-radius: 5px;
+  background: transparent;
+  border: 1px solid #5ee0dd;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.rlab-btn-style7:hover {
+  outline: 1px solid #5ee0dd;
+}
+.rlab-btn-style7 span {
+  color: #5ee0dd;
+}
+.rlab-btn-style7::after {
+  content: "";
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  background-image: url("assets/rdc-lab-button-lightning-icon.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.rlab-btn-style7:hover::after {
+  animation: lightningShake 1s infinite;
+}
+@keyframes lightningShake {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(-2px, 1px) scale(1.1);
+  }
+  50% {
+    transform: translate(2px, -1px) scale(1.3);
+  }
+  75% {
+    transform: translate(-1px, 2px) scale(1.05);
+  }
+}
+
+/**Button-STYLE 8**/
+.rlab-btn-style8 {
+  padding: 14px 36px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  isolation: isolate;
+  min-width: 180px;
+  min-height: 60px;
+}
+.rlab-btn-style8 span {
+  text-transform: uppercase;
+  font-style: italic;
+  z-index: 1;
+  font-weight: 900;
+  color: #000;
+}
+.rlab-btn-style8::before,
+.rlab-btn-style8::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  transition: all 0.3s;
+}
+.rlab-btn-style8::before {
+  background-image: url("assets/rdc-lab-button-kpow-bg.svg");
+  z-index: -2;
+}
+.rlab-btn-style8::after {
+  background-image: url("assets/rdc-lab-button-kpow-bg-eff.svg");
+  z-index: -1;
+}
+.rlab-btn-style8:hover::before {
+  scale: 1.08;
+}
+.rlab-btn-style8:hover::after {
+  scale: 0.3;
+  opacity: 0;
+  rotate: 360deg;
+}
+
+/**Button-STYLE 9**/
+.rlab-btn-style9 {
+  padding: 14px 40px 14px 40px;
+  background-color: #588e58;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+.rlab-btn-style9 span {
+  color: #ffffff;
+  z-index: 1;
+  font-weight: 400;
+}
+.rlab-btn-style9:hover {
+  background-color: #3f633f;
+}
+
+/**Button-STYLE 10**/
+.rlab-btn-style10 {
+  padding: 14px 40px;
+  background-color: transparent;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+}
+.rlab-btn-style10 span {
+  z-index: 1;
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-size: 12px;
+}
+.rlab-btn-style10::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("assets/rdc-lab-button-game-bg.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  z-index: -1;
+}
+.rlab-btn-style10:hover::before {
+  scale: 0.95;
+}
+
+/**Button-STYLE 11**/
+.rlab-btn-style11 {
+  padding: 15px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  position: relative;
+  isolation: isolate;
+  text-transform: uppercase;
+}
+.rlab-btn-style11 span {
+  z-index: 1;
+}
+.rlab-btn-style11::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("assets/rdc-lab-button-dashed-bg.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  z-index: -1;
+}
+.rlab-btn-style11:hover::before {
+  background-image: url("assets/rdc-lab-button-dashed-bg-2.svg");
+}
+
+/**Button-STYLE 12**/
+.rlab-btn-style12 {
+  background-color: transparent;
+}
+.rlab-btn-style12 span {
+  color: #5384dd;
+  line-height: 1.5;
+}
+.rlab-btn-style12 span:hover {
+  border-bottom: 1px solid #5384dd;
+}
+
+/**Button-STYLE 13**/
+.rlab-btn-style13 {
+  background-color: transparent;
+  position: relative;
+  padding: 0;
+}
+.rlab-btn-style13 span {
+  color: #fff;
+  line-height: 1.5;
+}
+.rlab-btn-style13::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-bottom: 1px solid #fff;
+  transition: all 0.3s;
+  left: 0;
+}
+.rlab-btn-style13:hover::before {
+  width: 0%;
+}
+
+/**Button-STYLE 14**/
+.rlab-btn-style14 {
+  background-color: transparent;
+  position: relative;
+  padding: 0;
+  text-transform: uppercase;
+}
+.rlab-btn-style14 span {
+  color: #fff;
+  line-height: 1.5;
+  letter-spacing: 2px;
+  transition: all 0.2s;
+  font-size: 13px;
+}
+.rlab-btn-style14:hover span {
+  letter-spacing: 5px;
+}
+.rlab-btn-style14::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-bottom: 1px solid #fff;
+  left: 0;
+}
+
+/**Button-STYLE 15**/
+.rlab-btn-style15 {
+  background-color: transparent;
+  position: relative;
+  padding: 0;
+  text-transform: uppercase;
+}
+.rlab-btn-style15 span {
+  color: #fff;
+  line-height: 1.5;
+  letter-spacing: 2px;
+  transition: all 0.2s;
+  font-size: 13px;
+}
+.rlab-btn-style15:hover span {
+  line-height: 1.8;
+}
+.rlab-btn-style15::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-bottom: 1px dashed #fff;
+}
+.rlab-btn-style15:hover::before {
+  border-bottom: 1px solid #fff;
+}
