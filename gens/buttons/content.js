@@ -269,8 +269,8 @@ function renderCallouts(callouts = []) {
   if (!callouts.length) return "";
 
   return `
-    <div class="rdcl-gen-co">
-      <div class="rdcl-gen-co-inner">
+    <div class="rdcl-gen-co rdc-m-b10">
+      <div class="rdcl-gen-co-inner rdc-m-b10">
         ${callouts.map(renderCallout).join("")}
       </div>
     </div>
@@ -314,8 +314,8 @@ function renderUseCta(cta) {
   if (!cta) return "";
 
   return `
-    <div class="rdcl-gen-co-cta">
-      <div class="rdcl-gen-co-cta-inner rdc-d-flex rdc-ai-cen rdc-p-10 rdc-lab-border-3 rdc-bg-dark-7">
+    <div class="rdcl-gen-co-cta rdc-m-b10">
+      <div class="rdcl-gen-co-cta-inner rdc-d-flex rdc-ai-cen rdc-p-10 rdc-lab-border-3 rdc-bg-dark-7 rdc-m-b10">
         <span class="rdcl-gen-co-cta-icon rdc-m-r10 rdc-d-flex">${cta.icon}</span>
         <span class="rdcl-gen-co-cta-text rdc-ff-baij">${cta.text}</span>
       </div>
