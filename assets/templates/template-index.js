@@ -146,14 +146,19 @@ function renderBenefitCard(card) {
 
 function renderFeaturedGeneratorsSection(featured = {}) {
   featured = { ...homepageContent.featured, ...featured };
+  const shouldRenderFeaturedItems = featured.showFeaturedItems !== false;
 
   return [
     '<section class="rdc-lab-sec rdc-lab-featured rdc-mw-1600 rdc-m-iauto rdc-p-20">',
     '  <div class="rdc-lab-featured-inner rdc-p-bl4r rdc-m-p-bl10">',
-    '    <h2 class="rdc-m-b20">' + featured.title + "</h2>",
-    '    <div class="rdc-lab-featured-items rdc-d-flex rdc-fw-wrap" id="' +
-      featured.itemsContainerId +
-      '"></div>',
+    shouldRenderFeaturedItems
+      ? '    <h2 class="rdc-m-b20">' + featured.title + "</h2>"
+      : "",
+    shouldRenderFeaturedItems
+      ? '    <div class="rdc-lab-featured-items rdc-d-flex rdc-fw-wrap" id="' +
+          featured.itemsContainerId +
+          '"></div>'
+      : "",
     "",
     '    <div class="rdc-mw-1800 rdc-m-iauto rdc-p-10">',
     '      <h3 class="rdc-p-5 rdc-fs-14">' + featured.popularTitle + "</h3>",

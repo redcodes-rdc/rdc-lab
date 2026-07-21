@@ -59,7 +59,7 @@ function renderNotFoundHero(content) {
   return `
     <section class="rdcl-404-hero rdc-lab-border-2 rdc-bg-dark-5 rdc-p-20 rdc-m-b20">
       <div class="rdc-d-flex rdc-fw-wrap rdc-ai-cen rdc-jc-spb">
-        <div class="rdcl-404-copy rdc-w-60 rdc-t-w-full rdc-m-w-full">
+        <div class="rdcl-404-copy rdc-w-full">
           <span class="rdcl-404-eyebrow rdcl-allgen-eyebrow rdc-ff-baij rdc-tt-upc">
             ${content.page.eyebrow}
           </span>
@@ -71,9 +71,6 @@ function renderNotFoundHero(content) {
           ${renderNotFoundActions(content.actions)}
         </div>
 
-        <div class="rdcl-404-visual rdc-w-30 rdc-t-w-full rdc-m-w-full rdc-ta-cen">
-          <span class="rdcl-404-code rdc-ff-baij rdc-fw-900" aria-hidden="true">404</span>
-        </div>
       </div>
     </section>
   `;
@@ -99,6 +96,6 @@ function renderNotFoundFeaturedGenerators() {
   if (!window.renderRdcLabFeaturedGeneratorsSection) return "";
 
   return window.renderRdcLabFeaturedGeneratorsSection({
-    title: "Featured Generators",
+    showFeaturedItems: false,
   });
 }
