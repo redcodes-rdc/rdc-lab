@@ -161,7 +161,7 @@ const genTemplate = `<div class="rdcl-gen-main">
                   <div class="rdcl-ai-preview-image" aria-label="AI prompt sample output preview">
                     ${renderRdcAiPreviewImage()}
                   </div>
-                  <p class="rdcl-ai-preview-note">Preview is a sample idea only. Results may vary because AI output is not always consistent and depends on your selected tasks, pasted code, and customization notes.</p>
+                  <p class="rdcl-ai-preview-note">Preview is a sample idea only. Results may vary because AI output is not always consistent and depends on your use case, selected tasks, pasted code, and customization notes.</p>
                 </div>
 
                 <div class="rdcl-ai-panel rdcl-ai-prompt-panel">
