@@ -308,7 +308,9 @@ function renderVideoPlaceholder(video) {
 
 function renderVideoFallbackLink(video = {}) {
   const watchUrl = getTutorialVideoWatchUrl(
-    video.embedUrl || video.placeholderEmbedUrl || rdclTutorialPlaceholderVideoUrl,
+    video.embedUrl ||
+      video.placeholderEmbedUrl ||
+      rdclTutorialPlaceholderVideoUrl,
   );
 
   if (!watchUrl) return "";
@@ -363,9 +365,13 @@ function getTutorialVideoWatchUrl(url = "") {
     const watchId =
       videoUrl.searchParams.get("v") ||
       videoUrl.pathname.match(/\/embed\/([^/?]+)/)?.[1] ||
-      (videoUrl.hostname === "youtu.be" ? videoUrl.pathname.replace("/", "") : "");
+      (videoUrl.hostname === "youtu.be"
+        ? videoUrl.pathname.replace("/", "")
+        : "");
 
-    return watchId ? `https://www.youtube.com/watch?v=${watchId}` : videoUrl.href;
+    return watchId
+      ? `https://www.youtube.com/watch?v=${watchId}`
+      : videoUrl.href;
   } catch (error) {
     return url;
   }
@@ -542,7 +548,7 @@ function renderTutorialFaqs(faqs) {
   if (!faqs || !Array.isArray(faqs.items) || !faqs.items.length) return "";
 
   return `
-    <section class="rdcl-help-section rdcl-help-faqs rdc-lab-border-2 rdc-bg-dark-5 rdc-p-20 rdc-m-b20">
+    <section class="rdcl-help-section rdcl-help-faqs rdc-mw-1200 rdc-lab-border-2 rdc-bg-dark-5 rdc-p-20 rdc-m-b20">
       <div class="rdcl-help-section-top rdc-d-flex rdc-fw-wrap rdc-ai-cen rdc-jc-spb rdc-m-b30">
         ${renderTutorialFaqHeader(faqs.title, faqs.description)}
       </div>
@@ -625,7 +631,9 @@ function renderRelatedTutorialDuration(duration) {
 
 function getTutorialImageAlt(item, fallback = "") {
   if (window.getRdcLabImageAlt) return window.getRdcLabImageAlt(item, fallback);
-  return item.alt || item.imageAlt || item.image?.alt || fallback || item.title || "";
+  return (
+    item.alt || item.imageAlt || item.image?.alt || fallback || item.title || ""
+  );
 }
 
 function getRelatedTutorials(page, library, limit = 5) {
