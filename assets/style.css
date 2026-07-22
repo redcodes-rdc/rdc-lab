@@ -1591,13 +1591,15 @@ ul.rdcl-gen--notes {
 
 .rdcl-ai-context-preview,
 .rdcl-ai-generator-config-preview,
+.rdcl-ai-generated-code-preview,
 .rdcl-ai-prompt-list,
 .rdcl-ai-notes-preview {
   padding-inline: 18px;
 }
 
 .rdcl-ai-context-preview,
-.rdcl-ai-generator-config-preview {
+.rdcl-ai-generator-config-preview,
+.rdcl-ai-generated-code-preview {
   padding-top: 12px;
 }
 

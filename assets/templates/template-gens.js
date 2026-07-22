@@ -169,7 +169,7 @@ const genTemplate = `<div class="rdcl-gen-main">
                   </span>
                   <span class="rdcl-ai-copy-btn-text">Copy Prompt</span>
                 </button>
-                <p class="rdcl-ai-copy-note">Tip: Open ChatGPT in a new tab (Ctrl/Cmd + T), paste your copied generator code at the very top, then paste this prompt below it.</p>
+                <p class="rdcl-ai-copy-note">Tip: Open ChatGPT in a new tab (Ctrl/Cmd + T), paste this prompt directly, and send it.</p>
               </div>
 
               <div class="rdcl-ai-side">
@@ -205,7 +205,7 @@ const genTemplate = `<div class="rdcl-gen-main">
                   <div class="rdcl-ai-preview-image" aria-label="AI prompt sample output preview">
                     ${renderRdcAiPreviewImage()}
                   </div>
-                  <p class="rdcl-ai-preview-note">Preview is a sample idea only. Results may vary because AI output is not always consistent and depends on your use case, selected tasks, pasted code, and customization notes.</p>
+                  <p class="rdcl-ai-preview-note">Preview is a sample idea only. Results may vary because AI output is not always consistent and depends on your use case, selected tasks, generated code, and customization notes.</p>
                 </div>
 
                 <div class="rdcl-ai-panel rdcl-ai-prompt-panel">
@@ -234,12 +234,12 @@ const genTemplate = `<div class="rdcl-gen-main">
                   <div class="rdcl-ai-prompt-note-wrap">
                     <span class="rdcl-ai-prompt-note-icon" aria-hidden="true">ⓘ</span>
                     <div>
-                      <p class="rdcl-ai-prompt-note">Start by pasting your copied generator code at the top of the AI prompt.</p>
-                  <p class="rdcl-ai-prompt-detail-note">Make sure to provide any relevant context and task details to help the AI generate a more accurate result. Look for 👉 to find fields where you can insert or replace details.</p>
+                      <p class="rdcl-ai-prompt-detail-note">Make sure to provide any relevant context and task details to help the AI generate a more accurate result. Look for 👉 to find fields where you can insert or replace details.</p>
                     </div>
                   </div>
                   <div class="rdcl-ai-context-preview" data-rdcl-ai-context-preview></div>
                   <div class="rdcl-ai-generator-config-preview" data-rdcl-ai-generator-config-preview></div>
+                  <div class="rdcl-ai-generated-code-preview" data-rdcl-ai-generated-code-preview></div>
                   <div class="rdcl-ai-prompt-list" data-rdcl-ai-prompt-list></div>
                   <div class="rdcl-ai-notes-preview" data-rdcl-ai-notes-preview></div>
                   <p class="rdcl-ai-disclaimer">AI results may not be perfect. Review and adjust as needed before adding the code to a live site.</p>
@@ -284,6 +284,9 @@ function initRdcAiRest() {
   const generatorConfigPreview = root.querySelector(
     "[data-rdcl-ai-generator-config-preview]",
   );
+  const generatedCodePreview = root.querySelector(
+    "[data-rdcl-ai-generated-code-preview]",
+  );
   const notesPreview = root.querySelector("[data-rdcl-ai-notes-preview]");
   const copyButton = root.querySelector("[data-rdcl-ai-copy]");
   const copyButtonText = root.querySelector(".rdcl-ai-copy-btn-text");
@@ -303,6 +306,8 @@ function initRdcAiRest() {
     ),
     drafts: Object.fromEntries(tasks.map((task) => [task.id, task.prompt])),
   };
+  let generatedCodeObserver;
+  let generatedCodeTarget;
 
   taskList.innerHTML = tasks.map(renderRdcAiTask).join("");
 
@@ -335,6 +340,7 @@ function initRdcAiRest() {
     field.addEventListener("input", () => {
       renderRdcAiContext();
       renderRdcAiGeneratorConfig();
+      queueRdcAiGeneratedCodeRender();
       updateRdcAiStickyState();
     });
   });
@@ -377,6 +383,7 @@ function initRdcAiRest() {
 
   renderRdcAiContext();
   renderRdcAiGeneratorConfig();
+  renderRdcAiGeneratedCode();
   renderRdcAiPrompts();
   updateRdcAiStickyState();
   window.addEventListener("resize", updateRdcAiStickyState);
@@ -391,9 +398,20 @@ function initRdcAiRest() {
   if (window.MutationObserver && generatorSettings) {
     const settingsObserver = new MutationObserver(() => {
       renderRdcAiGeneratorConfig();
+      queueRdcAiGeneratedCodeRender();
       updateRdcAiStickyState();
     });
     settingsObserver.observe(generatorSettings, {
+      childList: true,
+      subtree: true,
+    });
+  }
+
+  const generatorOutput = document.querySelector(".rdcl-gen--cols-vw");
+
+  if (window.MutationObserver && generatorOutput) {
+    const outputObserver = new MutationObserver(queueRdcAiGeneratedCodeRender);
+    outputObserver.observe(generatorOutput, {
       childList: true,
       subtree: true,
     });
@@ -437,6 +455,39 @@ function initRdcAiRest() {
       : "";
   }
 
+  function renderRdcAiGeneratedCode() {
+    if (!generatedCodePreview) return;
+
+    const generatedCode = getRdcAiGeneratedCode();
+
+    generatedCodePreview.innerHTML = generatedCode
+      ? `<div class="rdcl-ai-prompt-block rdcl-ai-prompt-generated-code"><strong>Generated Code</strong><pre data-rdcl-ai-generated-code>${escapeHtml(generatedCode)}</pre></div>`
+      : "";
+
+    observeRdcAiGeneratedCode();
+  }
+
+  function queueRdcAiGeneratedCodeRender() {
+    requestAnimationFrame(renderRdcAiGeneratedCode);
+  }
+
+  function observeRdcAiGeneratedCode() {
+    if (!window.MutationObserver) return;
+
+    const output = getRdcAiGeneratedCodeOutput();
+
+    if (!output || output === generatedCodeTarget) return;
+
+    generatedCodeObserver?.disconnect();
+    generatedCodeObserver = new MutationObserver(queueRdcAiGeneratedCodeRender);
+    generatedCodeObserver.observe(output, {
+      characterData: true,
+      childList: true,
+      subtree: true,
+    });
+    generatedCodeTarget = output;
+  }
+
   function renderRdcAiPrompts() {
     const selectedTasks = tasks.filter((task) => state.selected.has(task.id));
 
@@ -465,6 +516,7 @@ function initRdcAiRest() {
     if (!event.target.closest(".rdcl-gen--cols-field")) return;
 
     renderRdcAiGeneratorConfig();
+    queueRdcAiGeneratedCodeRender();
     updateRdcAiStickyState();
   }
 
@@ -486,6 +538,7 @@ function initRdcAiRest() {
 
   function buildRdcAiPromptText() {
     const values = getRdcAiContextValues();
+    const generatedCode = getRdcAiGeneratedCode();
     const selectedTasks = tasks
       .filter((task) => state.selected.has(task.id))
       .map((task) => ({
@@ -509,14 +562,17 @@ function initRdcAiRest() {
       : "- No configurable generator options detected.";
 
     return [
-      "PASTE YOUR COPIED GENERATOR CODE ABOVE THIS PROMPT BEFORE SENDING.",
+      "## Generated Code",
+      "````html",
+      generatedCode || "No generated code detected.",
+      "````",
       "",
       `# AI Enhancement Request for ${generatorName}`,
       "",
       "## Role",
       "- You are an expert front-end developer.",
       "- Use Shopify Liquid expertise only when the selected tasks ask for Shopify Liquid.",
-      "- Use the pasted generator code above as the source of truth.",
+      "- Use the generated code included above as the source of truth.",
       "- Treat RDC Lab's generated component as already working. Enhance it; do not rebuild it from scratch.",
       "- Improve only what is requested below and only when the change is genuinely useful.",
       "",
@@ -529,7 +585,7 @@ function initRdcAiRest() {
       "6. Apply optional user preferences from Context, Design Options, task options, and Additional Notes.",
       "",
       "## Global Rules",
-      "- First evaluate the pasted code before changing it. Ask: does this change actually improve the component?",
+      "- First evaluate the generated code before changing it. Ask: does this change actually improve the component?",
       "- Preserve working implementations when they already satisfy the selected task. Never rewrite code simply because another implementation is possible or stylistically preferred.",
       "- Do not normalize code style unless inconsistency is causing a practical problem.",
       "- If a selected task does not require changes, say so in Implementation Summary instead of forcing edits.",
@@ -590,6 +646,14 @@ function getRdcAiGeneratorConfigRows() {
       return { label, value };
     })
     .filter(Boolean);
+}
+
+function getRdcAiGeneratedCodeOutput() {
+  return document.querySelector(".rdcl-gen--cols-vw-inner code");
+}
+
+function getRdcAiGeneratedCode() {
+  return getRdcAiGeneratedCodeOutput()?.textContent?.trim() || "";
 }
 
 function getRdcAiControlLabel(control) {
@@ -736,7 +800,7 @@ function getRdcAiTasks(generatorType, generatorName) {
       defaultSelected: true,
       prompt: [
         "Instruction:",
-        "- Optimize only when the pasted code has a practical performance, maintainability, or redundancy issue.",
+        "- Optimize only when the generated code has a practical performance, maintainability, or redundancy issue.",
         "- If the code is already lightweight, preserve it and state that no major performance changes were needed.",
         "",
         "Performance Options:",
@@ -914,7 +978,7 @@ function getRdcAiMobilePrompt(generatorType) {
   return [
     "Instruction:",
     "- Improve the mobile experience only where it genuinely helps.",
-    "- First review whether the pasted code is already mobile friendly.",
+    "- First review whether the generated code is already mobile friendly.",
     "- Avoid repetitive responsive rules when the current layout already works.",
     "- 👉 Note to user: add specific mobile pain points in Additional Notes if you have them.",
     "",
@@ -980,8 +1044,8 @@ function getRdcAiSeoPrompt(generatorType) {
 
 function getRdcAiLiquidPrompt(generatorType, generatorName) {
   const base = [
-    `- Convert the pasted ${generatorName} code into Shopify Liquid only if a Shopify version is useful for this component.`,
-    "- First decide whether the output should be a section, snippet, or simple Liquid-ready block based on the pasted code and user context.",
+    `- Convert the generated ${generatorName} code into Shopify Liquid only if a Shopify version is useful for this component.`,
+    "- First decide whether the output should be a section, snippet, or simple Liquid-ready block based on the generated code and user context.",
     "- Return complete Liquid markup, scoped CSS, and scoped JavaScript if JavaScript is needed.",
     "- Include a useful {% schema %} block when a Shopify section is appropriate.",
     "- Use practical schema settings and defaults so a merchant can edit content in the Shopify theme editor.",
@@ -992,7 +1056,7 @@ function getRdcAiLiquidPrompt(generatorType, generatorName) {
     button: [
       "- For a button generator, keep the Liquid conversion lightweight.",
       "- Include settings for button label, link URL, link behavior when useful, style, width, radius, and optional aria label.",
-      "- Include color settings only when they are relevant to the pasted code.",
+      "- Include color settings only when they are relevant to the generated code.",
       "- Do not overbuild blocks unless multiple buttons are clearly requested.",
       "- If the output is better as a snippet, include snippet instructions and a simple render example.",
     ].join("\n"),
