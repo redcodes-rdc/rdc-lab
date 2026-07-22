@@ -1652,6 +1652,13 @@ ul.rdcl-gen--notes {
   resize: vertical;
 }
 
+.rdcl-ai-prompt-generated-code pre {
+  max-height: 500px;
+  min-height: 180px;
+  overflow: auto;
+  resize: vertical;
+}
+
 .rdcl-ai-empty {
   border: 1px dashed #3a3639;
   border-radius: 5px;
