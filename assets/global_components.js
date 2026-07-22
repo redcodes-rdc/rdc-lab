@@ -14,6 +14,9 @@ const rdcLabHeadData = {
     name: "viewport",
     content: "width=device-width, initial-scale=1",
   },
+  analytics: {
+    measurementId: "G-4PRQG18489",
+  },
 };
 
 function normalizeRdcLabAssetUrl(url) {
@@ -92,10 +95,40 @@ function addRdcLabViewport() {
   meta.content = viewport.content;
 }
 
+function addRdcLabGoogleAnalytics() {
+  const measurementId = rdcLabHeadData.analytics.measurementId;
+  const src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+  const existingScript = Array.from(document.scripts).some(function (script) {
+    return normalizeRdcLabAssetUrl(script.getAttribute("src")) === src;
+  });
+
+  window.dataLayer = window.dataLayer || [];
+  window.gtag =
+    window.gtag ||
+    function () {
+      window.dataLayer.push(arguments);
+    };
+
+  if (!window.rdcLabGoogleAnalyticsConfigured) {
+    window.gtag("js", new Date());
+    window.gtag("config", measurementId);
+    window.rdcLabGoogleAnalyticsConfigured = true;
+  }
+
+  if (existingScript) return;
+
+  const script = document.createElement("script");
+  script.async = true;
+  script.src = src;
+  script.id = "rdc-lab-google-analytics";
+  document.head.appendChild(script);
+}
+
 function renderRdcLabHeadAssets() {
   rdcLabHeadData.stylesheets.forEach(addRdcLabStylesheet);
   addRdcLabFavicon();
   addRdcLabViewport();
+  addRdcLabGoogleAnalytics();
 }
 
 renderRdcLabHeadAssets();
