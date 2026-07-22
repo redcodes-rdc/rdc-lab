@@ -1653,7 +1653,7 @@ ul.rdcl-gen--notes {
 }
 
 .rdcl-ai-prompt-generated-code pre {
-  max-height: 500px;
+  max-height: 300px;
   min-height: 180px;
   overflow: auto;
   resize: vertical;
