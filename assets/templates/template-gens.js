@@ -3,11 +3,55 @@ const main = document.querySelector("main");
 const rdcAiPreviewImages = {
   twoColumnGenerator: {
     src: "/assets/images/rdc-lab-2-column-code-generator-sample-ai-prompt-output.jpg",
-    alt: "Sample AI prompt output for the 2-column code generator",
+    alt: "AI-enhanced preview of a two-column image and content section generated with the RDC Lab 2-Column Generator.",
   },
   accordionGenerator: {
     src: "/assets/images/rdc-lab-accordion-code-generator-sample-ai-prompt-output.jpg",
-    alt: "Sample AI prompt output for the accordion code generator",
+    alt: "AI-enhanced preview of a responsive FAQ accordion section generated with the RDC Lab Accordion Generator.",
+  },
+  badgesGenerator: {
+    src: "/assets/images/rdc-lab-badges-generator-sample-ai-prompt-output.jpg",
+    alt: "AI-enhanced preview of product badges and promotional labels generated with the RDC Lab Badges Generator.",
+  },
+  buttonsGenerator: {
+    src: "/assets/images/rdc-lab-button-generator-sample-ai-prompt-output.jpg",
+    alt: "AI-enhanced preview of modern call-to-action buttons generated with the RDC Lab Button Generator.",
+  },
+  columnsGenerator: {
+    src: "/assets/images/rdc-lab-multiple-columns-generator-sample-ai-prompt-output.jpg",
+    alt: "AI-enhanced preview of a responsive multiple-column content section generated with the RDC Lab Columns Generator.",
+  },
+  freeShippingBarGenerator: {
+    src: "/assets/images/rdc-lab-free-shipping-bar-generator-sample-ai-prompt-output.jpg",
+    alt: "AI-enhanced preview of a free shipping progress bar generated with the RDC Lab Free Shipping Bar Generator.",
+  },
+  iconTextGenerator: {
+    src: "/assets/images/rdc-lab-icon-text-generator-sample-ai-prompt-output.jpg",
+    alt: "AI-enhanced preview of an icon with text benefits section generated with the RDC Lab Icon Text Generator.",
+  },
+  modalGenerator: {
+    src: "/assets/images/rdc-lab-modal-generator-sample-ai-prompt-output.jpg",
+    alt: "AI-enhanced preview of a promotional modal popup generated with the RDC Lab Modal Generator.",
+  },
+  pageProgressBarGenerator: {
+    src: "/assets/images/rdc-lab-page-progress-bar-generator-sample-ai-prompt-output.jpg",
+    alt: "AI-enhanced preview of a page scroll progress bar generated with the RDC Lab Page Progress Bar Generator.",
+  },
+  stickyAtcGenerator: {
+    src: "/assets/images/rdc-lab-sticky-atc-generator-sample-ai-prompt-output.jpg",
+    alt: "AI-enhanced preview of a sticky add-to-cart section generated with the RDC Lab Sticky ATC Generator.",
+  },
+  tabsGenerator: {
+    src: "/assets/images/rdc-lab-tabs-generator-sample-ai-prompt-output.jpg",
+    alt: "AI-enhanced preview of a modern product tabs section created using the RDC Lab Tabs Generator.",
+  },
+  timerBarGenerator: {
+    src: "/assets/images/rdc-lab-timer-bar-generator-sample-ai-prompt-output.jpg",
+    alt: "AI-enhanced preview of a promotional countdown timer bar generated with the RDC Lab Timer Bar Generator.",
+  },
+  tooltipGenerator: {
+    src: "/assets/images/rdc-lab-tool-tip-generator-sample-ai-prompt-output.jpg",
+    alt: "AI-enhanced preview of a contextual tooltip component generated with the RDC Lab Tooltip Generator.",
   },
 };
 
