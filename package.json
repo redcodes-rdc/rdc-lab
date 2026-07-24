@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "build": "node scripts/generate-sitemap.js",
+    "generate:sitemap": "node scripts/generate-sitemap.js"
+  }
+}

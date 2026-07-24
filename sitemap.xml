@@ -1,16 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
   <url>
     <loc>https://lab.reddelacruz.dev/</loc>
   </url>
-
   <url>
-    <loc>https://lab.reddelacruz.dev/pages/generators/</loc>
+    <loc>https://lab.reddelacruz.dev/gens/2-column/</loc>
   </url>
-
+  <url>
+    <loc>https://lab.reddelacruz.dev/gens/accordion/</loc>
+  </url>
+  <url>
+    <loc>https://lab.reddelacruz.dev/gens/badges/</loc>
+  </url>
+  <url>
+    <loc>https://lab.reddelacruz.dev/gens/buttons/</loc>
+  </url>
+  <url>
+    <loc>https://lab.reddelacruz.dev/gens/columns/</loc>
+  </url>
+  <url>
+    <loc>https://lab.reddelacruz.dev/gens/fs-progress-bar/</loc>
+  </url>
+  <url>
+    <loc>https://lab.reddelacruz.dev/gens/icon-text/</loc>
+  </url>
+  <url>
+    <loc>https://lab.reddelacruz.dev/gens/modal/</loc>
+  </url>
+  <url>
+    <loc>https://lab.reddelacruz.dev/gens/page-progress-bar/</loc>
+  </url>
+  <url>
+    <loc>https://lab.reddelacruz.dev/gens/sticky-atc/</loc>
+  </url>
+  <url>
+    <loc>https://lab.reddelacruz.dev/gens/tabs/</loc>
+  </url>
+  <url>
+    <loc>https://lab.reddelacruz.dev/gens/timer-bar/</loc>
+  </url>
+  <url>
+    <loc>https://lab.reddelacruz.dev/gens/tool-tip/</loc>
+  </url>
+  <url>
+    <loc>https://lab.reddelacruz.dev/pages/help-center/</loc>
+  </url>
+  <url>
+    <loc>https://lab.reddelacruz.dev/pages/html-generators/</loc>
+  </url>
   <url>
     <loc>https://lab.reddelacruz.dev/pages/tutorials/</loc>
   </url>
-
+  <url>
+    <loc>https://lab.reddelacruz.dev/pages/tutorials/tutorial-1/</loc>
+  </url>
 </urlset>
