@@ -1176,7 +1176,7 @@ const rdclGeneratorMoreItems = [
     iconColor: "#C8465F",
     title: "Accordion Generator",
     text: "Build responsive FAQ, guide, and product-detail accordions.",
-    href: "/gens/accordion/index.html",
+    href: "/gens/accordion/",
   },
   {
     icon: `<svg width="32" height="100%" viewBox="0 0 82 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1186,7 +1186,7 @@ const rdclGeneratorMoreItems = [
     iconColor: "#4767E5",
     title: "Button Generator",
     text: "Create responsive HTML/CSS buttons with hover and radius controls.",
-    href: "/gens/buttons/index.html",
+    href: "/gens/buttons/",
   },
   {
     icon: `<svg width="32" height="100%" viewBox="0 0 75 39" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1199,7 +1199,7 @@ const rdclGeneratorMoreItems = [
     iconColor: "#C8FA33",
     title: "Icon With Text",
     text: "Generate benefit, trust, and feature sections with icons and text.",
-    href: "/gens/icon-text/index.html",
+    href: "/gens/icon-text/",
   },
   {
     icon: `<svg width="32" height="100%" viewBox="0 0 73 39" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1211,7 +1211,7 @@ const rdclGeneratorMoreItems = [
     iconColor: "#C8FA33",
     title: "Tabs Generator",
     text: "Create responsive tabs for product info, FAQs, plans, and content.",
-    href: "/gens/tabs/index.html",
+    href: "/gens/tabs/",
   },
   {
     icon: `<svg width="32" height="100%" viewBox="0 0 82 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1225,7 +1225,7 @@ const rdclGeneratorMoreItems = [
     iconColor: "#742FA3",
     title: "Modal Generator",
     text: "Generate responsive modals with optional triggers and built-in JS.",
-    href: "/gens/modal/index.html",
+    href: "/gens/modal/",
   },
   {
     icon: `<svg width="32" height="100%" viewBox="0 0 82 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1236,7 +1236,7 @@ const rdclGeneratorMoreItems = [
     iconColor: "#4EA32F",
     title: "2-Column Generator",
     text: "Build responsive two-column sections for content and Shopify pages.",
-    href: "/gens/2-column/index.html",
+    href: "/gens/2-column/",
   },
   {
     icon: `<svg width="32" height="100%" viewBox="0 0 82 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1248,7 +1248,7 @@ const rdclGeneratorMoreItems = [
     iconColor: "#B24E3C",
     title: "Badges Generator",
     text: "Create lightweight product badges for sales, labels, and launches.",
-    href: "/gens/badges/index.html",
+    href: "/gens/badges/",
   },
   {
     icon: `<svg width="32" height="100%" viewBox="0 0 82 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1260,7 +1260,7 @@ const rdclGeneratorMoreItems = [
     iconColor: "#51C4D1",
     title: "Multi-Columns Generator",
     text: "Build responsive multi-column layouts for cards and content grids.",
-    href: "/gens/columns/index.html",
+    href: "/gens/columns/",
   },
   {
     icon: `<svg width="32" height="100%" viewBox="0 0 82 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1272,7 +1272,7 @@ const rdclGeneratorMoreItems = [
     iconColor: "#6A4BCA",
     title: "Free Shipping Progress Bar",
     text: "Create Shopify-friendly free shipping progress bars with JS.",
-    href: "/gens/fs-progress-bar/index.html",
+    href: "/gens/fs-progress-bar/",
   },
   {
     icon: `<svg width="32" height="100%" viewBox="0 0 82 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1284,7 +1284,7 @@ const rdclGeneratorMoreItems = [
     iconColor: "#4799E5",
     title: "Scroll Progress Bar",
     text: "Add lightweight scroll progress indicators to long pages.",
-    href: "/gens/page-progress-bar/index.html",
+    href: "/gens/page-progress-bar/",
   },
   {
     icon: `<svg width="32" height="100%" viewBox="0 0 82 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1296,7 +1296,7 @@ const rdclGeneratorMoreItems = [
     iconColor: "#902F7E",
     title: "Sticky ATC Generator",
     text: "Keep Shopify purchase controls visible on long product pages.",
-    href: "/gens/sticky-atc/index.html",
+    href: "/gens/sticky-atc/",
   },
   {
     icon: `<svg width="32" height="100%" viewBox="0 0 82 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1312,7 +1312,7 @@ const rdclGeneratorMoreItems = [
     iconColor: "#C08114",
     title: "Timer Bar Generator",
     text: "Build countdown bars for launches, offers, and campaigns.",
-    href: "/gens/timer-bar/index.html",
+    href: "/gens/timer-bar/",
   },
   {
     icon: `<svg width="32" height="100%" viewBox="0 0 82 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1325,7 +1325,7 @@ const rdclGeneratorMoreItems = [
     iconColor: "#A39B2F",
     title: "Tool Tip Generator",
     text: "Create lightweight CSS tooltips for helpful inline context.",
-    href: "/gens/tool-tip/index.html",
+    href: "/gens/tool-tip/",
   },
 ];
 

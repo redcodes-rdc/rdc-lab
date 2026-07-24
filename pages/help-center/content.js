@@ -17,17 +17,17 @@ const helpCenterPage = {
     {
       title: "Browse Generators",
       description: "Find responsive HTML, CSS, JavaScript, and Shopify-friendly component generators.",
-      href: "/pages/html-generators/index.html",
+      href: "/pages/html-generators/",
     },
     {
       title: "Watch Tutorials",
       description: "Learn how to use generated foundations in real frontend and Shopify workflows.",
-      href: "/pages/tutorials/index.html",
+      href: "/pages/tutorials/",
     },
     {
       title: "Use AI Prompts",
       description: "Enhance copied generator code with structured prompts for design, accessibility, SEO, and Liquid.",
-      href: "/pages/html-generators/index.html",
+      href: "/pages/html-generators/",
     },
   ],
 
@@ -361,7 +361,7 @@ const helpCenterPage = {
     title: "Tutorials",
     description: "Step-by-step frontend and Shopify guides that connect generator output to real implementation.",
     ctaLabel: "View All Tutorials",
-    ctaHref: "/pages/tutorials/index.html",
+    ctaHref: "/pages/tutorials/",
     items: [
       {
         image: "/assets/images/rdc-lab-assets-easy-2.jpg",
@@ -369,7 +369,7 @@ const helpCenterPage = {
         title: "Create a Two-Column Section in 5 Minutes",
         description: "Build a responsive two-column layout without any hassle.",
         level: "",
-        href: "/pages/tutorials/tutorial-1/index.html",
+        href: "/pages/tutorials/tutorial-1/",
       },
     ],
   },

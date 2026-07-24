@@ -4,6 +4,7 @@ const path = require("path");
 const SITE_URL = "https://lab.reddelacruz.dev";
 const ROOT_DIR = path.resolve(__dirname, "..");
 const EXCLUDED_DIRS = new Set([".git", "node_modules"]);
+const INDEX_FILE = ["index", "html"].join(".");
 
 function walkHtmlFiles(dir) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
@@ -33,9 +34,9 @@ function hasNoindex(html) {
 function toUrlPath(filePath) {
   const relativePath = path.relative(ROOT_DIR, filePath).split(path.sep).join("/");
 
-  if (relativePath === "index.html") return "/";
-  if (relativePath.endsWith("/index.html")) {
-    return `/${relativePath.replace(/\/index\.html$/, "/")}`;
+  if (relativePath === INDEX_FILE) return "/";
+  if (relativePath.endsWith(`/${INDEX_FILE}`)) {
+    return `/${relativePath.slice(0, -INDEX_FILE.length)}`;
   }
 
   return `/${relativePath}`;

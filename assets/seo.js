@@ -49,7 +49,7 @@ function createRdcLabGeneratorSchema({
             "@type": "ListItem",
             position: 2,
             name: "HTML Generators",
-            item: "/pages/html-generators/index.html",
+            item: "/pages/html-generators/",
           },
           {
             "@type": "ListItem",
@@ -216,12 +216,12 @@ const rdcLabSeoConfig = {
       title: "Frontend Component Generators + AI Prompts | RDC Lab",
       description:
         "Generate responsive frontend components without starting from scratch. Copy production-ready code, then customize and refine it with built-in AI enhancement prompts for faster development.",
-      path: "/pages/html-generators/index.html",
+      path: "/pages/html-generators/",
       schema: createRdcLabCollectionSchema({
         name: "HTML Generators",
         description:
           "Browse RDC Lab generators for responsive HTML, CSS, JavaScript, and Shopify-friendly components with copyable code and AI enhancement prompts.",
-        path: "/pages/html-generators/index.html",
+        path: "/pages/html-generators/",
         keywords: [
           "HTML generators",
           "CSS generators",
@@ -234,67 +234,67 @@ const rdcLabSeoConfig = {
           {
             name: "2-Column Generator",
             description: "Responsive two-column HTML and CSS layout generator.",
-            url: "/gens/2-column/index.html",
+            url: "/gens/2-column/",
           },
           {
             name: "Accordion Generator",
             description: "Responsive accordion HTML, CSS, and JavaScript generator.",
-            url: "/gens/accordion/index.html",
+            url: "/gens/accordion/",
           },
           {
             name: "Product Badge Generator",
             description: "Lightweight product badge HTML and CSS generator.",
-            url: "/gens/badges/index.html",
+            url: "/gens/badges/",
           },
           {
             name: "Button Generator",
             description: "Responsive button HTML and CSS generator.",
-            url: "/gens/buttons/index.html",
+            url: "/gens/buttons/",
           },
           {
             name: "HTML Column Layout Generator",
             description: "Responsive multi-column HTML and CSS layout generator.",
-            url: "/gens/columns/index.html",
+            url: "/gens/columns/",
           },
           {
             name: "Free Shipping Bar Generator",
             description: "Shopify-friendly free shipping progress bar generator.",
-            url: "/gens/fs-progress-bar/index.html",
+            url: "/gens/fs-progress-bar/",
           },
           {
             name: "Icon With Text Generator",
             description: "Responsive icon-with-text HTML and CSS section generator.",
-            url: "/gens/icon-text/index.html",
+            url: "/gens/icon-text/",
           },
           {
             name: "Modal Generator",
             description: "Responsive modal HTML, CSS, and JavaScript generator.",
-            url: "/gens/modal/index.html",
+            url: "/gens/modal/",
           },
           {
             name: "Scroll Progress Bar Generator",
             description: "Lightweight scroll progress bar HTML, CSS, and JavaScript generator.",
-            url: "/gens/page-progress-bar/index.html",
+            url: "/gens/page-progress-bar/",
           },
           {
             name: "Sticky Add To Cart Generator",
             description: "Shopify-focused sticky add to cart bar generator.",
-            url: "/gens/sticky-atc/index.html",
+            url: "/gens/sticky-atc/",
           },
           {
             name: "Tabs Generator",
             description: "Responsive tab HTML, CSS, and JavaScript generator.",
-            url: "/gens/tabs/index.html",
+            url: "/gens/tabs/",
           },
           {
             name: "Timer Bar Generator",
             description: "Countdown timer bar HTML, CSS, and JavaScript generator.",
-            url: "/gens/timer-bar/index.html",
+            url: "/gens/timer-bar/",
           },
           {
             name: "Tooltip Generator",
             description: "Lightweight CSS tooltip generator.",
-            url: "/gens/tool-tip/index.html",
+            url: "/gens/tool-tip/",
           },
         ],
       }),
@@ -304,12 +304,12 @@ const rdcLabSeoConfig = {
       title: "RDC Lab Help Center, Generator Docs & AI Prompt Help",
       description:
         "Find RDC Lab generator documentation, FAQs, tutorials, downloads, Shopify compatibility notes, and AI enhancement prompt guidance for copied code.",
-      path: "/pages/help-center/index.html",
+      path: "/pages/help-center/",
       schema: createRdcLabHelpCenterSchema({
         name: "RDC Lab Help Center",
         description:
           "Find RDC Lab generator documentation, FAQs, tutorials, downloads, Shopify compatibility notes, and AI enhancement prompt guidance for copied code.",
-        path: "/pages/help-center/index.html",
+        path: "/pages/help-center/",
         faqs: [
           {
             question: "What is RDC Lab?",
@@ -349,12 +349,12 @@ const rdcLabSeoConfig = {
       title: "Frontend Component Tutorials + AI Prompts | RDC Lab",
       description:
         "Learn how to build, customize, and optimize frontend components with practical tutorials. Follow real implementation workflows and refine your results with built-in AI enhancement prompts.",
-      path: "/pages/tutorials/index.html",
+      path: "/pages/tutorials/",
       schema: createRdcLabCollectionSchema({
         name: "Tutorials",
         description:
           "Watch RDC Lab tutorials for HTML, CSS, JavaScript, Shopify, responsive components, generator workflows, and practical frontend implementation.",
-        path: "/pages/tutorials/index.html",
+        path: "/pages/tutorials/",
         keywords: [
           "HTML tutorials",
           "CSS tutorials",
@@ -368,7 +368,7 @@ const rdcLabSeoConfig = {
             name: "Create a Two-Column Section in 5 Minutes",
             description:
               "Learn how to build a responsive two-column section with RDC Lab.",
-            url: "/pages/tutorials/tutorial-1/index.html",
+            url: "/pages/tutorials/tutorial-1/",
           },
         ],
       }),
@@ -378,12 +378,12 @@ const rdcLabSeoConfig = {
       title: "2-Column HTML Layout Generator + AI Prompts | RDC Lab",
       description:
         "Generate responsive two-column HTML/CSS layouts for product, content, and landing pages, then refine spacing or Shopify Liquid with AI prompts.",
-      path: "/gens/2-column/index.html",
+      path: "/gens/2-column/",
       schema: createRdcLabGeneratorSchema({
         name: "2-Column Generator",
         description:
           "Generate responsive two-column HTML/CSS layouts for product, content, and landing pages, then refine spacing or Shopify Liquid with AI prompts.",
-        path: "/gens/2-column/index.html",
+        path: "/gens/2-column/",
         featureList: [
           "Desktop, tablet, and mobile width controls",
           "Responsive stacking and content order settings",
@@ -402,12 +402,12 @@ const rdcLabSeoConfig = {
       title: "Accordion HTML Generator + AI Prompts | RDC Lab",
       description:
         "Build responsive accordion HTML/CSS/JS for FAQs, product details, and guides. Copy clean code and refine accessibility or Shopify with AI prompts.",
-      path: "/gens/accordion/index.html",
+      path: "/gens/accordion/",
       schema: createRdcLabGeneratorSchema({
         name: "Accordion Generator",
         description:
           "Build responsive accordion HTML/CSS/JS for FAQs, product details, and guides. Copy clean code and refine accessibility or Shopify with AI prompts.",
-        path: "/gens/accordion/index.html",
+        path: "/gens/accordion/",
         featureList: [
           "Accordion layout and icon controls",
           "Open, close, and auto-open behavior settings",
@@ -422,12 +422,12 @@ const rdcLabSeoConfig = {
       title: "Product Badge HTML & CSS Generator + AI Prompts | RDC Lab",
       description:
         "Create lightweight product badge HTML/CSS for sales, labels, and launches. Copy production-ready code and refine styling with AI prompts.",
-      path: "/gens/badges/index.html",
+      path: "/gens/badges/",
       schema: createRdcLabGeneratorSchema({
         name: "Product Badge Generator",
         description:
           "Create lightweight product badge HTML/CSS for sales, labels, and launches. Copy production-ready code and refine styling with AI prompts.",
-        path: "/gens/badges/index.html",
+        path: "/gens/badges/",
         featureList: [
           "Badge text and style controls",
           "Position and border radius settings",
@@ -442,12 +442,12 @@ const rdcLabSeoConfig = {
       title: "Button HTML & CSS Generator + AI Prompts | RDC Lab",
       description:
         "Generate responsive button HTML/CSS with colors, hover states, width, and radius controls. Copy clean code and refine it with AI prompts.",
-      path: "/gens/buttons/index.html",
+      path: "/gens/buttons/",
       schema: createRdcLabGeneratorSchema({
         name: "Button Generator",
         description:
           "Generate responsive button HTML/CSS with colors, hover states, width, and radius controls. Copy clean code and refine it with AI prompts.",
-        path: "/gens/buttons/index.html",
+        path: "/gens/buttons/",
         featureList: [
           "Button color, hover, and style controls",
           "Width, spacing, alignment, and radius settings",
@@ -462,12 +462,12 @@ const rdcLabSeoConfig = {
       title: "HTML Column Layout Generator + AI Prompts | RDC Lab",
       description:
         "Build responsive multi-column HTML/CSS layouts with wrapping and device controls. Copy production-ready code and refine it with AI prompts.",
-      path: "/gens/columns/index.html",
+      path: "/gens/columns/",
       schema: createRdcLabGeneratorSchema({
         name: "HTML Column Layout Generator",
         description:
           "Build responsive multi-column HTML/CSS layouts with wrapping and device controls. Copy production-ready code and refine it with AI prompts.",
-        path: "/gens/columns/index.html",
+        path: "/gens/columns/",
         featureList: [
           "Multi-column layout controls",
           "Responsive wrapping and scroll width settings",
@@ -482,12 +482,12 @@ const rdcLabSeoConfig = {
       title: "Free Shipping Bar Generator for Shopify | RDC Lab",
       description:
         "Generate a Shopify-ready free shipping progress bar with dynamic JavaScript, cart thresholds, and copyable code you can refine with AI prompts.",
-      path: "/gens/fs-progress-bar/index.html",
+      path: "/gens/fs-progress-bar/",
       schema: createRdcLabGeneratorSchema({
         name: "Free Shipping Bar Generator",
         description:
           "Generate a Shopify-ready free shipping progress bar with dynamic JavaScript, cart thresholds, and copyable code you can refine with AI prompts.",
-        path: "/gens/fs-progress-bar/index.html",
+        path: "/gens/fs-progress-bar/",
         featureList: [
           "Cart threshold and progress settings",
           "Dynamic JavaScript progress updates",
@@ -506,12 +506,12 @@ const rdcLabSeoConfig = {
       title: "Icon With Text HTML Generator + AI Prompts | RDC Lab",
       description:
         "Create responsive icon-with-text HTML/CSS sections for benefits, trust blocks, and features. Copy clean code and refine the design with AI prompts.",
-      path: "/gens/icon-text/index.html",
+      path: "/gens/icon-text/",
       schema: createRdcLabGeneratorSchema({
         name: "Icon With Text Generator",
         description:
           "Create responsive icon-with-text HTML/CSS sections for benefits, trust blocks, and features. Copy clean code and refine the design with AI prompts.",
-        path: "/gens/icon-text/index.html",
+        path: "/gens/icon-text/",
         featureList: [
           "Icon and text layout controls",
           "Column count and responsive behavior settings",
@@ -530,12 +530,12 @@ const rdcLabSeoConfig = {
       title: "Modal HTML & JS Generator + AI Prompts | RDC Lab",
       description:
         "Generate responsive modal HTML/CSS/JS with positioning, spacing, radius, and optional trigger controls. Copy clean code and refine it with AI prompts.",
-      path: "/gens/modal/index.html",
+      path: "/gens/modal/",
       schema: createRdcLabGeneratorSchema({
         name: "Modal Generator",
         description:
           "Generate responsive modal HTML/CSS/JS with positioning, spacing, radius, and optional trigger controls. Copy clean code and refine it with AI prompts.",
-        path: "/gens/modal/index.html",
+        path: "/gens/modal/",
         featureList: [
           "Modal position, alignment, and width controls",
           "Spacing, radius, and trigger visibility settings",
@@ -550,12 +550,12 @@ const rdcLabSeoConfig = {
       title: "Scroll Progress Bar Generator + AI Prompts | RDC Lab",
       description:
         "Create a lightweight scroll progress bar with HTML/CSS/JS for articles, guides, and long pages. Copy production-ready code and refine it with AI prompts.",
-      path: "/gens/page-progress-bar/index.html",
+      path: "/gens/page-progress-bar/",
       schema: createRdcLabGeneratorSchema({
         name: "Scroll Progress Bar Generator",
         description:
           "Create a lightweight scroll progress bar with HTML/CSS/JS for articles, guides, and long pages. Copy production-ready code and refine it with AI prompts.",
-        path: "/gens/page-progress-bar/index.html",
+        path: "/gens/page-progress-bar/",
         featureList: [
           "Scroll progress tracking",
           "Bar position, color, and sizing controls",
@@ -570,12 +570,12 @@ const rdcLabSeoConfig = {
       title: "Sticky Add To Cart Generator for Shopify | RDC Lab",
       description:
         "Generate a Shopify-focused sticky add to cart bar with product details, quantity, variant controls, and copyable JavaScript-enhanced code.",
-      path: "/gens/sticky-atc/index.html",
+      path: "/gens/sticky-atc/",
       schema: createRdcLabGeneratorSchema({
         name: "Sticky Add To Cart Generator",
         description:
           "Generate a Shopify-focused sticky add to cart bar with product details, quantity, variant controls, and copyable JavaScript-enhanced code.",
-        path: "/gens/sticky-atc/index.html",
+        path: "/gens/sticky-atc/",
         featureList: [
           "Sticky cart bar behavior controls",
           "Product title, price, variant, quantity, and button settings",
@@ -594,12 +594,12 @@ const rdcLabSeoConfig = {
       title: "Tabs HTML & JS Generator + AI Prompts | RDC Lab",
       description:
         "Build responsive tab HTML/CSS/JS for product info, FAQs, plans, and content sections. Copy clean code and refine behavior with AI prompts.",
-      path: "/gens/tabs/index.html",
+      path: "/gens/tabs/",
       schema: createRdcLabGeneratorSchema({
         name: "Tabs Generator",
         description:
           "Build responsive tab HTML/CSS/JS for product info, FAQs, plans, and content sections. Copy clean code and refine behavior with AI prompts.",
-        path: "/gens/tabs/index.html",
+        path: "/gens/tabs/",
         featureList: [
           "Horizontal and vertical tab layout controls",
           "Responsive tab behavior settings",
@@ -614,12 +614,12 @@ const rdcLabSeoConfig = {
       title: "Timer Bar Generator for HTML & Shopify | RDC Lab",
       description:
         "Create countdown timer bars with HTML/CSS/JS for offers, launches, and campaigns. Copy production-ready code and refine it with AI prompts.",
-      path: "/gens/timer-bar/index.html",
+      path: "/gens/timer-bar/",
       schema: createRdcLabGeneratorSchema({
         name: "Timer Bar Generator",
         description:
           "Create countdown timer bars with HTML/CSS/JS for offers, launches, and campaigns. Copy production-ready code and refine it with AI prompts.",
-        path: "/gens/timer-bar/index.html",
+        path: "/gens/timer-bar/",
         featureList: [
           "Countdown text, date, and CTA controls",
           "Timer bar radius and style settings",
@@ -634,12 +634,12 @@ const rdcLabSeoConfig = {
       title: "CSS Tooltip Generator for HTML + AI Prompts | RDC Lab",
       description:
         "Generate lightweight CSS tooltips with position, style, alignment, and radius controls. Copy clean code and refine accessibility with AI prompts.",
-      path: "/gens/tool-tip/index.html",
+      path: "/gens/tool-tip/",
       schema: createRdcLabGeneratorSchema({
         name: "Tooltip Generator",
         description:
           "Generate lightweight CSS tooltips with position, style, alignment, and radius controls. Copy clean code and refine accessibility with AI prompts.",
-        path: "/gens/tool-tip/index.html",
+        path: "/gens/tool-tip/",
         featureList: [
           "Tooltip position, style, and alignment controls",
           "Border radius settings",

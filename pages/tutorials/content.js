@@ -52,7 +52,7 @@ const tutorialsCollectionPage = {
       title: "Create a Two-Column Section in 5 Minutes",
       description:
         "Build a responsive HTML/CSS two-column layout and learn when to adjust widths, order, and stacking.",
-      href: "/pages/tutorials/tutorial-1/index.html",
+      href: "/pages/tutorials/tutorial-1/",
       image: "/assets/images/rdc-lab-assets-easy-2.jpg",
       duration: "10:45",
       level: "Beginner",
