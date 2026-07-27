@@ -234,7 +234,7 @@ const genTemplate = `<div class="rdcl-gen-main">
                   <div class="rdcl-ai-prompt-note-wrap">
                     <span class="rdcl-ai-prompt-note-icon" aria-hidden="true">ⓘ</span>
                     <div>
-                      <p class="rdcl-ai-prompt-detail-note">Provide any relevant context for the best results. The recommended fields on the left can help personalize the output, while 👉 marks editable placeholders you can replace or expand.</p>
+                      <p class="rdcl-ai-prompt-detail-note">Provide any relevant context for the best results, including the recommended fields on the left and any fields marked with 👉 on the right.</p>
                     </div>
                   </div>
                   <div class="rdcl-ai-context-preview" data-rdcl-ai-context-preview></div>
