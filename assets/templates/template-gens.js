@@ -336,6 +336,12 @@ function initRdcAiRest() {
     state.drafts[textarea.dataset.rdclAiPrompt] = textarea.value;
   });
 
+  contextPreview.addEventListener("input", (event) => {
+    if (!event.target.closest("[data-rdcl-ai-context-preview-field]")) return;
+
+    updateRdcAiStickyState();
+  });
+
   contextFields.forEach((field) => {
     field.addEventListener("input", () => {
       renderRdcAiContext();
@@ -433,12 +439,13 @@ function initRdcAiRest() {
   function renderRdcAiContext() {
     const values = getRdcAiContextValues();
     const rows = [
-      ["Brand / Store", values.brand || "Not provided"],
-      ["Niche / Industry", values.niche || "Not provided"],
-      ["Goal / Use Case", values.goal || "Not provided"],
-    ];
+      ["Brand / Store", values.brand],
+      ["Niche / Industry", values.niche],
+      ["Goal / Use Case", values.goal],
+    ].filter((row) => row[1]);
+    const contextText = rows.map((row) => `- 👉 ${row[0]}: ${row[1]}`).join("\n");
 
-    contextPreview.innerHTML = `<div class="rdcl-ai-prompt-block rdcl-ai-prompt-context"><strong>Context</strong><pre>${escapeHtml(rows.map((row) => `- 👉 ${row[0]}: ${row[1]}`).join("\n"))}</pre></div>`;
+    contextPreview.innerHTML = `<div class="rdcl-ai-prompt-block rdcl-ai-prompt-context"><label for="rdcl-ai-context-preview-field">Context</label><textarea id="rdcl-ai-context-preview-field" data-rdcl-ai-context-preview-field spellcheck="false" placeholder="Add optional context for the AI...">${escapeHtml(contextText)}</textarea></div>`;
 
     notesPreview.innerHTML = values.notes
       ? `<div class="rdcl-ai-prompt-block rdcl-ai-prompt-notes"><strong>Additional Notes</strong><pre>${escapeHtml(values.notes)}</pre></div>`
@@ -512,6 +519,23 @@ function initRdcAiRest() {
     }, {});
   }
 
+  function getRdcAiContextPromptText(values) {
+    const contextField = contextPreview.querySelector(
+      "[data-rdcl-ai-context-preview-field]",
+    );
+
+    if (contextField) return contextField.value.trim();
+
+    return [
+      ["Brand / Store", values.brand],
+      ["Niche / Industry", values.niche],
+      ["Goal / Use Case", values.goal],
+    ]
+      .filter((row) => row[1])
+      .map((row) => `- 👉 ${row[0]}: ${row[1]}`)
+      .join("\n");
+  }
+
   function handleRdcAiGeneratorConfigChange(event) {
     if (!event.target.closest(".rdcl-gen--cols-field")) return;
 
@@ -538,6 +562,7 @@ function initRdcAiRest() {
 
   function buildRdcAiPromptText() {
     const values = getRdcAiContextValues();
+    const contextLines = getRdcAiContextPromptText(values);
     const generatedCode = getRdcAiGeneratedCode();
     const selectedTasks = tasks
       .filter((task) => state.selected.has(task.id))
@@ -560,6 +585,13 @@ function initRdcAiRest() {
           .map((row) => `- 👉 ${row.label}: ${row.value}`)
           .join("\n")
       : "- No configurable generator options detected.";
+
+    const optionalContextSection = contextLines
+      ? ["## Context", contextLines, ""]
+      : [];
+    const optionalNotesSection = values.notes
+      ? ["## Additional Notes", values.notes, ""]
+      : [];
 
     return [
       "## Generated Code",
@@ -597,11 +629,7 @@ function initRdcAiRest() {
       "- Keep JavaScript safe for multiple component instances, with scoped initialization, no duplicate event listeners, no unnecessary globals, and no interference with other page scripts.",
       "- Keep the final code readable, maintainable, scalable, and production-ready without over-engineering it.",
       "",
-      "## Context",
-      `- 👉 Brand / Store: ${values.brand || "Not provided"}`,
-      `- 👉 Niche / Industry: ${values.niche || "Not provided"}`,
-      `- 👉 Goal / Use Case: ${values.goal || "Not provided"}`,
-      "",
+      ...optionalContextSection,
       "## Generator Configuration",
       "- Use these current generator settings as design and behavior context. Preserve or build on them unless a selected task requires a change.",
       generatorConfigLines,
@@ -609,9 +637,7 @@ function initRdcAiRest() {
       "## Selected Tasks",
       taskLines,
       "",
-      "## Additional Notes",
-      values.notes || "- 👉 No additional notes provided.",
-      "",
+      ...optionalNotesSection,
       "## Internal Quality Checklist",
       "- Before responding, silently verify: every selected task was evaluated; functionality still works; rdc-* and rlab-* classes were preserved; IDs, data attributes, ARIA relationships, and JavaScript hooks still work; JavaScript selectors match the returned HTML; CSS remains scoped; multiple instances remain supported; Shopify conversion was only performed when requested; accessibility changes are appropriate; no unnecessary redesigns were introduced; the code is complete and production-ready.",
       "- Do not include this checklist in your response.",
