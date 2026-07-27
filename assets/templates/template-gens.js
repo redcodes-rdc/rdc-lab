@@ -336,12 +336,6 @@ function initRdcAiRest() {
     state.drafts[textarea.dataset.rdclAiPrompt] = textarea.value;
   });
 
-  contextPreview.addEventListener("input", (event) => {
-    if (!event.target.closest("[data-rdcl-ai-context-preview-field]")) return;
-
-    updateRdcAiStickyState();
-  });
-
   contextFields.forEach((field) => {
     field.addEventListener("input", () => {
       renderRdcAiContext();
@@ -443,9 +437,11 @@ function initRdcAiRest() {
       ["Niche / Industry", values.niche],
       ["Goal / Use Case", values.goal],
     ].filter((row) => row[1]);
-    const contextText = rows.map((row) => `- 👉 ${row[0]}: ${row[1]}`).join("\n");
+    const contextText = rows.map((row) => `- ${row[0]}: ${row[1]}`).join("\n");
 
-    contextPreview.innerHTML = `<div class="rdcl-ai-prompt-block rdcl-ai-prompt-context"><label for="rdcl-ai-context-preview-field">Context</label><textarea id="rdcl-ai-context-preview-field" data-rdcl-ai-context-preview-field spellcheck="false" placeholder="Add optional context for the AI...">${escapeHtml(contextText)}</textarea></div>`;
+    contextPreview.innerHTML = contextText
+      ? `<div class="rdcl-ai-prompt-block rdcl-ai-prompt-context"><strong>Context <span>(editable through the fields on the left)</span></strong><pre>${escapeHtml(contextText)}</pre></div>`
+      : "";
 
     notesPreview.innerHTML = values.notes
       ? `<div class="rdcl-ai-prompt-block rdcl-ai-prompt-notes"><strong>Additional Notes</strong><pre>${escapeHtml(values.notes)}</pre></div>`
@@ -520,19 +516,13 @@ function initRdcAiRest() {
   }
 
   function getRdcAiContextPromptText(values) {
-    const contextField = contextPreview.querySelector(
-      "[data-rdcl-ai-context-preview-field]",
-    );
-
-    if (contextField) return contextField.value.trim();
-
     return [
       ["Brand / Store", values.brand],
       ["Niche / Industry", values.niche],
       ["Goal / Use Case", values.goal],
     ]
       .filter((row) => row[1])
-      .map((row) => `- 👉 ${row[0]}: ${row[1]}`)
+      .map((row) => `- ${row[0]}: ${row[1]}`)
       .join("\n");
   }
 
