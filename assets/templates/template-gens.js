@@ -151,7 +151,7 @@ const genTemplate = `<div class="rdcl-gen-main">
                 </div>
 
                 <div class="rdcl-ai-context">
-                  <p class="rdcl-ai-label">Additional Context (Optional)</p>
+                  <p class="rdcl-ai-label">Additional Context (Recommended)</p>
                   <div class="rdcl-ai-context-grid">
                     <label>Brand / Store Name<input type="text" data-rdcl-ai-context="brand" placeholder="e.g. Acme Store"></label>
                     <label>Niche / Industry<input type="text" data-rdcl-ai-context="niche" placeholder="e.g. Fashion"></label>
@@ -234,7 +234,7 @@ const genTemplate = `<div class="rdcl-gen-main">
                   <div class="rdcl-ai-prompt-note-wrap">
                     <span class="rdcl-ai-prompt-note-icon" aria-hidden="true">ⓘ</span>
                     <div>
-                      <p class="rdcl-ai-prompt-detail-note">Make sure to provide any relevant context and task details to help the AI generate a more accurate result. Look for 👉 to find fields where you can insert or replace details.</p>
+                      <p class="rdcl-ai-prompt-detail-note">Provide any relevant context for the best results. The recommended fields on the left can help personalize the output, while 👉 marks editable placeholders you can replace or expand.</p>
                     </div>
                   </div>
                   <div class="rdcl-ai-context-preview" data-rdcl-ai-context-preview></div>
