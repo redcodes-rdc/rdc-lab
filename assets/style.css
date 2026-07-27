@@ -1,136 +1,3 @@
-/* =========================
-   INTER VARIABLE
-========================= */
-
-@font-face {
-  font-family: "Inter";
-  src: url("/assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf")
-    format("truetype");
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Inter";
-  src: url("/assets/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf")
-    format("truetype");
-  font-weight: 100 900;
-  font-style: italic;
-  font-display: swap;
-}
-
-/* =========================
-   BAI JAMJUREE
-========================= */
-
-@font-face {
-  font-family: "Bai Jamjuree";
-  src: url("/assets/fonts/Bai_Jamjuree/BaiJamjuree-ExtraLight.ttf")
-    format("truetype");
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Bai Jamjuree";
-  src: url("/assets/fonts/Bai_Jamjuree/BaiJamjuree-ExtraLightItalic.ttf")
-    format("truetype");
-  font-weight: 200;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Bai Jamjuree";
-  src: url("/assets/fonts/Bai_Jamjuree/BaiJamjuree-Light.ttf")
-    format("truetype");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Bai Jamjuree";
-  src: url("/assets/fonts/Bai_Jamjuree/BaiJamjuree-LightItalic.ttf")
-    format("truetype");
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Bai Jamjuree";
-  src: url("/assets/fonts/Bai_Jamjuree/BaiJamjuree-Regular.ttf")
-    format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Bai Jamjuree";
-  src: url("/assets/fonts/Bai_Jamjuree/BaiJamjuree-Italic.ttf")
-    format("truetype");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Bai Jamjuree";
-  src: url("/assets/fonts/Bai_Jamjuree/BaiJamjuree-Medium.ttf")
-    format("truetype");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Bai Jamjuree";
-  src: url("/assets/fonts/Bai_Jamjuree/BaiJamjuree-MediumItalic.ttf")
-    format("truetype");
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Bai Jamjuree";
-  src: url("/assets/fonts/Bai_Jamjuree/BaiJamjuree-SemiBold.ttf")
-    format("truetype");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Bai Jamjuree";
-  src: url("/assets/fonts/Bai_Jamjuree/BaiJamjuree-SemiBoldItalic.ttf")
-    format("truetype");
-  font-weight: 600;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Bai Jamjuree";
-  src: url("/assets/fonts/Bai_Jamjuree/BaiJamjuree-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Bai Jamjuree";
-  src: url("/assets/fonts/Bai_Jamjuree/BaiJamjuree-BoldItalic.ttf")
-    format("truetype");
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
-}
-
 .rdc-c-pink {
   color: #ff437b;
 }
@@ -211,11 +78,11 @@
 }
 
 .rdc-ff-baij {
-  font-family: "Bai Jamjuree";
+  font-family: "Bai Jamjuree", Arial, sans-serif;
 }
 
 * {
-  font-family: "Inter";
+  font-family: "Inter", Arial, sans-serif;
 }
 
 html {
@@ -228,7 +95,7 @@ h1,
 h4 {
   font-weight: 400;
   line-height: 1;
-  font-family: "Bai Jamjuree";
+  font-family: "Bai Jamjuree", Arial, sans-serif;
 }
 h1 {
   color: #e8ecd8;
@@ -236,7 +103,7 @@ h1 {
 .rdc-lab-sec h2 {
   text-transform: uppercase;
   font-size: 18px;
-  font-family: "Bai Jamjuree";
+  font-family: "Bai Jamjuree", Arial, sans-serif;
   text-align: center;
   color: #e8ecd8;
   font-weight: 400;
@@ -614,7 +481,7 @@ button,
 .rdc-lab-5th-btn,
 #rdcl-copy-btn,
 .rdcl-ai-copy-btn {
-  font-family: "Bai Jamjuree";
+  font-family: "Bai Jamjuree", Arial, sans-serif;
   font-weight: 700;
 }
 
@@ -1151,7 +1018,7 @@ ul.rdcl-gen--notes {
   border-radius: 2px;
 }
 .rdc-gen-mini-h {
-  font-family: "Bai Jamjuree";
+  font-family: "Bai Jamjuree", Arial, sans-serif;
   font-weight: 500;
   color: #e8ecd8;
   font-size: 14px;
@@ -1188,7 +1055,7 @@ ul.rdcl-gen--notes {
 
 .rdcl-ai-rest-kicker h2 {
   color: #e8ecd8;
-  font-family: "Bai Jamjuree";
+  font-family: "Bai Jamjuree", Arial, sans-serif;
   font-weight: 700;
   line-height: 1;
   margin-top: 0;
@@ -1299,7 +1166,7 @@ ul.rdcl-gen--notes {
 
 .rdcl-ai-panel-title h3 {
   color: #e8ecd8;
-  font-family: "Bai Jamjuree";
+  font-family: "Bai Jamjuree", Arial, sans-serif;
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 2px;
@@ -1310,7 +1177,7 @@ ul.rdcl-gen--notes {
 
 .rdcl-ai-label {
   color: #ff61a0;
-  font-family: "Bai Jamjuree";
+  font-family: "Bai Jamjuree", Arial, sans-serif;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 1px;
@@ -1487,7 +1354,7 @@ ul.rdcl-gen--notes {
 
 .rdcl-ai-preview-image span {
   color: #a8a3ab;
-  font-family: "Bai Jamjuree";
+  font-family: "Bai Jamjuree", Arial, sans-serif;
   font-size: 12px;
   font-weight: 500;
   text-transform: uppercase;
@@ -1529,7 +1396,7 @@ ul.rdcl-gen--notes {
   border-bottom: 2px solid #ff437b;
   color: #ff61a0;
   display: flex;
-  font-family: "Bai Jamjuree";
+  font-family: "Bai Jamjuree", Arial, sans-serif;
   font-size: 13px;
   font-weight: 800;
   gap: 8px;
@@ -1569,7 +1436,7 @@ ul.rdcl-gen--notes {
 
 .rdcl-ai-prompt-note-icon {
   color: #ff61a0;
-  font-family: "Bai Jamjuree";
+  font-family: "Bai Jamjuree", Arial, sans-serif;
   font-size: 16px;
   line-height: 1;
   padding-top: 1px;
@@ -1582,7 +1449,7 @@ ul.rdcl-gen--notes {
 
 .rdcl-ai-prompt-detail-note {
   color: #e8ecd8;
-  font-family: "Bai Jamjuree";
+  font-family: "Bai Jamjuree", Arial, sans-serif;
   font-size: 14px;
   line-height: 1.5;
   margin: 0;
@@ -1625,7 +1492,7 @@ ul.rdcl-gen--notes {
 .rdcl-ai-prompt-block strong {
   color: #c5fa31;
   display: block;
-  font-family: "Bai Jamjuree";
+  font-family: "Bai Jamjuree", Arial, sans-serif;
   font-size: 12px;
   font-weight: 800;
   margin-bottom: 8px;
