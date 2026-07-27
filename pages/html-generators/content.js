@@ -7,8 +7,7 @@ const allGeneratorsPage = {
   },
   intro: {
     title: "Generate the foundation, then customize it.",
-    text:
-      "Browse practical code generators for common frontend components and features. Start with a responsive working foundation, customize it to fit your project, or refine it further using the included AI enhancement prompts.",
+    text: "Browse practical code generators for common frontend components and features. Start with a responsive working foundation, customize it to fit your project, or refine it further using the included AI enhancement prompts.",
   },
   CTA: "work with me",
   search: {
@@ -157,7 +156,7 @@ const allGeneratorsPage = {
       },
     },
     {
-      title: "Scroll Progress Bar Generator",
+      title: "Page Scroll Progress Bar Generator",
       description:
         "Create lightweight scroll progress indicators for articles, tutorials, setup flows, and long pages.",
       href: "/gens/page-progress-bar",
