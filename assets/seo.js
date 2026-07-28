@@ -200,7 +200,7 @@ const rdcLabSeoConfig = {
     home: {
       title: "RDC Lab | Build Better Frontends, Faster",
       description:
-        "RDC Lab helps frontend developers build faster with production-ready component generators, practical tutorials, and built-in AI enhancement prompts for customization and implementation.",
+        "RDC Lab helps frontend developers build faster with production-ready component html, css, & js code generators, practical tutorials, and built-in AI enhancement prompts for customization and implementation.",
       path: "/",
       schema: {
         "@context": "https://schema.org",
@@ -208,14 +208,14 @@ const rdcLabSeoConfig = {
         name: "RDC Lab",
         url: "/",
         description:
-          "RDC Lab helps you generate clean, customizable frontend code faster.",
+          "RDC Lab helps you generate clean, customizable frontend html, css, & js code faster.",
       },
     },
 
     htmlGenerators: {
-      title: "Frontend Code Generators + AI Prompts | RDC Lab",
+      title: "Frontend HTML Code Generators + AI Prompts | RDC Lab",
       description:
-        "Generate responsive frontend components without starting from scratch. Copy production-ready code, then customize and refine it with built-in AI enhancement prompts for faster development.",
+        "Generate responsive frontend component html, css, & js codes without starting from scratch. Copy production-ready code, then customize and refine it with built-in AI enhancement prompts for faster development.",
       path: "/pages/html-generators/",
       schema: createRdcLabCollectionSchema({
         name: "HTML Generators",
