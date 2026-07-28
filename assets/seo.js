@@ -213,7 +213,7 @@ const rdcLabSeoConfig = {
     },
 
     htmlGenerators: {
-      title: "Frontend Component Generators + AI Prompts | RDC Lab",
+      title: "Frontend Code Generators + AI Prompts | RDC Lab",
       description:
         "Generate responsive frontend components without starting from scratch. Copy production-ready code, then customize and refine it with built-in AI enhancement prompts for faster development.",
       path: "/pages/html-generators/",
@@ -238,7 +238,8 @@ const rdcLabSeoConfig = {
           },
           {
             name: "Accordion Generator",
-            description: "Responsive accordion HTML, CSS, and JavaScript generator.",
+            description:
+              "Responsive accordion HTML, CSS, and JavaScript generator.",
             url: "/gens/accordion/",
           },
           {
@@ -253,27 +254,32 @@ const rdcLabSeoConfig = {
           },
           {
             name: "HTML Column Layout Generator",
-            description: "Responsive multi-column HTML and CSS layout generator.",
+            description:
+              "Responsive multi-column HTML and CSS layout generator.",
             url: "/gens/columns/",
           },
           {
             name: "Free Shipping Bar Generator",
-            description: "Shopify-friendly free shipping progress bar generator.",
+            description:
+              "Shopify-friendly free shipping progress bar generator.",
             url: "/gens/fs-progress-bar/",
           },
           {
             name: "Icon With Text Generator",
-            description: "Responsive icon-with-text HTML and CSS section generator.",
+            description:
+              "Responsive icon-with-text HTML and CSS section generator.",
             url: "/gens/icon-text/",
           },
           {
             name: "Modal Generator",
-            description: "Responsive modal HTML, CSS, and JavaScript generator.",
+            description:
+              "Responsive modal HTML, CSS, and JavaScript generator.",
             url: "/gens/modal/",
           },
           {
             name: "Scroll Progress Bar Generator",
-            description: "Lightweight scroll progress bar HTML, CSS, and JavaScript generator.",
+            description:
+              "Lightweight scroll progress bar HTML, CSS, and JavaScript generator.",
             url: "/gens/page-progress-bar/",
           },
           {
@@ -288,7 +294,8 @@ const rdcLabSeoConfig = {
           },
           {
             name: "Timer Bar Generator",
-            description: "Countdown timer bar HTML, CSS, and JavaScript generator.",
+            description:
+              "Countdown timer bar HTML, CSS, and JavaScript generator.",
             url: "/gens/timer-bar/",
           },
           {
@@ -346,7 +353,7 @@ const rdcLabSeoConfig = {
     },
 
     tutorials: {
-      title: "Frontend Component Tutorials + AI Prompts | RDC Lab",
+      title: "Frontend Component Code Tutorials + AI Prompts | RDC Lab",
       description:
         "Learn how to build, customize, and optimize frontend components with practical tutorials. Follow real implementation workflows and refine your results with built-in AI enhancement prompts.",
       path: "/pages/tutorials/",
@@ -375,7 +382,7 @@ const rdcLabSeoConfig = {
     },
 
     twoColumnGenerator: {
-      title: "2-Column HTML Layout Generator + AI Prompts | RDC Lab",
+      title: "2-Column HTML Code Generator + AI Prompts | RDC Lab",
       description:
         "Generate responsive two-column HTML/CSS layouts for product, content, and landing pages, then refine spacing or Shopify Liquid with AI prompts.",
       path: "/gens/2-column/",
@@ -399,7 +406,7 @@ const rdcLabSeoConfig = {
     },
 
     accordionGenerator: {
-      title: "Accordion HTML Generator + AI Prompts | RDC Lab",
+      title: "Accordion HTML Code Generator + AI Prompts | RDC Lab",
       description:
         "Build responsive accordion HTML/CSS/JS for FAQs, product details, and guides. Copy clean code and refine accessibility or Shopify with AI prompts.",
       path: "/gens/accordion/",
@@ -414,12 +421,16 @@ const rdcLabSeoConfig = {
           "Copyable HTML, CSS, and JavaScript",
           "Built-in AI enhancement prompts",
         ],
-        keywords: ["accordion generator", "FAQ accordion HTML", "accordion JavaScript"],
+        keywords: [
+          "accordion generator",
+          "FAQ accordion HTML",
+          "accordion JavaScript",
+        ],
       }),
     },
 
     badgesGenerator: {
-      title: "Product Badge HTML & CSS Generator + AI Prompts | RDC Lab",
+      title: "Badge HTML & CSS Code Generator + AI Prompts | RDC Lab",
       description:
         "Create lightweight product badge HTML/CSS for sales, labels, and launches. Copy production-ready code and refine styling with AI prompts.",
       path: "/gens/badges/",
@@ -434,12 +445,16 @@ const rdcLabSeoConfig = {
           "Copyable HTML and CSS",
           "Built-in AI enhancement prompts",
         ],
-        keywords: ["product badge generator", "CSS badge", "Shopify product label"],
+        keywords: [
+          "product badge generator",
+          "CSS badge",
+          "Shopify product label",
+        ],
       }),
     },
 
     buttonsGenerator: {
-      title: "Button HTML & CSS Generator + AI Prompts | RDC Lab",
+      title: "Button HTML & CSS Code Generator + AI Prompts | RDC Lab",
       description:
         "Generate responsive button HTML/CSS with colors, hover states, width, and radius controls. Copy clean code and refine it with AI prompts.",
       path: "/gens/buttons/",
@@ -459,7 +474,7 @@ const rdcLabSeoConfig = {
     },
 
     columnsGenerator: {
-      title: "HTML Column Layout Generator + AI Prompts | RDC Lab",
+      title: "HTML Column Layout Code Generator + AI Prompts | RDC Lab",
       description:
         "Build responsive multi-column HTML/CSS layouts with wrapping and device controls. Copy production-ready code and refine it with AI prompts.",
       path: "/gens/columns/",
@@ -474,19 +489,23 @@ const rdcLabSeoConfig = {
           "Copyable HTML and CSS",
           "Built-in AI enhancement prompts",
         ],
-        keywords: ["column layout generator", "responsive columns", "HTML CSS grid"],
+        keywords: [
+          "column layout generator",
+          "responsive columns",
+          "HTML CSS grid",
+        ],
       }),
     },
 
     freeShippingBarGenerator: {
-      title: "Free Shipping Bar Generator for Shopify | RDC Lab",
+      title: "Free Shipping Bar Code Generator | RDC Lab",
       description:
-        "Generate a Shopify-ready free shipping progress bar with dynamic JavaScript, cart thresholds, and copyable code you can refine with AI prompts.",
+        "Generate a free shipping progress bar with dynamic JavaScript, cart thresholds, and copyable code you can refine with AI prompts for your e-commerce store.",
       path: "/gens/fs-progress-bar/",
       schema: createRdcLabGeneratorSchema({
         name: "Free Shipping Bar Generator",
         description:
-          "Generate a Shopify-ready free shipping progress bar with dynamic JavaScript, cart thresholds, and copyable code you can refine with AI prompts.",
+          "Generate a free shipping progress bar with dynamic JavaScript, cart thresholds, and copyable code you can refine with AI prompts for your e-commerce store.",
         path: "/gens/fs-progress-bar/",
         featureList: [
           "Cart threshold and progress settings",
@@ -503,7 +522,7 @@ const rdcLabSeoConfig = {
     },
 
     iconTextGenerator: {
-      title: "Icon With Text HTML Generator + AI Prompts | RDC Lab",
+      title: "Icon With Text HTML Code Generator + AI Prompts | RDC Lab",
       description:
         "Create responsive icon-with-text HTML/CSS sections for benefits, trust blocks, and features. Copy clean code and refine the design with AI prompts.",
       path: "/gens/icon-text/",
@@ -527,7 +546,7 @@ const rdcLabSeoConfig = {
     },
 
     modalGenerator: {
-      title: "Modal HTML & JS Generator + AI Prompts | RDC Lab",
+      title: "Modal HTML & JS Code Generator + AI Prompts | RDC Lab",
       description:
         "Generate responsive modal HTML/CSS/JS with positioning, spacing, radius, and optional trigger controls. Copy clean code and refine it with AI prompts.",
       path: "/gens/modal/",
@@ -542,12 +561,16 @@ const rdcLabSeoConfig = {
           "Copyable HTML, CSS, and JavaScript",
           "Built-in AI enhancement prompts",
         ],
-        keywords: ["modal generator", "HTML CSS JS modal", "Shopify popup modal"],
+        keywords: [
+          "modal generator",
+          "HTML CSS JS modal",
+          "Shopify popup modal",
+        ],
       }),
     },
 
     pageProgressBarGenerator: {
-      title: "Scroll Progress Bar Generator + AI Prompts | RDC Lab",
+      title: "Scroll Progress Bar Code Generator + AI Prompts | RDC Lab",
       description:
         "Create a lightweight scroll progress bar with HTML/CSS/JS for articles, guides, and long pages. Copy production-ready code and refine it with AI prompts.",
       path: "/gens/page-progress-bar/",
@@ -562,19 +585,23 @@ const rdcLabSeoConfig = {
           "Copyable HTML, CSS, and JavaScript",
           "Built-in AI enhancement prompts",
         ],
-        keywords: ["scroll progress bar", "reading progress bar", "page progress indicator"],
+        keywords: [
+          "scroll progress bar",
+          "reading progress bar",
+          "page progress indicator",
+        ],
       }),
     },
 
     stickyAtcGenerator: {
-      title: "Sticky Add To Cart Generator for Shopify | RDC Lab",
+      title: "Sticky Add To Cart Code Generator | RDC Lab",
       description:
-        "Generate a Shopify-focused sticky add to cart bar with product details, quantity, variant controls, and copyable JavaScript-enhanced code.",
+        "Generate a sticky add to cart bar with product details, quantity, variant controls, and copyable JavaScript-enhanced code for your e-commerce store.",
       path: "/gens/sticky-atc/",
       schema: createRdcLabGeneratorSchema({
         name: "Sticky Add To Cart Generator",
         description:
-          "Generate a Shopify-focused sticky add to cart bar with product details, quantity, variant controls, and copyable JavaScript-enhanced code.",
+          "Generate a sticky add to cart bar with product details, quantity, variant controls, and copyable JavaScript-enhanced code for your e-commerce store.",
         path: "/gens/sticky-atc/",
         featureList: [
           "Sticky cart bar behavior controls",
@@ -591,7 +618,7 @@ const rdcLabSeoConfig = {
     },
 
     tabsGenerator: {
-      title: "Tabs HTML & JS Generator + AI Prompts | RDC Lab",
+      title: "Tabs HTML & JS Code Generator + AI Prompts | RDC Lab",
       description:
         "Build responsive tab HTML/CSS/JS for product info, FAQs, plans, and content sections. Copy clean code and refine behavior with AI prompts.",
       path: "/gens/tabs/",
@@ -611,14 +638,14 @@ const rdcLabSeoConfig = {
     },
 
     timerBarGenerator: {
-      title: "Timer Bar Generator for HTML & Shopify | RDC Lab",
+      title: "Timer Bar HTML, CSS & JS Code Generator | RDC Lab",
       description:
-        "Create countdown timer bars with HTML/CSS/JS for offers, launches, and campaigns. Copy production-ready code and refine it with AI prompts.",
+        "Create countdown timer bars with HTML/CSS/JS for offers, launches, and campaigns. Copy production-ready code and refine it with AI prompts, perfect for your e-commerce store.",
       path: "/gens/timer-bar/",
       schema: createRdcLabGeneratorSchema({
         name: "Timer Bar Generator",
         description:
-          "Create countdown timer bars with HTML/CSS/JS for offers, launches, and campaigns. Copy production-ready code and refine it with AI prompts.",
+          "Create countdown timer bars with HTML/CSS/JS for offers, launches, and campaigns. Copy production-ready code and refine it with AI prompts, perfect for your e-commerce store.",
         path: "/gens/timer-bar/",
         featureList: [
           "Countdown text, date, and CTA controls",
@@ -626,19 +653,23 @@ const rdcLabSeoConfig = {
           "Copyable HTML, CSS, and JavaScript",
           "Built-in AI enhancement prompts",
         ],
-        keywords: ["timer bar generator", "countdown bar HTML", "campaign timer"],
+        keywords: [
+          "timer bar generator",
+          "countdown bar HTML",
+          "campaign timer",
+        ],
       }),
     },
 
     tooltipGenerator: {
-      title: "CSS Tooltip Generator for HTML + AI Prompts | RDC Lab",
+      title: "Tooltip HTML & CSS Code Generator + AI Prompts | RDC Lab",
       description:
-        "Generate lightweight CSS tooltips with position, style, alignment, and radius controls. Copy clean code and refine accessibility with AI prompts.",
+        "Generate lightweight HTML & CSS tooltips with position, style, alignment, and radius controls. Copy clean code and refine accessibility with AI prompts.",
       path: "/gens/tool-tip/",
       schema: createRdcLabGeneratorSchema({
         name: "Tooltip Generator",
         description:
-          "Generate lightweight CSS tooltips with position, style, alignment, and radius controls. Copy clean code and refine accessibility with AI prompts.",
+          "Generate lightweight HTML & CSS tooltips with position, style, alignment, and radius controls. Copy clean code and refine accessibility with AI prompts.",
         path: "/gens/tool-tip/",
         featureList: [
           "Tooltip position, style, and alignment controls",
@@ -691,7 +722,9 @@ function getRdcLabSeoPageData(config) {
 }
 
 function isRdcLabTutorialDetailPage() {
-  return document.body?.id === "rdcl-tutorial" || Boolean(window.rdclTutorialPage);
+  return (
+    document.body?.id === "rdcl-tutorial" || Boolean(window.rdclTutorialPage)
+  );
 }
 
 function getRdcLabTutorialSeoPageData(config) {
@@ -699,7 +732,9 @@ function getRdcLabTutorialSeoPageData(config) {
   const manualSeo = getRdcLabManualTutorialSeo(page, config);
   const fallback = config.pages.tutorials || config.pages[config.defaultPage];
   const title =
-    manualSeo.title || page.seo?.title || `${page.title || "Tutorial"} | RDC Lab`;
+    manualSeo.title ||
+    page.seo?.title ||
+    `${page.title || "Tutorial"} | RDC Lab`;
   const description =
     manualSeo.description ||
     page.seo?.description ||
@@ -717,18 +752,22 @@ function getRdcLabTutorialSeoPageData(config) {
     description,
     image,
     twitterCard:
-      manualSeo.twitterCard || page.seo?.twitterCard || config.defaults.twitterCard,
+      manualSeo.twitterCard ||
+      page.seo?.twitterCard ||
+      config.defaults.twitterCard,
     path,
     canonicalUrl: manualSeo.canonicalUrl || page.seo?.canonicalUrl || path,
     type: manualSeo.type || page.seo?.type || "article",
-    schema: manualSeo.schema || getRdcLabTutorialSchema(page, config, {
-      title,
-      description,
-      image,
-      imageAlt: manualSeo.imageAlt || page.seo?.imageAlt || page.video?.alt,
-      path,
-      howToSteps: manualSeo.howToSteps || page.seo?.howToSteps,
-    }),
+    schema:
+      manualSeo.schema ||
+      getRdcLabTutorialSchema(page, config, {
+        title,
+        description,
+        image,
+        imageAlt: manualSeo.imageAlt || page.seo?.imageAlt || page.video?.alt,
+        path,
+        howToSteps: manualSeo.howToSteps || page.seo?.howToSteps,
+      }),
   };
 }
 
@@ -827,19 +866,25 @@ function getRdcLabSeoSchema(schema, url) {
   if (!schema) return null;
 
   if (schema["@graph"]) {
-    return normalizeRdcLabSchemaUrls({
-      ...schema,
-      "@graph": schema["@graph"].map((item) => ({
-        ...item,
-        url: item.url || url,
-      })),
-    }, url);
+    return normalizeRdcLabSchemaUrls(
+      {
+        ...schema,
+        "@graph": schema["@graph"].map((item) => ({
+          ...item,
+          url: item.url || url,
+        })),
+      },
+      url,
+    );
   }
 
-  return normalizeRdcLabSchemaUrls({
-    ...schema,
-    url: url,
-  }, url);
+  return normalizeRdcLabSchemaUrls(
+    {
+      ...schema,
+      url: url,
+    },
+    url,
+  );
 }
 
 function normalizeRdcLabSchemaUrls(value, baseUrl) {
@@ -903,7 +948,10 @@ function getRdcLabTutorialSchema(page, config, seo) {
           "@type": "ListItem",
           position: 2,
           name: "Tutorials",
-          item: getRdcLabAbsoluteUrl("/pages/tutorials/", config.defaults.baseUrl),
+          item: getRdcLabAbsoluteUrl(
+            "/pages/tutorials/",
+            config.defaults.baseUrl,
+          ),
         },
         {
           "@type": "ListItem",
