@@ -584,17 +584,12 @@ function initRdcAiRest() {
       : [];
 
     return [
-      "## Generated Code",
-      "````html",
-      generatedCode || "No generated code detected.",
-      "````",
-      "",
       `# AI Enhancement Request for ${generatorName}`,
       "",
       "## Role",
       "- You are an expert front-end developer.",
       "- Use Shopify Liquid expertise only when the selected tasks ask for Shopify Liquid.",
-      "- Use the generated code included above as the source of truth.",
+      "- Use the generated code included at the bottom as the source of truth.",
       "- Treat RDC Lab's generated component as already working. Enhance it; do not rebuild it from scratch.",
       "- Improve only what is requested below and only when the change is genuinely useful.",
       "",
@@ -638,6 +633,11 @@ function initRdcAiRest() {
       "- Under each task heading, summarize meaningful changes or state that no changes were necessary.",
       "- Include user-side setup notes when needed, especially for Shopify files, fonts, images, schema settings, SEO content, or theme placement.",
       "- Explain meaningful implementation decisions, especially any unavoidable structure, selector, behavior, or accessibility changes.",
+      "",
+      "## Generated Code",
+      "````html",
+      generatedCode || "No generated code detected.",
+      "````",
     ]
       .filter((part) => part !== "")
       .join("\n");
