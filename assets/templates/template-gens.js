@@ -628,6 +628,7 @@ function initRdcAiRest() {
       "- Do not include this checklist in your response.",
       "",
       "## Required Output Format",
+      "- Your primary task is to enhance the Generated Code based on the selected tasks, generator configuration, context, design options, and additional notes.",
       "- Return the complete updated production-ready code. Do not return partial snippets unless the selected task explicitly asks for a separate file or Shopify snippet.",
       "- After the code, include Implementation Summary grouped by selected task, using headings such as Design, Mobile, Performance, Accessibility, Animations, Liquid, and SEO.",
       "- Under each task heading, summarize meaningful changes or state that no changes were necessary.",
