@@ -375,7 +375,7 @@ const rdcLabSeoConfig = {
             name: "Easily Add a Timer Bar to your Shopify E-commerce Website - No App",
             description:
               "Learn how to build a customizable timer bar for your Shopify store using RDC Lab without using any Shopify app.",
-            url: "https://youtu.be/nngLVgk6mKo",
+            url: "/pages/tutorials/shopify-timer-bar-tutorial/",
           },
         ],
       }),
@@ -683,13 +683,13 @@ const rdcLabSeoConfig = {
   },
 
   manualTutorialPages: {
-    "tutorial-1": {
+    "shopify-timer-bar-tutorial": {
       // Add optional overrides here. Values in this section win over dynamic tutorial data.
       // title: "Manual Tutorial SEO Title | RDC Lab",
       // description: "Manual meta description for this tutorial.",
       // image: "/assets/images/manual-og-image.jpg",
       // imageAlt: "Manual image alt text for the tutorial preview image",
-      // canonicalUrl: "/pages/tutorials/tutorial-1/",
+      // canonicalUrl: "/pages/tutorials/shopify-timer-bar-tutorial/",
       // howToSteps: [
       //   { name: "Manual step title", text: "Manual step description." },
       // ],

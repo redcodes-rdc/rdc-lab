@@ -1,4 +1,4 @@
-const timerBarTutorialVideoUrl = "https://youtu.be/nngLVgk6mKo";
+const timerBarTutorialUrl = "/pages/tutorials/shopify-timer-bar-tutorial/";
 
 const tutorialsCollectionPage = {
   // PAGE HERO
@@ -43,7 +43,7 @@ const tutorialsCollectionPage = {
         "Easily Add a Timer Bar to your Shopify E-commerce Website - No App",
       description:
         "Learn how to build a customizable timer bar for your Shopify store using RDC Lab. We'll generate the component, customize it with AI, install it into your theme, and test everything from start to finish—without using any Shopify app.",
-      href: timerBarTutorialVideoUrl,
+      href: timerBarTutorialUrl,
       image:
         "/assets/images/rdc-lab-timer-bar-shopify-ecommerce-tutorial-thumbnail.jpg",
       imageAlt:

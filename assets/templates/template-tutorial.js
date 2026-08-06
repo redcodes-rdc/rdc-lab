@@ -1,21 +1,23 @@
+const shopifyTimerBarTutorialVideoUrl = "https://youtu.be/nngLVgk6mKo";
+
 const rdclTutorialPage = window.rdclTutorialPage || {
-  id: "sticky-add-to-cart-shopify",
-  title: "How to Add a Sticky Add to Cart Bar in Shopify",
-  eyebrow: "Sticky Add To Cart",
+  id: "shopify-timer-bar-tutorial",
+  title: "Easily Add a Timer Bar to your Shopify E-commerce Website - No App",
+  eyebrow: "Shopify Timer Bar",
   description:
-    "Learn how to add a sticky add to cart bar to your Shopify product pages to increase conversions and improve mobile UX.",
+    "Learn how to build a customizable timer bar for your Shopify store using RDC Lab. We'll generate the component, customize it with AI, install it into your theme, and test everything from start to finish—without using any Shopify app.",
   backLink: {
     label: "Back to Tutorials",
     href: "/pages/tutorials/",
   },
-  categories: ["cro", "shopify", "product"],
-  tags: ["sticky-atc", "shopify", "conversion"],
+  categories: ["shopify"],
+  tags: ["shopify", "timer-bar", "ecommerce", "ai"],
   video: {
-    title: "How to Add a Sticky Add to Cart Bar in Shopify",
-    type: "placeholder",
-    image: "/assets/images/rdc-lab-assets-easy-2.jpg",
-    embedUrl: "",
-    duration: "12:18",
+    title: "Easily Add a Timer Bar to your Shopify E-commerce Website - No App",
+    image:
+      "/assets/images/rdc-lab-timer-bar-shopify-ecommerce-tutorial-thumbnail.jpg",
+    embedUrl: shopifyTimerBarTutorialVideoUrl,
+    duration: "22 min",
   },
   written: {
     title: "Written Version",
@@ -592,7 +594,7 @@ function renderRelatedTutorials(items) {
   if (!items.length) return "";
 
   return `
-    <section class="rdcl-tutorial-related rdc-mw-1200 rdc-m-iauto rdc-m-b30">
+    <section class="rdcl-tutorial-related rdc-d-none rdc-mw-1200 rdc-m-iauto rdc-m-b30">
       <h2 class="rdc-gen-mini-h rdc-m-b20">Related Tutorials</h2>
       <div class="rdcl-help-tutorial-grid rdc-m-t30 rdc-d-flex rdc-fw-wrap">
         ${items.map(renderRelatedTutorialCard).join("")}

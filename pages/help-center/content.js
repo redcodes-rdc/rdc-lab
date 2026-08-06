@@ -364,12 +364,15 @@ const helpCenterPage = {
     ctaHref: "/pages/tutorials/",
     items: [
       {
-        image: "/assets/images/rdc-lab-assets-easy-2.jpg",
-        duration: "10:45",
-        title: "Create a Two-Column Section in 5 Minutes",
-        description: "Build a responsive two-column layout without any hassle.",
-        level: "",
-        href: "/pages/tutorials/tutorial-1/",
+        image:
+          "/assets/images/rdc-lab-timer-bar-shopify-ecommerce-tutorial-thumbnail.jpg",
+        duration: "22 min",
+        title:
+          "Easily Add a Timer Bar to your Shopify E-commerce Website - No App",
+        description:
+          "Build a customizable timer bar for your Shopify store without using any Shopify app.",
+        level: "Beginner",
+        href: "/pages/tutorials/shopify-timer-bar-tutorial/",
       },
     ],
   },
