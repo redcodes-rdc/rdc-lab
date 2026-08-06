@@ -372,10 +372,10 @@ const rdcLabSeoConfig = {
         ],
         items: [
           {
-            name: "Create a Two-Column Section in 5 Minutes",
+            name: "Easily Add a Timer Bar to your Shopify E-commerce Website - No App",
             description:
-              "Learn how to build a responsive two-column section with RDC Lab.",
-            url: "/pages/tutorials/tutorial-1/",
+              "Learn how to build a customizable timer bar for your Shopify store using RDC Lab without using any Shopify app.",
+            url: "https://youtu.be/nngLVgk6mKo",
           },
         ],
       }),

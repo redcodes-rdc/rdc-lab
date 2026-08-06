@@ -1,3 +1,5 @@
+const timerBarTutorialVideoUrl = "https://youtu.be/nngLVgk6mKo";
+
 const tutorialsCollectionPage = {
   // PAGE HERO
   page: {
@@ -22,64 +24,34 @@ const tutorialsCollectionPage = {
 
   // FILTER CATEGORIES
   categories: [
-    { label: "Content", value: "content" },
-    { label: "CRO", value: "cro" },
-    { label: "Layout", value: "layout" },
-    { label: "Campaign", value: "campaign" },
-    {
-      label: "Shopify Kits",
-      value: "shopify-kits",
-      badge: { label: "Soon", type: "soon" },
-    },
-    { label: "UI", value: "ui" },
-    { label: "Utilities", value: "utilities" },
+    { label: "Shopify", value: "shopify" },
   ],
 
   // POPULAR TAGS
   popularTagsTitle: "Popular Tags",
   popularTags: [
-    { label: "Grid", value: "grid" },
-    { label: "Product", value: "product" },
     { label: "Shopify", value: "shopify" },
-    { label: "CRO", value: "cro" },
-    { label: "Responsive", value: "responsive" },
-    { label: "Liquid Kit", value: "liquid-kit" },
+    { label: "Timer Bar", value: "timer-bar" },
+    { label: "E-commerce", value: "ecommerce" },
+    { label: "AI", value: "ai" },
   ],
 
   // TUTORIAL CARDS
   tutorials: [
     {
-      title: "Create a Two-Column Section in 5 Minutes",
+      title:
+        "Easily Add a Timer Bar to your Shopify E-commerce Website - No App",
       description:
-        "Build a responsive HTML/CSS two-column layout and learn when to adjust widths, order, and stacking.",
-      href: "/pages/tutorials/tutorial-1/",
-      image: "/assets/images/rdc-lab-assets-easy-2.jpg",
-      duration: "10:45",
+        "Learn how to build a customizable timer bar for your Shopify store using RDC Lab. We'll generate the component, customize it with AI, install it into your theme, and test everything from start to finish—without using any Shopify app.",
+      href: timerBarTutorialVideoUrl,
+      image:
+        "/assets/images/rdc-lab-timer-bar-shopify-ecommerce-tutorial-thumbnail.jpg",
+      imageAlt:
+        "RDC Lab tutorial thumbnail showing how to easily build a timer bar for a Shopify e-commerce website without apps.",
+      duration: "22 min",
       level: "Beginner",
-      categories: ["layout"],
-      tags: ["grid", "responsive", "layout"],
-    },
-    {
-      title: "Add a Free Shipping Bar to Your Store",
-      description:
-        "Add a Shopify-friendly free shipping progress bar with cart threshold messaging and dynamic behavior.",
-      href: "#",
-      image: "/assets/images/rdc-lab-assets-easy-2.jpg",
-      duration: "8:32",
-      level: "Beginner",
-      categories: ["campaign", "cro"],
-      tags: ["cro", "shopify", "product"],
-    },
-    {
-      title: "Build a Sticky Add to Cart Bar",
-      description:
-        "Keep Shopify purchase controls visible on long product pages with a sticky add-to-cart section.",
-      href: "#",
-      image: "/assets/images/rdc-lab-assets-easy-2.jpg",
-      duration: "12:18",
-      level: "Intermediate",
-      categories: ["cro", "campaign", "ui"],
-      tags: ["cro", "product", "shopify", "liquid-kit"],
+      categories: ["shopify"],
+      tags: ["shopify", "timer-bar", "ecommerce", "ai"],
     },
   ],
 };
