@@ -24,62 +24,59 @@ const rdclTutorialPage = window.rdclTutorialPage || {
     navTitle: "On This Page",
     tabs: [
       {
-        id: "overview",
-        label: "Overview",
-        title: "Overview",
-        blocks: [
-          {
-            type: "paragraph",
-            text: "A sticky add to cart bar stays visible at the bottom of the screen as customers scroll, keeping the purchase action within reach.",
-          },
-          {
-            type: "tip",
-            title: "Pro Tip",
-            text: "Keep the bar clean and focused. Show only the essential product info and one primary action.",
-          },
-        ],
-      },
-      {
-        id: "why-use-it",
-        label: "Why Use a Sticky ATC Bar?",
-        title: "Why Use a Sticky ATC Bar?",
-        blocks: [
-          {
-            type: "paragraph",
-            text: "Sticky add to cart bars can reduce friction by keeping the main purchase action visible while shoppers review product details.",
-          },
-          {
-            type: "list",
-            items: [
-              "Improves mobile UX",
-              "Keeps the CTA always visible",
-              "Increases add to cart rate",
-              "Works great for most product types",
-            ],
-          },
-        ],
-      },
-      {
-        id: "setup",
-        label: "Setup in Theme Editor",
-        title: "Setup in Theme Editor",
-        blocks: [
-          {
-            type: "paragraph",
-            text: "Use this section for theme editor instructions, screenshots, or Shopify-specific setup notes.",
-          },
-        ],
-      },
-      {
-        id: "conclusion",
-        label: "Conclusion",
-        title: "Conclusion",
-        blocks: [
-          {
-            type: "paragraph",
-            text: "Use this final tab for next steps, reminders, links, or a short summary of the tutorial.",
-          },
-        ],
+        id: "using-shopify-magic",
+        label: "Using Shopify Magic",
+        title: "Using Shopify Magic",
+        hideTitle: true,
+        html: `
+          <h2 class="rdc-fs-24 rdc-fw-700 rdc-m-t0">Using Shopify Magic</h2>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">If your goal is simply to get a timer bar working as quickly as possible, Shopify Magic is a great option. Instead of writing your prompt directly inside Shopify, consider using ChatGPT first to generate a more detailed prompt. Once you're happy with the result, paste it into Shopify Magic, generate the section, and test it in your theme.</p>
+
+          <h2 class="rdc-fs-24 rdc-fw-700">Building with RDC Lab</h2>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">If you prefer cleaner, more reusable code, RDC Lab gives you a structured starting point that works extremely well with AI tools like Antigravity and Codex. Instead of asking AI to build everything from scratch, you start with a working component and let AI convert it into a fully dynamic Shopify section.</p>
+
+          <h2 class="rdc-fs-24 rdc-fw-700">Step 1 – Gather the Tools</h2>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">Before you begin, prepare the following:</p>
+          <ul class="rdcl-tutorial-check-list rdc-ls-none rdc-p-0">
+            <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTutorialIcons.check}</span><span>RDC Lab</span></li>
+            <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTutorialIcons.check}</span><span>Antigravity or Codex</span></li>
+            <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTutorialIcons.check}</span><span>Shopify Code Editor</span></li>
+            <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTutorialIcons.check}</span><span>ChatGPT (optional)</span></li>
+          </ul>
+
+          <h2 class="rdc-fs-24 rdc-fw-700">Step 2 – Generate the Timer Bar with RDC Lab</h2>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">Open the Timer Bar Generator and customize the design to match your promotion. Once you're happy with the preview, copy the generated code.</p>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">The generated component already includes the HTML, CSS, and JavaScript needed to build the feature. The next step is simply converting it into a dynamic Shopify section.</p>
+
+          <h2 class="rdc-fs-24 rdc-fw-700">Step 3 – Generate the AI Prompt</h2>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">Scroll down to the AI Prompt Generator and select the enhancements you want, such as converting the component to Shopify Liquid or improving the design.</p>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">Customize any editable instructions, add your brand or project details if needed, then copy the completed prompt.</p>
+
+          <h2 class="rdc-fs-24 rdc-fw-700">Step 4 – Use the Prompt in Antigravity/Codex</h2>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">Paste the generated prompt into Antigravity or Codex, followed by the generated component code.</p>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">The AI will convert the component into a Shopify section complete with schema settings and editable options that can be managed directly from the Theme Editor.</p>
+
+          <h2 class="rdc-fs-24 rdc-fw-700">Step 5 – Add the Code to Your Shopify Theme</h2>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">Create a new section inside your Shopify theme and paste the generated Liquid code.</p>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">Move the CSS into your stylesheet, move the JavaScript into your JS file, link both files to your theme if necessary, then save your changes.</p>
+
+          <h2 class="rdc-fs-24 rdc-fw-700">Step 6 – Test the Timer Bar</h2>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">Open the Theme Editor and add the new Timer Bar section.</p>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">Test all settings, verify that the countdown works correctly, and make sure every option updates as expected. If something isn't working quite right, simply ask the AI to refine the generated code until everything behaves correctly.</p>
+
+          <h2 class="rdc-fs-24 rdc-fw-700">Why Use RDC Lab?</h2>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">Starting with a structured component gives AI much better context than generating everything from scratch.</p>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">Some of the biggest advantages include:</p>
+          <ul class="rdcl-tutorial-check-list rdc-ls-none rdc-p-0">
+            <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTutorialIcons.check}</span><span>Cleaner code structure</span></li>
+            <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTutorialIcons.check}</span><span>Consistent naming conventions</span></li>
+            <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTutorialIcons.check}</span><span>Reusable components</span></li>
+            <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTutorialIcons.check}</span><span>Easier maintenance</span></li>
+            <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTutorialIcons.check}</span><span>Less back-and-forth with AI</span></li>
+            <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTutorialIcons.check}</span><span>More consistent AI-generated results</span></li>
+          </ul>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">As RDC Lab continues to grow, you'll be able to follow the same workflow across many different generators while keeping your projects organized and easy to maintain.</p>
+        `,
       },
     ],
   },
@@ -433,9 +430,7 @@ function renderWrittenTab(tab, index, tabs = []) {
       data-tutorial-tab="${tab.id}"
       ${index === 0 ? "" : "hidden"}
     >
-      <h2 class="rdc-fs-24 rdc-fw-700 rdc-m-t0">
-        ${index + 1}. ${tab.title}
-      </h2>
+      ${tab.hideTitle ? "" : `<h2 class="rdc-fs-24 rdc-fw-700 rdc-m-t0">${index + 1}. ${tab.title}</h2>`}
       ${renderTabBody(tab)}
       ${renderNextTutorialTab(index, tabs)}
     </article>
