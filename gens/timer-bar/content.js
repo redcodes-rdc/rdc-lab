@@ -276,7 +276,7 @@ function renderTutorialLink(link) {
   if (!link || !link.href || !link.label) return "";
 
   return `
-    <a class="rdcl-gen-tutorial-link rdc-d-iflex rdc-ai-cen rdc-c-blue rdc-td-none rdc-ff-baij rdc-fw-600 rdc-fs-14" href="${link.href}">
+    <a class="rdcl-gen-tutorial-link rdc-d-iflex rdc-ai-cen rdc-ff-baij rdc-fw-600 rdc-fs-14" href="${link.href}">
       <span>${link.label}</span>
       <span class="rdc-m-l5 rdc-d-iflex" aria-hidden="true">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

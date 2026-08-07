@@ -569,6 +569,9 @@ button,
   color: #010101;
   outline: unset;
 }
+.rdc-lab-5th-btn:hover span {
+  color: #010101;
+}
 
 .rdcl-page-breadcrumb,
 .rdcl-tutorial-back {
@@ -603,6 +606,17 @@ button,
   flex: 0 0 auto;
   gap: 6px;
   margin-left: auto;
+}
+
+.rdcl-gen-tutorial-links {
+  margin-top: 16px;
+}
+
+.rdcl-gen-tutorial-link {
+  color: #c5fa31;
+  font-family: "Bai Jamjuree", Arial, sans-serif;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .rdcl-tutorial-video-inner {
@@ -1674,6 +1688,16 @@ body#rlab-generator .rdcl-help-work-cta {
   }
 
   /* tutorial template */
+  .rdcl-tutorial-meta-row {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .rdcl-tutorial-header-action {
+    margin-left: 0;
+    margin-top: 12px;
+  }
+
   .rdcl-tutorial-written-nav {
     border-bottom: 1px solid #332d2f;
     border-right: 0;
