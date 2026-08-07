@@ -367,6 +367,9 @@ const rdcLabSeoConfig = {
           "CSS tutorials",
           "JavaScript tutorials",
           "Shopify tutorials",
+          "Shopify timer bar tutorial",
+          "timer bar tutorial",
+          "ecommerce timer bar",
           "frontend tutorials",
           "web development tutorials",
         ],
@@ -913,6 +916,7 @@ function getRdcLabTutorialSchema(page, config, seo) {
   const url = getRdcLabAbsoluteUrl(seo.path, config.defaults.baseUrl);
   const image = getRdcLabAbsoluteUrl(seo.image, config.defaults.baseUrl);
   const steps = getRdcLabTutorialHowToSteps(page.written, seo.howToSteps);
+  const faqs = getRdcLabTutorialFaqs(page.faqs);
   const topicSchema = getRdcLabTutorialTopicSchema(page);
   const graph = [
     {
@@ -978,6 +982,26 @@ function getRdcLabTutorialSchema(page, config, seo) {
     });
   }
 
+  if (faqs.length) {
+    graph.push({
+      "@type": "FAQPage",
+      "@id": `${url}#faq`,
+      name: page.faqs?.title || "Frequently Asked Questions",
+      description: page.faqs?.description || seo.description,
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
+      mainEntityOfPage: {
+        "@id": `${url}#webpage`,
+      },
+    });
+  }
+
   if (page.video?.title) {
     graph.push({
       "@type": "VideoObject",
@@ -986,7 +1010,7 @@ function getRdcLabTutorialSchema(page, config, seo) {
       description: seo.description,
       thumbnailUrl: [image],
       contentUrl: page.video.embedUrl || undefined,
-      duration: getRdcLabIsoDuration(page.video.duration),
+      duration: page.video.isoDuration || getRdcLabIsoDuration(page.video.duration),
       mainEntityOfPage: {
         "@id": `${url}#webpage`,
       },
@@ -1051,7 +1075,11 @@ function getRdcLabTutorialHowToSteps(written = {}, manualSteps) {
     }));
   }
 
-  return (written.tabs || [])
+  const tabs = written.tabs || [];
+  const explicitSteps = tabs.filter((tab) => tab?.includeInHowTo);
+  const sourceTabs = explicitSteps.length ? explicitSteps : tabs;
+
+  return sourceTabs
     .filter((tab) => tab && (tab.title || tab.label))
     .map((tab, index) => ({
       "@type": "HowToStep",
@@ -1060,6 +1088,12 @@ function getRdcLabTutorialHowToSteps(written = {}, manualSteps) {
       text: getRdcLabTutorialStepText(tab),
       url: `${getRdcLabCurrentPageUrl()}#${tab.id}`,
     }));
+}
+
+function getRdcLabTutorialFaqs(faqs = {}) {
+  return (faqs.items || []).filter(
+    (faq) => faq?.question && faq?.answer,
+  );
 }
 
 function getRdcLabTutorialStepText(tab) {
@@ -1089,6 +1123,12 @@ function stripRdcLabHtml(value = "") {
 }
 
 function getRdcLabIsoDuration(duration = "") {
+  const minuteMatch = String(duration).trim().match(/^(\d+)\s*min(?:ute)?s?$/i);
+
+  if (minuteMatch) {
+    return `PT${minuteMatch[1]}M`;
+  }
+
   const parts = String(duration).split(":").map(Number);
   if (parts.some(Number.isNaN)) return undefined;
 

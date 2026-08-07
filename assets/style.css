@@ -1661,6 +1661,7 @@ body#rlab-generator .rdcl-help-work-cta {
   .rdcl-tutorial-written-nav {
     border-bottom: 1px solid #332d2f;
     border-right: 0;
+    padding: 25px 20px 5px 24px;
   }
 
   .rdcl-tutorial-written-toggle {
