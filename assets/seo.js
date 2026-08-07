@@ -1010,6 +1010,7 @@ function getRdcLabTutorialSchema(page, config, seo) {
       description: seo.description,
       thumbnailUrl: [image],
       contentUrl: page.video.embedUrl || undefined,
+      uploadDate: page.video.uploadDate,
       duration: page.video.isoDuration || getRdcLabIsoDuration(page.video.duration),
       mainEntityOfPage: {
         "@id": `${url}#webpage`,

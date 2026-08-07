@@ -36,6 +36,7 @@ window.rdclTutorialPage = {
     image:
       "/assets/images/rdc-lab-timer-bar-shopify-ecommerce-tutorial-thumbnail.jpg",
     embedUrl: shopifyTimerBarTutorialVideoUrl,
+    uploadDate: "2026-08-07",
     duration: "22 min",
     isoDuration: "PT22M",
   },
