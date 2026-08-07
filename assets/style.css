@@ -612,7 +612,9 @@ button,
   margin-top: 16px;
 }
 
-.rdcl-gen-tutorial-link {
+.rdcl-gen-tutorial-link,
+.rdcl-gen-tutorial-link:visited,
+.rdcl-gen-tutorial-link span {
   color: #c5fa31;
   font-family: "Bai Jamjuree", Arial, sans-serif;
   text-decoration: underline;
@@ -1685,6 +1687,14 @@ body#rlab-generator .rdcl-help-work-cta {
     max-width: 70px;
     height: auto;
     margin: 10px;
+  }
+
+  .rdcl-gen-tutorial-links {
+    text-align: right;
+  }
+
+  .rdcl-gen-tutorial-link {
+    justify-content: flex-end;
   }
 
   /* tutorial template */
