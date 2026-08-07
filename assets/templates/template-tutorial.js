@@ -177,6 +177,7 @@ function renderRdclTutorialPage(page, library) {
   `;
 
   bindTutorialWrittenNav();
+  bindTutorialWrittenToggle();
 }
 
 function renderTutorialHeader(page) {
@@ -333,10 +334,16 @@ function renderWrittenVersion(written) {
     <section class="rdcl-tutorial-written rdcl-tutorial-written-border rdc-bg-dark-6 rdc-mw-1200 rdc-m-iauto rdc-br-10 rdc-m-b30">
       <div class="rdc-d-flex rdc-fw-wrap">
         <aside class="rdcl-tutorial-written-nav rdc-w-30 rdc-t-w-full rdc-m-w-full">
-          <p class="rdcl-tutorial-written-title rdc-ff-baij rdc-tt-upc rdc-fw-700 rdc-fs-12 rdc-m-t0 rdc-m-b20">
-            ${written.navTitle || written.title}
-          </p>
-          <nav aria-label="${escapeHtml(written.navTitle || written.title)}">
+          <button
+            class="rdcl-tutorial-written-title rdcl-tutorial-written-toggle rdc-ff-baij rdc-tt-upc rdc-fw-700 rdc-fs-12 rdc-m-t0 rdc-m-b20"
+            type="button"
+            aria-expanded="false"
+            data-tutorial-written-toggle
+          >
+            <span>${written.navTitle || written.title}</span>
+            <span class="rdcl-tutorial-written-toggle-icon" aria-hidden="true" data-tutorial-written-toggle-icon>+</span>
+          </button>
+          <nav class="rdcl-tutorial-written-menu" aria-label="${escapeHtml(written.navTitle || written.title)}" data-tutorial-written-menu>
             <ol class="rdcl-tutorial-written-list rdc-ls-none rdc-p-0 rdc-m-0" role="tablist">
               ${tabs.map((tab, index) => renderWrittenNavItem(tab, index, written)).join("")}
             </ol>
@@ -643,6 +650,39 @@ function bindTutorialWrittenNav() {
     button.addEventListener("click", () => {
       setActiveTutorialNav(button.dataset.nextTutorialTab);
     });
+  });
+}
+
+function bindTutorialWrittenToggle() {
+  const nav = document.querySelector(".rdcl-tutorial-written-nav");
+  const toggle = document.querySelector("[data-tutorial-written-toggle]");
+  const icon = document.querySelector("[data-tutorial-written-toggle-icon]");
+
+  if (!nav || !toggle) return;
+
+  const syncToggleState = () => {
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
+    nav.classList.toggle("is-open", !isMobile);
+    toggle.setAttribute("aria-expanded", String(!isMobile));
+
+    if (icon) {
+      icon.textContent = "+";
+    }
+  };
+
+  syncToggleState();
+  window.addEventListener("resize", syncToggleState);
+
+  toggle.addEventListener("click", () => {
+    if (!window.matchMedia("(max-width: 767px)").matches) return;
+
+    const isOpen = nav.classList.toggle("is-open");
+    toggle.setAttribute("aria-expanded", String(isOpen));
+
+    if (icon) {
+      icon.textContent = isOpen ? "-" : "+";
+    }
   });
 }
 

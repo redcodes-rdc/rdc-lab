@@ -24,7 +24,7 @@ window.rdclTutorialPage = {
   },
   written: {
     title: "Written Version",
-    navTitle: "On This Page",
+    navTitle: "CONTENTS",
     hideNavNumbers: true,
     tabs: [
       {

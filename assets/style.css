@@ -638,8 +638,19 @@ button,
 }
 
 .rdcl-tutorial-written-title {
+  appearance: none;
+  background-color: transparent;
+  border: 0;
   color: #c5fa31;
+  cursor: default;
   letter-spacing: 0;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.rdcl-tutorial-written-toggle-icon {
+  display: none;
 }
 
 .rdcl-tutorial-written-nav-item {
@@ -1650,6 +1661,21 @@ body#rlab-generator .rdcl-help-work-cta {
   .rdcl-tutorial-written-nav {
     border-bottom: 1px solid #332d2f;
     border-right: 0;
+  }
+
+  .rdcl-tutorial-written-toggle {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .rdcl-tutorial-written-toggle-icon {
+    display: inline-flex;
+  }
+
+  .rdcl-tutorial-written-nav:not(.is-open) .rdcl-tutorial-written-menu {
+    display: none;
   }
 
   .rdcl-tutorial-written-content {
