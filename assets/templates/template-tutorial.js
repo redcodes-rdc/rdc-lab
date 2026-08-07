@@ -208,17 +208,34 @@ function renderTutorialBreadcrumb(link) {
 
 function renderMetaTags(page) {
   const tags = [...(page.categories || []), ...(page.tags || [])];
-  if (!tags.length) return "";
+  const action = page.headerAction;
+  if (!tags.length && !action?.href) return "";
 
   return `
-    <div class="rdcl-tutorial-tags rdc-d-flex rdc-fw-wrap rdc-m-t20">
-      ${tags.map(renderMetaTag).join("")}
+    <div class="rdcl-tutorial-meta-row rdc-d-flex rdc-fw-wrap rdc-ai-cen rdc-jc-sb rdc-m-t20">
+      <div class="rdcl-tutorial-tags rdc-d-flex rdc-fw-wrap">
+        ${tags.map(renderMetaTag).join("")}
+      </div>
+      ${renderTutorialHeaderAction(action)}
     </div>
   `;
 }
 
 function renderMetaTag(tag) {
   return `<span class="rdcl-tutorial-tag rdcl-allgen-tag rdc-lab-border-h-1 rdc-br-4 rdc-ff-baij rdc-fs-12 rdc-tt-upc rdc-m-r5 rdc-m-b5">${escapeHtml(valueToLabel(tag))}</span>`;
+}
+
+function renderTutorialHeaderAction(action = {}) {
+  if (!action.href) return "";
+
+  const label = action.nickname || action.label || "Open Generator";
+
+  return `
+    <a class="rdcl-tutorial-header-action rdc-lab-5th-btn rdc-td-none rdc-d-iflex rdc-ai-cen rdc-m-b5" href="${action.href}">
+      <span>${escapeHtml(label)}</span>
+      <span aria-hidden="true">${rdclTutorialIcons.arrow}</span>
+    </a>
+  `;
 }
 
 function renderTutorialVideo(video) {

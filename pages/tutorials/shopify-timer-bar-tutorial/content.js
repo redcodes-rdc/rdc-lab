@@ -15,6 +15,11 @@ window.rdclTutorialPage = {
   },
   categories: ["shopify"],
   tags: ["shopify", "timer-bar", "ecommerce", "ai"],
+  headerAction: {
+    label: "Open Timer Bar Generator",
+    nickname: "",
+    href: "/gens/timer-bar/",
+  },
   seo: {
     title:
       "Shopify Timer Bar Tutorial - No App Needed | RDC Lab",

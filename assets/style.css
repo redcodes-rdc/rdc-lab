@@ -595,6 +595,16 @@ button,
   outline: 1px solid #383838;
 }
 
+.rdcl-tutorial-tags {
+  flex: 1 1 auto;
+}
+
+.rdcl-tutorial-header-action {
+  flex: 0 0 auto;
+  gap: 6px;
+  margin-left: auto;
+}
+
 .rdcl-tutorial-video-inner {
   aspect-ratio: 16 / 9;
   overflow: hidden;

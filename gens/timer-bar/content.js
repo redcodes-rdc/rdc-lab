@@ -37,6 +37,12 @@ const generatorContent = {
 `,
       text: "Add countdown bars for sales, launches, events, and promotions.",
     },
+    tutorialLinks: [
+      {
+        label: "Timer Bar Tutorial",
+        href: "/pages/tutorials/shopify-timer-bar-tutorial/",
+      },
+    ],
     outputId: "timerOutput",
   },
   settings: {
@@ -181,6 +187,7 @@ function renderLeftView(content) {
     <p>${content.description}</p>
     ${renderUseCases(content.useCases)}
     ${renderUseCta(content.useCta)}
+    ${renderTutorialLinks(content.tutorialLinks)}
     <pre><code id="${content.outputId}"></code></pre>
   </div>`;
 }
@@ -252,6 +259,32 @@ function renderUseCta(cta) {
         <span class="rdcl-gen-co-cta-text rdc-ff-baij">${cta.text}</span>
       </div>
     </div>
+  `;
+}
+
+function renderTutorialLinks(links = []) {
+  if (!links.length) return "";
+
+  return `
+    <div class="rdcl-gen-tutorial-links rdc-m-b10">
+      ${links.map(renderTutorialLink).join("")}
+    </div>
+  `;
+}
+
+function renderTutorialLink(link) {
+  if (!link || !link.href || !link.label) return "";
+
+  return `
+    <a class="rdcl-gen-tutorial-link rdc-d-iflex rdc-ai-cen rdc-c-blue rdc-td-none rdc-ff-baij rdc-fw-600 rdc-fs-14" href="${link.href}">
+      <span>${link.label}</span>
+      <span class="rdc-m-l5 rdc-d-iflex" aria-hidden="true">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 17L17 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8 7H17V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </a>
   `;
 }
 
