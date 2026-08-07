@@ -1091,9 +1091,12 @@ function getRdcLabTutorialHowToSteps(written = {}, manualSteps) {
 }
 
 function getRdcLabTutorialFaqs(faqs = {}) {
-  return (faqs.items || []).filter(
-    (faq) => faq?.question && faq?.answer,
-  );
+  return (faqs.items || [])
+    .filter((faq) => faq?.question && faq?.answer)
+    .map((faq) => ({
+      ...faq,
+      answer: stripRdcLabHtml(faq.answer),
+    }));
 }
 
 function getRdcLabTutorialStepText(tab) {

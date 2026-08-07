@@ -723,6 +723,12 @@ button,
   line-height: 1.1;
 }
 
+.rdcl-tutorial-inline-link {
+  color: #c5fa31;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .rdcl-tutorial-copy,
 .rdcl-tutorial-tab p {
   color: #d6d3d4;

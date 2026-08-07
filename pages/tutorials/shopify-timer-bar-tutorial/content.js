@@ -138,7 +138,7 @@ window.rdclTutorialPage = {
         hideTitle: true,
         html: `
           <h2 class="rdc-fs-24 rdc-fw-700">Step 2 – Generate the Timer Bar with RDC Lab</h2>
-          <p class="rdcl-tutorial-copy rdc-lh-1-5">Open RDC Lab and select the <strong>Timer Bar Generator</strong>.</p>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">Open RDC Lab and select the <a class="rdcl-tutorial-inline-link" href="/gens/timer-bar/">Timer Bar Generator</a>.</p>
 
           <h3 class="rdc-ff-baij rdc-fw-700">1. Set the timer bar content</h3>
           <p class="rdcl-tutorial-copy rdc-lh-1-5">Enter the promotional information you want to display.</p>
@@ -185,7 +185,7 @@ window.rdclTutorialPage = {
         hideTitle: true,
         html: `
           <h2 class="rdc-fs-24 rdc-fw-700">Step 3 – Generate the AI Prompt</h2>
-          <p class="rdcl-tutorial-copy rdc-lh-1-5">Scroll to the <strong>AI Prompt Generator</strong> below the component generator.</p>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">Scroll to <a class="rdcl-tutorial-inline-link" href="/gens/timer-bar/">RDC Lab's AI Prompt Generator</a> below the component generator.</p>
           <p class="rdcl-tutorial-copy rdc-lh-1-5">This tool combines your generated code with structured instructions for the AI coding assistant.</p>
 
           <h3 class="rdc-ff-baij rdc-fw-700">1. Select the enhancements</h3>
@@ -415,7 +415,7 @@ window.rdclTutorialPage = {
             <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span>More consistent components across projects</span></li>
           </ul>
           <p class="rdcl-tutorial-copy rdc-lh-1-5">The initial result does not limit your customization. You can still ask the AI to add background images, new layouts, additional settings, animations, accessibility improvements, or other enhancements.</p>
-          <p class="rdcl-tutorial-copy rdc-lh-1-5">The same workflow can also be used with other RDC Lab generators: build the starting component, generate the AI prompt, convert it for your platform, add the files, and test the result.</p>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">The same workflow can also be used with other RDC Lab generators: build the starting component, generate the AI prompt with tools like the <a class="rdcl-tutorial-inline-link" href="/gens/timer-bar/">Timer Bar Generator</a>, convert it for your platform, add the files, and test the result.</p>
         `,
       },
     ],
@@ -432,7 +432,7 @@ window.rdclTutorialPage = {
       {
         question: "Is this tutorial only for Shopify?",
         answer:
-          "No. While this tutorial demonstrates how to convert the component into a Shopify section, the Timer Bar Generator itself is platform-independent. The generated HTML, CSS, and JavaScript can be used on virtually any website. The Shopify-specific steps only apply when converting the component into a dynamic Shopify section using AI.",
+          'No. While this tutorial demonstrates how to convert the component into a Shopify section, the <a class="rdcl-tutorial-inline-link" href="/gens/timer-bar/">Timer Bar Generator</a> itself is platform-independent. The generated HTML, CSS, and JavaScript can be used on virtually any website. The Shopify-specific steps only apply when converting the component into a dynamic Shopify section using AI.',
       },
       {
         question: "Do I need to know how to code?",
