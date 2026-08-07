@@ -49,7 +49,7 @@ window.rdclTutorialPage = {
       },
       {
         id: "step-1-gather-the-tools",
-        label: "Step 1 – Gather the Tools",
+        label: "Step 1",
         title: "Step 1 – Gather the Tools",
         navIndent: true,
         hideTitle: true,
@@ -66,7 +66,7 @@ window.rdclTutorialPage = {
       },
       {
         id: "step-2-generate-the-timer-bar-with-rdc-lab",
-        label: "Step 2 – Generate the Timer Bar with RDC Lab",
+        label: "Step 2",
         title: "Step 2 – Generate the Timer Bar with RDC Lab",
         navIndent: true,
         hideTitle: true,
@@ -78,7 +78,7 @@ window.rdclTutorialPage = {
       },
       {
         id: "step-3-generate-the-ai-prompt",
-        label: "Step 3 – Generate the AI Prompt",
+        label: "Step 3",
         title: "Step 3 – Generate the AI Prompt",
         navIndent: true,
         hideTitle: true,
@@ -90,7 +90,7 @@ window.rdclTutorialPage = {
       },
       {
         id: "step-4-use-the-prompt-in-antigravity-codex",
-        label: "Step 4 – Use the Prompt in Antigravity/Codex",
+        label: "Step 4",
         title: "Step 4 – Use the Prompt in Antigravity/Codex",
         navIndent: true,
         hideTitle: true,
@@ -102,7 +102,7 @@ window.rdclTutorialPage = {
       },
       {
         id: "step-5-add-the-code-to-your-shopify-theme",
-        label: "Step 5 – Add the Code to Your Shopify Theme",
+        label: "Step 5",
         title: "Step 5 – Add the Code to Your Shopify Theme",
         navIndent: true,
         hideTitle: true,
@@ -114,7 +114,7 @@ window.rdclTutorialPage = {
       },
       {
         id: "step-6-test-the-timer-bar",
-        label: "Step 6 – Test the Timer Bar",
+        label: "Step 6",
         title: "Step 6 – Test the Timer Bar",
         navIndent: true,
         hideTitle: true,
@@ -151,24 +151,30 @@ window.rdclTutorialPage = {
     description: "Questions related to this tutorial.",
     items: [
       {
-        question: "Question 1",
-        answer: "Answer placeholder...",
+        question: "Can I use this timer bar on any Shopify theme?",
+        answer:
+          "Yes. The workflow shown in this tutorial is designed to work with most Shopify themes. Since the component is converted into a standard Shopify section, you can add and customize it through the Theme Editor just like any other section.",
       },
       {
-        question: "Question 2",
-        answer: "Answer placeholder...",
+        question: "Is this tutorial only for Shopify?",
+        answer:
+          "No. While this tutorial demonstrates how to convert the component into a Shopify section, the Timer Bar Generator itself is platform-independent. The generated HTML, CSS, and JavaScript can be used on virtually any website. The Shopify-specific steps only apply when converting the component into a dynamic Shopify section using AI.",
       },
       {
-        question: "Question 3",
-        answer: "Answer placeholder...",
+        question: "Do I need to know how to code?",
+        answer:
+          "Not necessarily. RDC Lab generates the starting component, while AI tools like Antigravity or Codex handle most of the Shopify conversion. Basic knowledge of the Shopify file structure is helpful, but you don't need to build the component from scratch.",
       },
       {
-        question: "Question 4",
-        answer: "Answer placeholder...",
+        question: "Can I customize the design after generating it?",
+        answer:
+          "Absolutely. You can modify colors, typography, spacing, border radius, layout, and other styling either before generating the prompt in RDC Lab or by giving additional instructions to your AI coding assistant.",
       },
       {
-        question: "Question 5",
-        answer: "Answer placeholder...",
+        question:
+          "Why use RDC Lab instead of asking AI to generate everything from scratch?",
+        answer:
+          "Starting with a structured component gives the AI a much better understanding of the intended layout and functionality. This usually produces cleaner code, follows consistent naming conventions, and reduces the amount of back-and-forth needed to reach the final result.",
       },
     ],
   },
