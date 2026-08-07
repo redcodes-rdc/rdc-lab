@@ -25,6 +25,7 @@ window.rdclTutorialPage = {
   written: {
     title: "Written Version",
     navTitle: "On This Page",
+    hideNavNumbers: true,
     tabs: [
       {
         id: "using-shopify-magic",
@@ -50,6 +51,7 @@ window.rdclTutorialPage = {
         id: "step-1-gather-the-tools",
         label: "Step 1 – Gather the Tools",
         title: "Step 1 – Gather the Tools",
+        navIndent: true,
         hideTitle: true,
         html: `
           <h2 class="rdc-fs-24 rdc-fw-700">Step 1 – Gather the Tools</h2>
@@ -66,6 +68,7 @@ window.rdclTutorialPage = {
         id: "step-2-generate-the-timer-bar-with-rdc-lab",
         label: "Step 2 – Generate the Timer Bar with RDC Lab",
         title: "Step 2 – Generate the Timer Bar with RDC Lab",
+        navIndent: true,
         hideTitle: true,
         html: `
           <h2 class="rdc-fs-24 rdc-fw-700">Step 2 – Generate the Timer Bar with RDC Lab</h2>
@@ -77,6 +80,7 @@ window.rdclTutorialPage = {
         id: "step-3-generate-the-ai-prompt",
         label: "Step 3 – Generate the AI Prompt",
         title: "Step 3 – Generate the AI Prompt",
+        navIndent: true,
         hideTitle: true,
         html: `
           <h2 class="rdc-fs-24 rdc-fw-700">Step 3 – Generate the AI Prompt</h2>
@@ -88,6 +92,7 @@ window.rdclTutorialPage = {
         id: "step-4-use-the-prompt-in-antigravity-codex",
         label: "Step 4 – Use the Prompt in Antigravity/Codex",
         title: "Step 4 – Use the Prompt in Antigravity/Codex",
+        navIndent: true,
         hideTitle: true,
         html: `
           <h2 class="rdc-fs-24 rdc-fw-700">Step 4 – Use the Prompt in Antigravity/Codex</h2>
@@ -99,6 +104,7 @@ window.rdclTutorialPage = {
         id: "step-5-add-the-code-to-your-shopify-theme",
         label: "Step 5 – Add the Code to Your Shopify Theme",
         title: "Step 5 – Add the Code to Your Shopify Theme",
+        navIndent: true,
         hideTitle: true,
         html: `
           <h2 class="rdc-fs-24 rdc-fw-700">Step 5 – Add the Code to Your Shopify Theme</h2>
@@ -110,6 +116,7 @@ window.rdclTutorialPage = {
         id: "step-6-test-the-timer-bar",
         label: "Step 6 – Test the Timer Bar",
         title: "Step 6 – Test the Timer Bar",
+        navIndent: true,
         hideTitle: true,
         html: `
           <h2 class="rdc-fs-24 rdc-fw-700">Step 6 – Test the Timer Bar</h2>

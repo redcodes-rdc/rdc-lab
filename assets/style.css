@@ -673,6 +673,11 @@ button,
   width: 2px;
 }
 
+.rdcl-tutorial-written-nav-link.is-indented {
+  margin-left: 20px;
+  width: calc(100% - 20px);
+}
+
 .rdcl-tutorial-written-nav-link:hover,
 .rdcl-tutorial-written-nav-link.is-active {
   color: #c5fa31;

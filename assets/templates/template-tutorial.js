@@ -338,7 +338,7 @@ function renderWrittenVersion(written) {
           </p>
           <nav aria-label="${escapeHtml(written.navTitle || written.title)}">
             <ol class="rdcl-tutorial-written-list rdc-ls-none rdc-p-0 rdc-m-0" role="tablist">
-              ${tabs.map(renderWrittenNavItem).join("")}
+              ${tabs.map((tab, index) => renderWrittenNavItem(tab, index, written)).join("")}
             </ol>
           </nav>
         </aside>
@@ -351,20 +351,21 @@ function renderWrittenVersion(written) {
   `;
 }
 
-function renderWrittenNavItem(tab, index) {
+function renderWrittenNavItem(tab, index, written = {}) {
   const number = index + 1;
+  const showNumber = !written.hideNavNumbers;
 
   return `
     <li class="rdcl-tutorial-written-nav-item">
       <button
-        class="rdcl-tutorial-written-nav-link rdc-d-flex rdc-ai-cen rdc-td-none rdc-fs-14${index === 0 ? " is-active" : ""}"
+        class="rdcl-tutorial-written-nav-link rdc-d-flex rdc-ai-cen rdc-td-none rdc-fs-14${index === 0 ? " is-active" : ""}${tab.navIndent ? " is-indented" : ""}"
         type="button"
         role="tab"
         aria-selected="${index === 0 ? "true" : "false"}"
         aria-controls="${tab.id}"
         data-tutorial-tab-link="${tab.id}"
       >
-        <span class="rdcl-tutorial-written-nav-number rdc-m-r10">${number}.</span>
+        ${showNumber ? `<span class="rdcl-tutorial-written-nav-number rdc-m-r10">${number}.</span>` : ""}
         <span class="rdcl-tutorial-written-nav-label">${tab.label || tab.title}</span>
       </button>
     </li>
