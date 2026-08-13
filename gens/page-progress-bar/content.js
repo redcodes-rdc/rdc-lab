@@ -413,6 +413,11 @@ function getGeneratedCss() {
 .rlab-rp-bar {
   background-color: #495d63;
   border-radius: 2px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999999;
 }
 .rlab-rp-bar-fill {
   background-color: #50caee;
