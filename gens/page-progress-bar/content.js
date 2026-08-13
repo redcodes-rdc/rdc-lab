@@ -462,8 +462,15 @@ function getTextValue(id) {
   return value || control.placeholder || "";
 }
 
+function shouldDelayTopProgressBar(values = {}) {
+  const offset = String(values.offset || "").trim();
+
+  return values.position !== "bottom" && offset && !/^0(?:px|rem|em|%)?$/.test(offset);
+}
+
 function getGeneratedCss(values = {}) {
   const positionProperty = values.position === "bottom" ? "bottom" : "top";
+  const delayReveal = shouldDelayTopProgressBar(values);
 
   return `.rlab-rp-bar,
 .rlab-rp-bar-fill {
@@ -477,7 +484,14 @@ function getGeneratedCss(values = {}) {
   ${positionProperty}: ${values.offset || "0px"};
   width: 100%;
   z-index: ${values.zIndex || "999999"};
+  ${delayReveal ? "opacity: 0;" : ""}
+  ${delayReveal ? "transition: opacity 150ms ease;" : ""}
+  ${delayReveal ? "visibility: hidden;" : ""}
 }
+${delayReveal ? `.rlab-rp-bar.is-visible {
+  opacity: 1;
+  visibility: visible;
+}` : ""}
 .rlab-rp-bar-fill {
   background-color: #50caee;
 }
@@ -538,6 +552,8 @@ function updateReadingProgressPreview(content) {
 }
 
 function buildReadingProgressOutput(values) {
+  const delayReveal = shouldDelayTopProgressBar(values);
+
   return `<style>
 ${getGeneratedCss(values)}
 </style>
@@ -588,6 +604,10 @@ ${getGeneratedCss(values)}
   const scrollTarget = content ? getScrollTarget(content) : window;
 
   updateProgressBar();
+  ${delayReveal ? `window.setTimeout(function () {
+    bar?.parentElement?.classList.add("is-visible");
+    updateProgressBar();
+  }, 700);` : ""}
   window.addEventListener("scroll", updateProgressBar, { passive: true });
   document.addEventListener("scroll", updateProgressBar, {
     capture: true,
