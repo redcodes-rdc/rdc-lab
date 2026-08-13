@@ -55,21 +55,7 @@ const generatorContent = {
             label: "Content Selector (.class or #id)",
             id: "rp-content-selector",
             className: "rp-content-selector",
-            placeholder: ".rpb-main",
-          },
-          {
-            type: "number",
-            label: "Total Height (Demo)",
-            id: "rp-total",
-            className: "rp-total",
-            placeholder: "1000",
-          },
-          {
-            type: "number",
-            label: "Current Position (Demo)",
-            id: "rp-current",
-            className: "rp-current",
-            placeholder: "250",
+            placeholder: "main",
           },
         ],
       },
@@ -353,16 +339,12 @@ function renderSmallCta(content) {
 
 function bindReadingProgressGenerator(content) {
   const contentSelectorInput = document.querySelector("#rp-content-selector");
-  const totalInput = document.querySelector("#rp-total");
-  const currentInput = document.querySelector("#rp-current");
   const output = document.querySelector(`#${content.leftView.output.codeId}`);
   const copyButton = document.querySelector("#rdcl-copy-btn");
   const previewContainer = document.querySelector(".rdcl-gen--layout-vw-inner");
 
   if (
     !contentSelectorInput ||
-    !totalInput ||
-    !currentInput ||
     !output ||
     !copyButton ||
     !previewContainer
@@ -371,25 +353,20 @@ function bindReadingProgressGenerator(content) {
 
   const update = () => {
     const values = getReadingProgressValues();
-    const percent = calculateProgress(values.total, values.current);
 
     previewContainer.innerHTML = buildReadingProgressPreview(content.preview);
     updateReadingProgressPreviewStyles();
-
-    const barFill = document.querySelector(`#${content.preview.fillId}`);
-    if (barFill) {
-      barFill.style.width = `${percent}%`;
-    }
+    updateReadingProgressPreview(content.preview);
 
     output.textContent = buildReadingProgressOutput(values);
   };
 
   contentSelectorInput.addEventListener("input", update);
   contentSelectorInput.addEventListener("change", update);
-  totalInput.addEventListener("input", update);
-  totalInput.addEventListener("change", update);
-  currentInput.addEventListener("input", update);
-  currentInput.addEventListener("change", update);
+  window.addEventListener("scroll", () => updateReadingProgressPreview(content.preview), {
+    passive: true,
+  });
+  window.addEventListener("resize", () => updateReadingProgressPreview(content.preview));
 
   const copyOutputCode = async (event) => {
     event.preventDefault();
@@ -418,8 +395,6 @@ function bindReadingProgressGenerator(content) {
 function getReadingProgressValues() {
   return {
     contentSelector: getTextValue("rp-content-selector"),
-    total: getNumberValue("rp-total"),
-    current: getNumberValue("rp-current"),
   };
 }
 
@@ -428,20 +403,6 @@ function getTextValue(id) {
   const value = control.value.trim();
 
   return value || control.placeholder || "";
-}
-
-function getNumberValue(id) {
-  const control = document.querySelector(`#${id}`);
-  const value = Number.parseFloat(control.value);
-  const placeholder = Number.parseFloat(control.placeholder);
-
-  return value || placeholder || 0;
-}
-
-function calculateProgress(total, current) {
-  if (total <= 0) return 0;
-
-  return Math.min((current / total) * 100, 100);
 }
 
 function getGeneratedCss() {
@@ -482,6 +443,18 @@ function updateReadingProgressPreviewStyles() {
   style.textContent = getGeneratedCss();
 }
 
+function updateReadingProgressPreview(content) {
+  const barFill = document.querySelector(`#${content.fillId}`);
+  if (!barFill) return;
+
+  const page = document.querySelector("main") || document.documentElement;
+  const scrollableHeight = page.scrollHeight - window.innerHeight;
+  const percent =
+    scrollableHeight > 0 ? (window.scrollY / scrollableHeight) * 100 : 0;
+
+  barFill.style.width = `${Math.min(Math.max(percent, 0), 100)}%`;
+}
+
 function buildReadingProgressOutput(values) {
   return `<style>
 ${getGeneratedCss()}
@@ -496,18 +469,53 @@ ${getGeneratedCss()}
   const bar = document.querySelector(".rlab-rp-bar-fill");
   const content = document.querySelector(${JSON.stringify(values.contentSelector)});
 
+  const getScrollTarget = function (element) {
+    let current = element;
+
+    while (current && current !== document.body) {
+      const style = window.getComputedStyle(current);
+      const canScroll = /(auto|scroll|overlay)/.test(style.overflowY);
+
+      if (canScroll && current.scrollHeight > current.clientHeight) {
+        return current;
+      }
+
+      current = current.parentElement;
+    }
+
+    return window;
+  };
+
   const updateProgressBar = function () {
     if (!bar || !content) return;
 
-    const scrollableHeight = content.clientHeight - window.innerHeight;
-    const yPosition = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
+    const scrollTarget = getScrollTarget(content);
+    const isWindowScroll = scrollTarget === window;
+    const currentPosition = isWindowScroll
+      ? window.scrollY - (content.getBoundingClientRect().top + window.scrollY)
+      : scrollTarget.scrollTop;
+    const scrollableHeight = isWindowScroll
+      ? content.scrollHeight - window.innerHeight
+      : content.scrollHeight - scrollTarget.clientHeight;
+    const yPosition = scrollableHeight > 0 ? currentPosition / scrollableHeight : 0;
     const barPercentage = Math.min(Math.max(yPosition * 100, 0), 100);
 
     bar.style.width = \`\${barPercentage}%\`;
   };
 
+  const scrollTarget = content ? getScrollTarget(content) : window;
+
   updateProgressBar();
-  window.addEventListener("scroll", updateProgressBar);
+  window.addEventListener("scroll", updateProgressBar, { passive: true });
+  document.addEventListener("scroll", updateProgressBar, {
+    capture: true,
+    passive: true,
+  });
+  if (scrollTarget !== window) {
+    scrollTarget.addEventListener("scroll", updateProgressBar, {
+      passive: true,
+    });
+  }
   window.addEventListener("resize", updateProgressBar);
 })();
 </scr${"ipt"}>`;

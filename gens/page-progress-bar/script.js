@@ -1,6 +1,4 @@
 const rpContentSelector = document.getElementById("rp-content-selector");
-const rpTotal = document.getElementById("rp-total");
-const rpCurrent = document.getElementById("rp-current");
 
 const rpOutput = document.getElementById("rpOutput");
 const copyBtn = document.getElementById("rdcl-copy-btn");
@@ -19,18 +17,7 @@ function getValues() {
   const contentSelector =
     rpContentSelector.value.trim() || rpContentSelector.placeholder || "";
 
-  const total =
-    parseFloat(rpTotal.value) || parseFloat(rpTotal.placeholder) || 0;
-
-  const current =
-    parseFloat(rpCurrent.value) || parseFloat(rpCurrent.placeholder) || 0;
-
-  return { contentSelector, total, current };
-}
-
-function calculateProgress(total, current) {
-  if (total <= 0) return 0;
-  return Math.min((current / total) * 100, 100);
+  return { contentSelector };
 }
 
 function getGeneratedCss() {
@@ -74,35 +61,74 @@ ${getGeneratedCss()}
   const bar = document.querySelector(".rlab-rp-bar-fill");
   const content = document.querySelector(${JSON.stringify(contentSelector)});
 
+  const getScrollTarget = function (element) {
+    let current = element;
+
+    while (current && current !== document.body) {
+      const style = window.getComputedStyle(current);
+      const canScroll = /(auto|scroll|overlay)/.test(style.overflowY);
+
+      if (canScroll && current.scrollHeight > current.clientHeight) {
+        return current;
+      }
+
+      current = current.parentElement;
+    }
+
+    return window;
+  };
+
   const updateProgressBar = function () {
     if (!bar || !content) return;
 
-    const scrollableHeight = content.clientHeight - window.innerHeight;
-    const yPosition = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
+    const scrollTarget = getScrollTarget(content);
+    const isWindowScroll = scrollTarget === window;
+    const currentPosition = isWindowScroll
+      ? window.scrollY - (content.getBoundingClientRect().top + window.scrollY)
+      : scrollTarget.scrollTop;
+    const scrollableHeight = isWindowScroll
+      ? content.scrollHeight - window.innerHeight
+      : content.scrollHeight - scrollTarget.clientHeight;
+    const yPosition = scrollableHeight > 0 ? currentPosition / scrollableHeight : 0;
     const barPercentage = Math.min(Math.max(yPosition * 100, 0), 100);
 
     bar.style.width = \`\${barPercentage}%\`;
   };
 
+  const scrollTarget = content ? getScrollTarget(content) : window;
+
   updateProgressBar();
-  window.addEventListener("scroll", updateProgressBar);
+  window.addEventListener("scroll", updateProgressBar, { passive: true });
+  document.addEventListener("scroll", updateProgressBar, {
+    capture: true,
+    passive: true,
+  });
+  if (scrollTarget !== window) {
+    scrollTarget.addEventListener("scroll", updateProgressBar, {
+      passive: true,
+    });
+  }
   window.addEventListener("resize", updateProgressBar);
 })();
 <\/script>`;
 }
 
 function updatePreview() {
-  const { total, current } = getValues();
-  const percent = calculateProgress(total, current);
-
   previewCont.innerHTML = buildPreviewHtml();
   rpPreviewStyle.textContent = getGeneratedCss();
+  updatePreviewProgress();
+}
 
+function updatePreviewProgress() {
   const rpBarFill = document.getElementById("rpBarFill");
+  if (!rpBarFill) return;
 
-  if (rpBarFill) {
-    rpBarFill.style.width = percent + "%";
-  }
+  const page = document.querySelector("main") || document.documentElement;
+  const scrollableHeight = page.scrollHeight - window.innerHeight;
+  const percent =
+    scrollableHeight > 0 ? (window.scrollY / scrollableHeight) * 100 : 0;
+
+  rpBarFill.style.width = `${Math.min(Math.max(percent, 0), 100)}%`;
 }
 
 function updateOutput() {
@@ -114,10 +140,13 @@ function generateRP() {
   updateOutput();
 }
 
-[rpContentSelector, rpTotal, rpCurrent].forEach((field) => {
+[rpContentSelector].forEach((field) => {
   field.addEventListener("input", generateRP);
   field.addEventListener("change", generateRP);
 });
+
+window.addEventListener("scroll", updatePreviewProgress, { passive: true });
+window.addEventListener("resize", updatePreviewProgress);
 
 copyBtn.addEventListener("click", async () => {
   try {
