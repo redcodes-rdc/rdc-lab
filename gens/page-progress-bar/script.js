@@ -33,9 +33,9 @@ function getValues() {
 }
 
 function shouldRevealOnScroll(values = {}) {
-  const offset = String(values.offset || "").trim();
+  const revealAfter = Number.parseFloat(values.revealAfter);
 
-  return values.position !== "bottom" && offset && !/^0(?:px|rem|em|%)?$/.test(offset);
+  return Number.isFinite(revealAfter) && revealAfter > 0;
 }
 
 function getGeneratedCss(values = {}) {
