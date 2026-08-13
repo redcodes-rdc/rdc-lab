@@ -59,6 +59,16 @@ const generatorContent = {
           },
           {
             type: "select",
+            label: "Setup Type",
+            id: "rp-setup-type",
+            className: "rp-setup-type",
+            options: [
+              { value: "basic", label: "Basic HTML/CSS/JS" },
+              { value: "theme", label: "Theme / Shopify" },
+            ],
+          },
+          {
+            type: "select",
             label: "Bar Position",
             id: "rp-position",
             className: "rp-position",
@@ -383,6 +393,7 @@ function renderSmallCta(content) {
 
 function bindReadingProgressGenerator(content) {
   const contentSelectorInput = document.querySelector("#rp-content-selector");
+  const setupTypeInput = document.querySelector("#rp-setup-type");
   const positionInput = document.querySelector("#rp-position");
   const offsetInput = document.querySelector("#rp-offset");
   const revealAfterInput = document.querySelector("#rp-reveal-after");
@@ -393,6 +404,7 @@ function bindReadingProgressGenerator(content) {
 
   if (
     !contentSelectorInput ||
+    !setupTypeInput ||
     !positionInput ||
     !offsetInput ||
     !revealAfterInput ||
@@ -415,6 +427,7 @@ function bindReadingProgressGenerator(content) {
 
   contentSelectorInput.addEventListener("input", update);
   contentSelectorInput.addEventListener("change", update);
+  setupTypeInput.addEventListener("change", update);
   positionInput.addEventListener("change", update);
   offsetInput.addEventListener("input", update);
   offsetInput.addEventListener("change", update);
@@ -454,6 +467,7 @@ function bindReadingProgressGenerator(content) {
 function getReadingProgressValues() {
   return {
     contentSelector: getTextValue("rp-content-selector"),
+    setupType: getSelectValue("rp-setup-type"),
     position: getSelectValue("rp-position"),
     offset: getTextValue("rp-offset"),
     revealAfter: getNumberValue("rp-reveal-after"),
@@ -572,8 +586,6 @@ function updateReadingProgressPreview(content) {
 }
 
 function buildReadingProgressOutput(values) {
-  const revealOnScroll = shouldRevealOnScroll(values);
-
   return `<style>
 ${getGeneratedCss(values)}
 </style>
@@ -582,7 +594,48 @@ ${getGeneratedCss(values)}
   <div class="rlab-rp-bar-fill"></div>
 </div>
 
-<script>
+${buildReadingProgressScript(values)}`;
+}
+
+function buildReadingProgressScript(values) {
+  return values.setupType === "theme"
+    ? buildThemeReadingProgressScript(values)
+    : buildBasicReadingProgressScript(values);
+}
+
+function buildBasicReadingProgressScript(values) {
+  const revealOnScroll = shouldRevealOnScroll(values);
+
+  return `<script>
+(function () {
+  const bar = document.querySelector(".rlab-rp-bar-fill");
+  const content = document.querySelector(${JSON.stringify(values.contentSelector)});
+  const revealAfter = ${Number.isFinite(values.revealAfter) ? values.revealAfter : 3};
+
+  const updateProgressBar = function () {
+    if (!bar || !content) return;
+
+    const contentTop = content.getBoundingClientRect().top + window.scrollY;
+    const currentPosition = window.scrollY - contentTop;
+    const scrollableHeight = content.scrollHeight - window.innerHeight;
+    const yPosition = scrollableHeight > 0 ? currentPosition / scrollableHeight : 0;
+    const barPercentage = Math.min(Math.max(yPosition * 100, 0), 100);
+
+    bar.style.width = \`\${barPercentage}%\`;
+    ${revealOnScroll ? `bar.parentElement?.classList.toggle("is-visible", barPercentage >= revealAfter);` : ""}
+  };
+
+  updateProgressBar();
+  window.addEventListener("scroll", updateProgressBar, { passive: true });
+  window.addEventListener("resize", updateProgressBar);
+})();
+</scr${"ipt"}>`;
+}
+
+function buildThemeReadingProgressScript(values) {
+  const revealOnScroll = shouldRevealOnScroll(values);
+
+  return `<script>
 (function () {
   const bar = document.querySelector(".rlab-rp-bar-fill");
   const contentSelector = ${JSON.stringify(values.contentSelector)};

@@ -1,4 +1,5 @@
 const rpContentSelector = document.getElementById("rp-content-selector");
+const rpSetupType = document.getElementById("rp-setup-type");
 const rpPosition = document.getElementById("rp-position");
 const rpOffset = document.getElementById("rp-offset");
 const rpRevealAfter = document.getElementById("rp-reveal-after");
@@ -20,6 +21,7 @@ if (!rpPreviewStyle) {
 function getValues() {
   const contentSelector =
     rpContentSelector.value.trim() || rpContentSelector.placeholder || "";
+  const setupType = rpSetupType.value;
   const position = rpPosition.value;
   const offset = rpOffset.value.trim() || rpOffset.placeholder || "0px";
   const revealAfterValue = parseFloat(rpRevealAfter.value);
@@ -29,7 +31,7 @@ function getValues() {
     : revealAfterPlaceholder || 3;
   const zIndex = rpZIndex.value.trim() || rpZIndex.placeholder || "999999";
 
-  return { contentSelector, position, offset, revealAfter, zIndex };
+  return { contentSelector, setupType, position, offset, revealAfter, zIndex };
 }
 
 function shouldRevealOnScroll(values = {}) {
@@ -97,7 +99,6 @@ function buildPreviewHtml() {
 
 function buildOutput() {
   const values = getValues();
-  const revealOnScroll = shouldRevealOnScroll(values);
 
   return `<style>
 ${getGeneratedCss(values)}
@@ -107,7 +108,48 @@ ${getGeneratedCss(values)}
   <div class="rlab-rp-bar-fill"></div>
 </div>
 
-<script>
+${buildProgressScript(values)}`;
+}
+
+function buildProgressScript(values) {
+  return values.setupType === "theme"
+    ? buildThemeProgressScript(values)
+    : buildBasicProgressScript(values);
+}
+
+function buildBasicProgressScript(values) {
+  const revealOnScroll = shouldRevealOnScroll(values);
+
+  return `<script>
+(function () {
+  const bar = document.querySelector(".rlab-rp-bar-fill");
+  const content = document.querySelector(${JSON.stringify(values.contentSelector)});
+  const revealAfter = ${Number.isFinite(values.revealAfter) ? values.revealAfter : 3};
+
+  const updateProgressBar = function () {
+    if (!bar || !content) return;
+
+    const contentTop = content.getBoundingClientRect().top + window.scrollY;
+    const currentPosition = window.scrollY - contentTop;
+    const scrollableHeight = content.scrollHeight - window.innerHeight;
+    const yPosition = scrollableHeight > 0 ? currentPosition / scrollableHeight : 0;
+    const barPercentage = Math.min(Math.max(yPosition * 100, 0), 100);
+
+    bar.style.width = \`\${barPercentage}%\`;
+    ${revealOnScroll ? `bar.parentElement?.classList.toggle("is-visible", barPercentage >= revealAfter);` : ""}
+  };
+
+  updateProgressBar();
+  window.addEventListener("scroll", updateProgressBar, { passive: true });
+  window.addEventListener("resize", updateProgressBar);
+})();
+<\/script>`;
+}
+
+function buildThemeProgressScript(values) {
+  const revealOnScroll = shouldRevealOnScroll(values);
+
+  return `<script>
 (function () {
   const bar = document.querySelector(".rlab-rp-bar-fill");
   const contentSelector = ${JSON.stringify(values.contentSelector)};
@@ -211,7 +253,7 @@ function generateRP() {
   updateOutput();
 }
 
-[rpContentSelector, rpPosition, rpOffset, rpRevealAfter, rpZIndex].forEach((field) => {
+[rpContentSelector, rpSetupType, rpPosition, rpOffset, rpRevealAfter, rpZIndex].forEach((field) => {
   field.addEventListener("input", generateRP);
   field.addEventListener("change", generateRP);
 });
