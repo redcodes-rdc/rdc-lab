@@ -135,12 +135,11 @@ ${getGeneratedCss(values)}
 
     const scrollTarget = getScrollTarget(content);
     const isWindowScroll = scrollTarget === window;
-    const currentPosition = isWindowScroll
-      ? window.scrollY - (content.getBoundingClientRect().top + window.scrollY)
-      : scrollTarget.scrollTop;
-    const scrollableHeight = isWindowScroll
-      ? content.scrollHeight - window.innerHeight
-      : content.scrollHeight - scrollTarget.clientHeight;
+    const contentTop = content.getBoundingClientRect().top + window.scrollY;
+    const start = contentTop - window.innerHeight;
+    const end = contentTop + content.scrollHeight - window.innerHeight;
+    const currentPosition = isWindowScroll ? window.scrollY - start : scrollTarget.scrollTop;
+    const scrollableHeight = isWindowScroll ? end - start : content.scrollHeight - scrollTarget.clientHeight;
     const yPosition = scrollableHeight > 0 ? currentPosition / scrollableHeight : 0;
     const barPercentage = Math.min(Math.max(yPosition * 100, 0), 100);
 
