@@ -1,4 +1,7 @@
 const rpContentSelector = document.getElementById("rp-content-selector");
+const rpPosition = document.getElementById("rp-position");
+const rpOffset = document.getElementById("rp-offset");
+const rpZIndex = document.getElementById("rp-z-index");
 
 const rpOutput = document.getElementById("rpOutput");
 const copyBtn = document.getElementById("rdcl-copy-btn");
@@ -16,11 +19,16 @@ if (!rpPreviewStyle) {
 function getValues() {
   const contentSelector =
     rpContentSelector.value.trim() || rpContentSelector.placeholder || "";
+  const position = rpPosition.value;
+  const offset = rpOffset.value.trim() || rpOffset.placeholder || "0px";
+  const zIndex = rpZIndex.value.trim() || rpZIndex.placeholder || "999999";
 
-  return { contentSelector };
+  return { contentSelector, position, offset, zIndex };
 }
 
-function getGeneratedCss() {
+function getGeneratedCss(values = {}) {
+  const positionProperty = values.position === "bottom" ? "bottom" : "top";
+
   return `.rlab-rp-bar,
 .rlab-rp-bar-fill {
   height: 10px;
@@ -29,9 +37,26 @@ function getGeneratedCss() {
   background-color: #495d63;
   left: 0;
   position: fixed;
-  top: 0;
+  ${positionProperty}: ${values.offset || "0px"};
   width: 100%;
-  z-index: 999999;
+  z-index: ${values.zIndex || "999999"};
+}
+.rlab-rp-bar-fill {
+  background-color: #50caee;
+}
+.rlab-rp-bar,
+.rlab-rp-bar-fill {
+  border-radius: 2px;
+}`;
+}
+
+function getPreviewCss() {
+  return `.rlab-rp-bar,
+.rlab-rp-bar-fill {
+  height: 10px;
+}
+.rlab-rp-bar {
+  background-color: #495d63;
 }
 .rlab-rp-bar-fill {
   background-color: #50caee;
@@ -51,10 +76,10 @@ function buildPreviewHtml() {
 }
 
 function buildOutput() {
-  const { contentSelector } = getValues();
+  const values = getValues();
 
   return `<style>
-${getGeneratedCss()}
+${getGeneratedCss(values)}
 </style>
 
 <div class="rlab-rp-bar">
@@ -64,7 +89,7 @@ ${getGeneratedCss()}
 <script>
 (function () {
   const bar = document.querySelector(".rlab-rp-bar-fill");
-  const content = document.querySelector(${JSON.stringify(contentSelector)});
+  const content = document.querySelector(${JSON.stringify(values.contentSelector)});
 
   const getScrollTarget = function (element) {
     let current = element;
@@ -120,7 +145,7 @@ ${getGeneratedCss()}
 
 function updatePreview() {
   previewCont.innerHTML = buildPreviewHtml();
-  rpPreviewStyle.textContent = getGeneratedCss();
+  rpPreviewStyle.textContent = getPreviewCss();
   updatePreviewProgress();
 }
 
@@ -145,7 +170,7 @@ function generateRP() {
   updateOutput();
 }
 
-[rpContentSelector].forEach((field) => {
+[rpContentSelector, rpPosition, rpOffset, rpZIndex].forEach((field) => {
   field.addEventListener("input", generateRP);
   field.addEventListener("change", generateRP);
 });

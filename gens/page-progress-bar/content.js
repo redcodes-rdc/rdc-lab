@@ -57,6 +57,30 @@ const generatorContent = {
             className: "rp-content-selector",
             placeholder: "main",
           },
+          {
+            type: "select",
+            label: "Bar Position",
+            id: "rp-position",
+            className: "rp-position",
+            options: [
+              { value: "top", label: "Top Fixed" },
+              { value: "bottom", label: "Bottom Fixed" },
+            ],
+          },
+          {
+            type: "text",
+            label: "Offset",
+            id: "rp-offset",
+            className: "rp-offset",
+            placeholder: "0px",
+          },
+          {
+            type: "text",
+            label: "Z-index",
+            id: "rp-z-index",
+            className: "rp-z-index",
+            placeholder: "999999",
+          },
         ],
       },
     ],
@@ -272,6 +296,19 @@ function renderSettingsSection(section) {
 }
 
 function renderField(field) {
+  if (field.type === "select") {
+    return `
+      <div class="rdc-d-flex">
+        <label class="rdc-w-half" for="${field.id}">${field.label}</label>
+        <select id="${field.id}" class="${field.className} rdcl-gen--cols-field rdc-w-half">
+          ${(field.options || [])
+            .map((option) => `<option value="${option.value}">${option.label}</option>`)
+            .join("")}
+        </select>
+      </div>
+    `;
+  }
+
   return `
     <div class="rdc-d-flex">
       <label class="rdc-w-half" for="${field.id}">${field.label}</label>
@@ -339,12 +376,18 @@ function renderSmallCta(content) {
 
 function bindReadingProgressGenerator(content) {
   const contentSelectorInput = document.querySelector("#rp-content-selector");
+  const positionInput = document.querySelector("#rp-position");
+  const offsetInput = document.querySelector("#rp-offset");
+  const zIndexInput = document.querySelector("#rp-z-index");
   const output = document.querySelector(`#${content.leftView.output.codeId}`);
   const copyButton = document.querySelector("#rdcl-copy-btn");
   const previewContainer = document.querySelector(".rdcl-gen--layout-vw-inner");
 
   if (
     !contentSelectorInput ||
+    !positionInput ||
+    !offsetInput ||
+    !zIndexInput ||
     !output ||
     !copyButton ||
     !previewContainer
@@ -363,6 +406,11 @@ function bindReadingProgressGenerator(content) {
 
   contentSelectorInput.addEventListener("input", update);
   contentSelectorInput.addEventListener("change", update);
+  positionInput.addEventListener("change", update);
+  offsetInput.addEventListener("input", update);
+  offsetInput.addEventListener("change", update);
+  zIndexInput.addEventListener("input", update);
+  zIndexInput.addEventListener("change", update);
   window.addEventListener("scroll", () => updateReadingProgressPreview(content.preview), {
     passive: true,
   });
@@ -395,7 +443,16 @@ function bindReadingProgressGenerator(content) {
 function getReadingProgressValues() {
   return {
     contentSelector: getTextValue("rp-content-selector"),
+    position: getSelectValue("rp-position"),
+    offset: getTextValue("rp-offset"),
+    zIndex: getTextValue("rp-z-index"),
   };
+}
+
+function getSelectValue(id) {
+  const control = document.querySelector(`#${id}`);
+
+  return control.value;
 }
 
 function getTextValue(id) {
@@ -405,7 +462,9 @@ function getTextValue(id) {
   return value || control.placeholder || "";
 }
 
-function getGeneratedCss() {
+function getGeneratedCss(values = {}) {
+  const positionProperty = values.position === "bottom" ? "bottom" : "top";
+
   return `.rlab-rp-bar,
 .rlab-rp-bar-fill {
   height: 10px;
@@ -415,9 +474,27 @@ function getGeneratedCss() {
   border-radius: 2px;
   left: 0;
   position: fixed;
-  top: 0;
+  ${positionProperty}: ${values.offset || "0px"};
   width: 100%;
-  z-index: 999999;
+  z-index: ${values.zIndex || "999999"};
+}
+.rlab-rp-bar-fill {
+  background-color: #50caee;
+}
+.rlab-rp-bar,
+.rlab-rp-bar-fill {
+  border-radius: 2px;
+}`;
+}
+
+function getPreviewCss() {
+  return `.rlab-rp-bar,
+.rlab-rp-bar-fill {
+  height: 10px;
+}
+.rlab-rp-bar {
+  background-color: #495d63;
+  border-radius: 2px;
 }
 .rlab-rp-bar-fill {
   background-color: #50caee;
@@ -445,7 +522,7 @@ function updateReadingProgressPreviewStyles() {
     document.head.appendChild(style);
   }
 
-  style.textContent = getGeneratedCss();
+  style.textContent = getPreviewCss();
 }
 
 function updateReadingProgressPreview(content) {
@@ -462,7 +539,7 @@ function updateReadingProgressPreview(content) {
 
 function buildReadingProgressOutput(values) {
   return `<style>
-${getGeneratedCss()}
+${getGeneratedCss(values)}
 </style>
 
 <div class="rlab-rp-bar">
