@@ -557,10 +557,12 @@ function initRdcAiRest() {
     const selectedTasks = tasks
       .filter((task) => state.selected.has(task.id))
       .map((task) => ({
+        id: task.id,
         label: task.label,
         prompt: (state.drafts[task.id] || "").trim(),
       }))
       .filter((task) => task.prompt);
+    const hasShopifyTask = selectedTasks.some((task) => task.id === "shopify");
     const taskLines = selectedTasks.length
       ? selectedTasks
           .map(
@@ -648,6 +650,9 @@ function initRdcAiRest() {
       "## Required Output Format",
       "- Your primary task is to enhance the Generated Code based on the selected tasks, generator configuration, context, design options, and additional notes.",
       "- Return the complete updated production-ready code. Do not return partial snippets unless the selected task explicitly asks for a separate file or Shopify snippet.",
+      hasShopifyTask
+        ? "- For Shopify Liquid conversion, return the code in clearly separated sections: Liquid, CSS, and JavaScript. Keep Shopify schema and schema-dependent Liquid inside the Liquid section/file only when needed."
+        : "",
       "- After the code, include Implementation Summary grouped by selected task, using headings that match the selected task names.",
       "- Under each task heading, summarize meaningful changes or state that no changes were necessary.",
       "- Include user-side setup notes when needed, especially for platform files, fonts, images, schema settings, SEO content, or theme placement.",
@@ -1082,9 +1087,14 @@ function getRdcAiLiquidPrompt(generatorType, generatorName) {
   const base = [
     `- Convert the generated ${generatorName} code into Shopify Liquid only if a Shopify version is useful for this component.`,
     "- First decide whether the output should be a section, snippet, or simple Liquid-ready block based on the generated code and user context.",
-    "- Return complete Liquid markup, scoped CSS, and scoped JavaScript if JavaScript is needed.",
-    "- Include a useful {% schema %} block when a Shopify section is appropriate.",
-    "- Use practical schema settings and defaults so a merchant can edit content in the Shopify theme editor.",
+    "- Keep the conversion as close to the generated HTML, CSS, and JavaScript as Shopify allows. Do not redesign, restructure, rename classes/IDs, change behavior, or rewrite simple code unless Shopify Liquid specifically requires it.",
+    "- Return complete code in clearly separated sections: Liquid, CSS, and JavaScript. If JavaScript is not needed, state that the JavaScript section is not needed.",
+    "- Keep schema-dependent code inside the Liquid section/file when Shopify requires it. Do not put Shopify schema, Liquid tags, or theme-editor bindings inside standalone CSS or JavaScript.",
+    "- Include a useful {% schema %} block only when a Shopify section is appropriate.",
+    "- Use practical schema settings and defaults so a merchant can edit content in the Shopify theme editor, but keep the schema minimal and directly tied to the generated component.",
+    "- Do not over-engineer simple features. Avoid unnecessary blocks, settings, wrappers, helper functions, libraries, app-style architecture, or large abstractions when the generated component only needs a lightweight Liquid conversion.",
+    "- Do not make unrelated changes to the HTML, CSS, or JavaScript. Preserve the original structure, styling, selectors, event logic, and behavior as much as possible.",
+    "- Only change CSS or JavaScript when required for Shopify compatibility, schema binding, scoping, accessibility, or the selected task.",
     "- Add short comments only where they help the user know where to paste code or how important settings work.",
     "- Include setup notes for file placement, theme editor setup, snippets, assets, Shopify limitations, or theme-specific caveats.",
   ];

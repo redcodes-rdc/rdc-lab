@@ -1,3 +1,4 @@
+const rpContentSelector = document.getElementById("rp-content-selector");
 const rpTotal = document.getElementById("rp-total");
 const rpCurrent = document.getElementById("rp-current");
 
@@ -15,13 +16,16 @@ if (!rpPreviewStyle) {
 }
 
 function getValues() {
+  const contentSelector =
+    rpContentSelector.value.trim() || rpContentSelector.placeholder || "";
+
   const total =
     parseFloat(rpTotal.value) || parseFloat(rpTotal.placeholder) || 0;
 
   const current =
     parseFloat(rpCurrent.value) || parseFloat(rpCurrent.placeholder) || 0;
 
-  return { total, current };
+  return { contentSelector, total, current };
 }
 
 function calculateProgress(total, current) {
@@ -55,46 +59,34 @@ function buildPreviewHtml() {
 }
 
 function buildOutput() {
-  const { total, current } = getValues();
+  const { contentSelector } = getValues();
 
   return `<style>
 ${getGeneratedCss()}
 </style>
 
-<div class="rlab-rp-main">
-  <div class="rlab-rp-bar">
-    <div class="rlab-rp-bar-fill"></div>
-  </div>
+<div class="rlab-rp-bar">
+  <div class="rlab-rp-bar-fill"></div>
 </div>
 
 <script>
 (function () {
-  const totalHeight = ${total || 0};
-  const currentPosition = ${current || 0};
+  const bar = document.querySelector(".rlab-rp-bar-fill");
+  const content = document.querySelector(${JSON.stringify(contentSelector)});
 
-  const rpMain = document.querySelector(".rlab-rp-main");
-  const barEl = rpMain ? rpMain.querySelector(".rlab-rp-bar-fill") : null;
+  const updateProgressBar = function () {
+    if (!bar || !content) return;
 
-  function updateBar(current, total) {
-    if (!barEl) return;
+    const scrollableHeight = content.clientHeight - window.innerHeight;
+    const yPosition = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
+    const barPercentage = Math.min(Math.max(yPosition * 100, 0), 100);
 
-    if (total <= 0) {
-      barEl.style.width = "0%";
-      return;
-    }
+    bar.style.width = \`\${barPercentage}%\`;
+  };
 
-    const percent = Math.min((current / total) * 100, 100);
-    barEl.style.width = percent + "%";
-  }
-
-  updateBar(currentPosition, totalHeight);
-
-  // Sample scroll logic:
-  // window.addEventListener("scroll", () => {
-  //   const total = document.body.scrollHeight - window.innerHeight;
-  //   const current = window.scrollY;
-  //   updateBar(current, total);
-  // });
+  updateProgressBar();
+  window.addEventListener("scroll", updateProgressBar);
+  window.addEventListener("resize", updateProgressBar);
 })();
 <\/script>`;
 }
@@ -122,7 +114,7 @@ function generateRP() {
   updateOutput();
 }
 
-[rpTotal, rpCurrent].forEach((field) => {
+[rpContentSelector, rpTotal, rpCurrent].forEach((field) => {
   field.addEventListener("input", generateRP);
   field.addEventListener("change", generateRP);
 });

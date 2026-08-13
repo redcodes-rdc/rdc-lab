@@ -51,6 +51,13 @@ const generatorContent = {
         title: "Settings",
         fields: [
           {
+            type: "text",
+            label: "Content Selector (.class or #id)",
+            id: "rp-content-selector",
+            className: "rp-content-selector",
+            placeholder: ".rpb-main",
+          },
+          {
             type: "number",
             label: "Total Height (Demo)",
             id: "rp-total",
@@ -345,6 +352,7 @@ function renderSmallCta(content) {
 }
 
 function bindReadingProgressGenerator(content) {
+  const contentSelectorInput = document.querySelector("#rp-content-selector");
   const totalInput = document.querySelector("#rp-total");
   const currentInput = document.querySelector("#rp-current");
   const output = document.querySelector(`#${content.leftView.output.codeId}`);
@@ -352,6 +360,7 @@ function bindReadingProgressGenerator(content) {
   const previewContainer = document.querySelector(".rdcl-gen--layout-vw-inner");
 
   if (
+    !contentSelectorInput ||
     !totalInput ||
     !currentInput ||
     !output ||
@@ -375,6 +384,8 @@ function bindReadingProgressGenerator(content) {
     output.textContent = buildReadingProgressOutput(values);
   };
 
+  contentSelectorInput.addEventListener("input", update);
+  contentSelectorInput.addEventListener("change", update);
   totalInput.addEventListener("input", update);
   totalInput.addEventListener("change", update);
   currentInput.addEventListener("input", update);
@@ -406,9 +417,17 @@ function bindReadingProgressGenerator(content) {
 
 function getReadingProgressValues() {
   return {
+    contentSelector: getTextValue("rp-content-selector"),
     total: getNumberValue("rp-total"),
     current: getNumberValue("rp-current"),
   };
+}
+
+function getTextValue(id) {
+  const control = document.querySelector(`#${id}`);
+  const value = control.value.trim();
+
+  return value || control.placeholder || "";
 }
 
 function getNumberValue(id) {
@@ -468,40 +487,28 @@ function buildReadingProgressOutput(values) {
 ${getGeneratedCss()}
 </style>
 
-<div class="rlab-rp-main">
-  <div class="rlab-rp-bar">
-    <div class="rlab-rp-bar-fill"></div>
-  </div>
+<div class="rlab-rp-bar">
+  <div class="rlab-rp-bar-fill"></div>
 </div>
 
 <script>
 (function () {
-  const totalHeight = ${values.total || 0};
-  const currentPosition = ${values.current || 0};
+  const bar = document.querySelector(".rlab-rp-bar-fill");
+  const content = document.querySelector(${JSON.stringify(values.contentSelector)});
 
-  const rpMain = document.querySelector(".rlab-rp-main");
-  const barEl = rpMain ? rpMain.querySelector(".rlab-rp-bar-fill") : null;
+  const updateProgressBar = function () {
+    if (!bar || !content) return;
 
-  function updateBar(current, total) {
-    if (!barEl) return;
+    const scrollableHeight = content.clientHeight - window.innerHeight;
+    const yPosition = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
+    const barPercentage = Math.min(Math.max(yPosition * 100, 0), 100);
 
-    if (total <= 0) {
-      barEl.style.width = "0%";
-      return;
-    }
+    bar.style.width = \`\${barPercentage}%\`;
+  };
 
-    const percent = Math.min((current / total) * 100, 100);
-    barEl.style.width = percent + "%";
-  }
-
-  updateBar(currentPosition, totalHeight);
-
-  // Sample scroll logic:
-  // window.addEventListener("scroll", () => {
-  //   const total = document.body.scrollHeight - window.innerHeight;
-  //   const current = window.scrollY;
-  //   updateBar(current, total);
-  // });
+  updateProgressBar();
+  window.addEventListener("scroll", updateProgressBar);
+  window.addEventListener("resize", updateProgressBar);
 })();
 </scr${"ipt"}>`;
 }
