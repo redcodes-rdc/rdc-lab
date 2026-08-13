@@ -110,8 +110,13 @@ ${getGeneratedCss(values)}
 <script>
 (function () {
   const bar = document.querySelector(".rlab-rp-bar-fill");
-  const content = document.querySelector(${JSON.stringify(values.contentSelector)});
+  const contentSelector = ${JSON.stringify(values.contentSelector)};
   const revealAfter = ${Number.isFinite(values.revealAfter) ? values.revealAfter : 3};
+  let isTicking = false;
+
+  const getContent = function () {
+    return document.querySelector(contentSelector);
+  };
 
   const getScrollTarget = function (element) {
     let current = element;
@@ -131,6 +136,7 @@ ${getGeneratedCss(values)}
   };
 
   const updateProgressBar = function () {
+    const content = getContent();
     if (!bar || !content) return;
 
     const scrollTarget = getScrollTarget(content);
@@ -147,20 +153,33 @@ ${getGeneratedCss(values)}
     ${revealOnScroll ? `bar.parentElement?.classList.toggle("is-visible", barPercentage >= revealAfter);` : ""}
   };
 
-  const scrollTarget = content ? getScrollTarget(content) : window;
+  const scheduleProgressUpdate = function () {
+    if (isTicking) return;
 
-  updateProgressBar();
-  window.addEventListener("scroll", updateProgressBar, { passive: true });
-  document.addEventListener("scroll", updateProgressBar, {
+    isTicking = true;
+    window.requestAnimationFrame(function () {
+      updateProgressBar();
+      isTicking = false;
+    });
+  };
+
+  scheduleProgressUpdate();
+  window.addEventListener("scroll", scheduleProgressUpdate, { passive: true });
+  document.addEventListener("scroll", scheduleProgressUpdate, {
     capture: true,
     passive: true,
   });
-  if (scrollTarget !== window) {
-    scrollTarget.addEventListener("scroll", updateProgressBar, {
-      passive: true,
+  window.addEventListener("resize", scheduleProgressUpdate);
+  window.addEventListener("load", scheduleProgressUpdate);
+  document.addEventListener("DOMContentLoaded", scheduleProgressUpdate);
+
+  if ("MutationObserver" in window) {
+    const observer = new MutationObserver(scheduleProgressUpdate);
+    observer.observe(document.documentElement, {
+      childList: true,
+      subtree: true,
     });
   }
-  window.addEventListener("resize", updateProgressBar);
 })();
 <\/script>`;
 }
