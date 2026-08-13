@@ -75,6 +75,13 @@ const generatorContent = {
             placeholder: "0px",
           },
           {
+            type: "number",
+            label: "Reveal After Scroll (%)",
+            id: "rp-reveal-after",
+            className: "rp-reveal-after",
+            placeholder: "3",
+          },
+          {
             type: "text",
             label: "Z-index",
             id: "rp-z-index",
@@ -378,6 +385,7 @@ function bindReadingProgressGenerator(content) {
   const contentSelectorInput = document.querySelector("#rp-content-selector");
   const positionInput = document.querySelector("#rp-position");
   const offsetInput = document.querySelector("#rp-offset");
+  const revealAfterInput = document.querySelector("#rp-reveal-after");
   const zIndexInput = document.querySelector("#rp-z-index");
   const output = document.querySelector(`#${content.leftView.output.codeId}`);
   const copyButton = document.querySelector("#rdcl-copy-btn");
@@ -387,6 +395,7 @@ function bindReadingProgressGenerator(content) {
     !contentSelectorInput ||
     !positionInput ||
     !offsetInput ||
+    !revealAfterInput ||
     !zIndexInput ||
     !output ||
     !copyButton ||
@@ -409,6 +418,8 @@ function bindReadingProgressGenerator(content) {
   positionInput.addEventListener("change", update);
   offsetInput.addEventListener("input", update);
   offsetInput.addEventListener("change", update);
+  revealAfterInput.addEventListener("input", update);
+  revealAfterInput.addEventListener("change", update);
   zIndexInput.addEventListener("input", update);
   zIndexInput.addEventListener("change", update);
   window.addEventListener("scroll", () => updateReadingProgressPreview(content.preview), {
@@ -445,6 +456,7 @@ function getReadingProgressValues() {
     contentSelector: getTextValue("rp-content-selector"),
     position: getSelectValue("rp-position"),
     offset: getTextValue("rp-offset"),
+    revealAfter: getNumberValue("rp-reveal-after"),
     zIndex: getTextValue("rp-z-index"),
   };
 }
@@ -462,7 +474,15 @@ function getTextValue(id) {
   return value || control.placeholder || "";
 }
 
-function shouldDelayTopProgressBar(values = {}) {
+function getNumberValue(id) {
+  const control = document.querySelector(`#${id}`);
+  const value = Number.parseFloat(control.value);
+  const placeholder = Number.parseFloat(control.placeholder);
+
+  return Number.isFinite(value) ? value : placeholder || 0;
+}
+
+function shouldRevealOnScroll(values = {}) {
   const offset = String(values.offset || "").trim();
 
   return values.position !== "bottom" && offset && !/^0(?:px|rem|em|%)?$/.test(offset);
@@ -470,7 +490,7 @@ function shouldDelayTopProgressBar(values = {}) {
 
 function getGeneratedCss(values = {}) {
   const positionProperty = values.position === "bottom" ? "bottom" : "top";
-  const delayReveal = shouldDelayTopProgressBar(values);
+  const revealOnScroll = shouldRevealOnScroll(values);
 
   return `.rlab-rp-bar,
 .rlab-rp-bar-fill {
@@ -484,11 +504,11 @@ function getGeneratedCss(values = {}) {
   ${positionProperty}: ${values.offset || "0px"};
   width: 100%;
   z-index: ${values.zIndex || "999999"};
-  ${delayReveal ? "opacity: 0;" : ""}
-  ${delayReveal ? "transition: opacity 150ms ease;" : ""}
-  ${delayReveal ? "visibility: hidden;" : ""}
+  ${revealOnScroll ? "opacity: 0;" : ""}
+  ${revealOnScroll ? "transition: opacity 150ms ease;" : ""}
+  ${revealOnScroll ? "visibility: hidden;" : ""}
 }
-${delayReveal ? `.rlab-rp-bar.is-visible {
+${revealOnScroll ? `.rlab-rp-bar.is-visible {
   opacity: 1;
   visibility: visible;
 }` : ""}
@@ -552,7 +572,7 @@ function updateReadingProgressPreview(content) {
 }
 
 function buildReadingProgressOutput(values) {
-  const delayReveal = shouldDelayTopProgressBar(values);
+  const revealOnScroll = shouldRevealOnScroll(values);
 
   return `<style>
 ${getGeneratedCss(values)}
@@ -566,6 +586,7 @@ ${getGeneratedCss(values)}
 (function () {
   const bar = document.querySelector(".rlab-rp-bar-fill");
   const content = document.querySelector(${JSON.stringify(values.contentSelector)});
+  const revealAfter = ${Number.isFinite(values.revealAfter) ? values.revealAfter : 3};
 
   const getScrollTarget = function (element) {
     let current = element;
@@ -599,15 +620,12 @@ ${getGeneratedCss(values)}
     const barPercentage = Math.min(Math.max(yPosition * 100, 0), 100);
 
     bar.style.width = \`\${barPercentage}%\`;
+    ${revealOnScroll ? `bar.parentElement?.classList.toggle("is-visible", barPercentage >= revealAfter);` : ""}
   };
 
   const scrollTarget = content ? getScrollTarget(content) : window;
 
   updateProgressBar();
-  ${delayReveal ? `window.setTimeout(function () {
-    bar?.parentElement?.classList.add("is-visible");
-    updateProgressBar();
-  }, 700);` : ""}
   window.addEventListener("scroll", updateProgressBar, { passive: true });
   document.addEventListener("scroll", updateProgressBar, {
     capture: true,

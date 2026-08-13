@@ -1,6 +1,7 @@
 const rpContentSelector = document.getElementById("rp-content-selector");
 const rpPosition = document.getElementById("rp-position");
 const rpOffset = document.getElementById("rp-offset");
+const rpRevealAfter = document.getElementById("rp-reveal-after");
 const rpZIndex = document.getElementById("rp-z-index");
 
 const rpOutput = document.getElementById("rpOutput");
@@ -21,12 +22,17 @@ function getValues() {
     rpContentSelector.value.trim() || rpContentSelector.placeholder || "";
   const position = rpPosition.value;
   const offset = rpOffset.value.trim() || rpOffset.placeholder || "0px";
+  const revealAfterValue = parseFloat(rpRevealAfter.value);
+  const revealAfterPlaceholder = parseFloat(rpRevealAfter.placeholder);
+  const revealAfter = Number.isFinite(revealAfterValue)
+    ? revealAfterValue
+    : revealAfterPlaceholder || 3;
   const zIndex = rpZIndex.value.trim() || rpZIndex.placeholder || "999999";
 
-  return { contentSelector, position, offset, zIndex };
+  return { contentSelector, position, offset, revealAfter, zIndex };
 }
 
-function shouldDelayTopProgressBar(values = {}) {
+function shouldRevealOnScroll(values = {}) {
   const offset = String(values.offset || "").trim();
 
   return values.position !== "bottom" && offset && !/^0(?:px|rem|em|%)?$/.test(offset);
@@ -34,7 +40,7 @@ function shouldDelayTopProgressBar(values = {}) {
 
 function getGeneratedCss(values = {}) {
   const positionProperty = values.position === "bottom" ? "bottom" : "top";
-  const delayReveal = shouldDelayTopProgressBar(values);
+  const revealOnScroll = shouldRevealOnScroll(values);
 
   return `.rlab-rp-bar,
 .rlab-rp-bar-fill {
@@ -47,11 +53,11 @@ function getGeneratedCss(values = {}) {
   ${positionProperty}: ${values.offset || "0px"};
   width: 100%;
   z-index: ${values.zIndex || "999999"};
-  ${delayReveal ? "opacity: 0;" : ""}
-  ${delayReveal ? "transition: opacity 150ms ease;" : ""}
-  ${delayReveal ? "visibility: hidden;" : ""}
+  ${revealOnScroll ? "opacity: 0;" : ""}
+  ${revealOnScroll ? "transition: opacity 150ms ease;" : ""}
+  ${revealOnScroll ? "visibility: hidden;" : ""}
 }
-${delayReveal ? `.rlab-rp-bar.is-visible {
+${revealOnScroll ? `.rlab-rp-bar.is-visible {
   opacity: 1;
   visibility: visible;
 }` : ""}
@@ -91,7 +97,7 @@ function buildPreviewHtml() {
 
 function buildOutput() {
   const values = getValues();
-  const delayReveal = shouldDelayTopProgressBar(values);
+  const revealOnScroll = shouldRevealOnScroll(values);
 
   return `<style>
 ${getGeneratedCss(values)}
@@ -105,6 +111,7 @@ ${getGeneratedCss(values)}
 (function () {
   const bar = document.querySelector(".rlab-rp-bar-fill");
   const content = document.querySelector(${JSON.stringify(values.contentSelector)});
+  const revealAfter = ${Number.isFinite(values.revealAfter) ? values.revealAfter : 3};
 
   const getScrollTarget = function (element) {
     let current = element;
@@ -138,15 +145,12 @@ ${getGeneratedCss(values)}
     const barPercentage = Math.min(Math.max(yPosition * 100, 0), 100);
 
     bar.style.width = \`\${barPercentage}%\`;
+    ${revealOnScroll ? `bar.parentElement?.classList.toggle("is-visible", barPercentage >= revealAfter);` : ""}
   };
 
   const scrollTarget = content ? getScrollTarget(content) : window;
 
   updateProgressBar();
-  ${delayReveal ? `window.setTimeout(function () {
-    bar?.parentElement?.classList.add("is-visible");
-    updateProgressBar();
-  }, 700);` : ""}
   window.addEventListener("scroll", updateProgressBar, { passive: true });
   document.addEventListener("scroll", updateProgressBar, {
     capture: true,
@@ -189,7 +193,7 @@ function generateRP() {
   updateOutput();
 }
 
-[rpContentSelector, rpPosition, rpOffset, rpZIndex].forEach((field) => {
+[rpContentSelector, rpPosition, rpOffset, rpRevealAfter, rpZIndex].forEach((field) => {
   field.addEventListener("input", generateRP);
   field.addEventListener("change", generateRP);
 });
