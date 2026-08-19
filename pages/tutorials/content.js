@@ -1,4 +1,6 @@
 const timerBarTutorialUrl = "/pages/tutorials/shopify-timer-bar-tutorial/";
+const scrollProgressBarTutorialUrl =
+  "/pages/tutorials/shopify-scroll-progress-bar-tutorial/";
 
 const tutorialsCollectionPage = {
   // PAGE HERO
@@ -32,12 +34,28 @@ const tutorialsCollectionPage = {
   popularTags: [
     { label: "Shopify", value: "shopify" },
     { label: "Timer Bar", value: "timer-bar" },
+    { label: "Scroll Progress Bar", value: "scroll-progress-bar" },
     { label: "E-commerce", value: "ecommerce" },
     { label: "AI", value: "ai" },
   ],
 
   // TUTORIAL CARDS
   tutorials: [
+    {
+      title:
+        "Easily Add a Page Scroll Progress Bar to your Shopify/Ecommerce Website - No Apps",
+      description:
+        "Learn how to add a lightweight page scroll progress bar to a Shopify blog post template using RDC Lab, then convert it into a customizable Shopify section with AI.",
+      href: scrollProgressBarTutorialUrl,
+      image:
+        "/assets/images/rdc-lab-page-progress-bar-generator-sample-ai-prompt-output.jpg",
+      imageAlt:
+        "RDC Lab page scroll progress bar generator preview for Shopify and e-commerce tutorials.",
+      duration: "26 min",
+      level: "Beginner",
+      categories: ["shopify"],
+      tags: ["shopify", "scroll-progress-bar", "ecommerce", "ai"],
+    },
     {
       title:
         "Easily Add a Timer Bar to your Shopify E-commerce Website - No App",
