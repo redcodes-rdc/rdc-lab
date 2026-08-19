@@ -198,10 +198,10 @@ const allGeneratorsPage = {
       },
     },
     {
-      title: "Timer Bar Generator",
+      title: "Sale Timer Bar Generator",
       description:
-        "Build countdown timer bars for launches, limited-time offers, promos, and campaign pages.",
-      href: "/gens/timer-bar",
+        "Build sale timer bars for launches, limited-time offers, promos, and campaign pages.",
+      href: "/gens/sale-timer-bar",
       icon: "timer",
       iconColor: "#f6d365",
       categories: ["campaign", "cro"],

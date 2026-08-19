@@ -73,9 +73,9 @@ const rdclTutorialLibrary = window.rdclTutorialLibrary || [
     tags: ["free-shipping", "cart", "conversion"],
   },
   {
-    id: "countdown-timer-bar-shopify",
-    title: "How to Add a Countdown Timer Bar in Shopify",
-    description: "Create urgency with a simple countdown timer bar.",
+    id: "countdown-sale-timer-bar-shopify",
+    title: "How to Add a Sale Timer Bar in Shopify",
+    description: "Create urgency with a simple countdown sale timer bar.",
     href: "#",
     image: "/assets/images/rdc-lab-assets-easy-2.jpg",
     duration: "7:12",

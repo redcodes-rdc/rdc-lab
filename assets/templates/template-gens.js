@@ -46,8 +46,8 @@ const rdcAiPreviewImages = {
     alt: "AI-enhanced preview of a modern product tabs section created using the RDC Lab Tabs Generator.",
   },
   timerBarGenerator: {
-    src: "/assets/images/rdc-lab-timer-bar-generator-sample-ai-prompt-output.jpg",
-    alt: "AI-enhanced preview of a promotional countdown timer bar generated with the RDC Lab Timer Bar Generator.",
+    src: "/assets/images/rdc-lab-sale-timer-bar-generator-sample-ai-prompt-output.jpg",
+    alt: "AI-enhanced preview of a promotional countdown sale timer bar generated with the RDC Lab Sale Timer Bar Generator.",
   },
   tooltipGenerator: {
     src: "/assets/images/rdc-lab-tool-tip-generator-sample-ai-prompt-output.jpg",
@@ -1356,9 +1356,9 @@ const rdclGeneratorMoreItems = [
 </svg>
 `,
     iconColor: "#C08114",
-    title: "Timer Bar Generator",
+    title: "Sale Timer Bar Generator",
     text: "Build countdown bars for launches, offers, and campaigns.",
-    href: "/gens/timer-bar/",
+    href: "/gens/sale-timer-bar/",
   },
   {
     icon: `<svg width="32" height="100%" viewBox="0 0 82 50" fill="none" xmlns="http://www.w3.org/2000/svg">

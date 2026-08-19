@@ -293,10 +293,10 @@ const rdcLabSeoConfig = {
             url: "/gens/tabs/",
           },
           {
-            name: "Timer Bar Generator",
+            name: "Sale Timer Bar Generator",
             description:
-              "Countdown timer bar HTML, CSS, and JavaScript generator.",
-            url: "/gens/timer-bar/",
+              "Sale timer bar HTML, CSS, and JavaScript generator.",
+            url: "/gens/sale-timer-bar/",
           },
           {
             name: "Tooltip Generator",
@@ -367,18 +367,18 @@ const rdcLabSeoConfig = {
           "CSS tutorials",
           "JavaScript tutorials",
           "Shopify tutorials",
-          "Shopify timer bar tutorial",
-          "timer bar tutorial",
-          "ecommerce timer bar",
+          "Shopify sale timer bar tutorial",
+          "sale timer bar tutorial",
+          "ecommerce sale timer bar",
           "frontend tutorials",
           "web development tutorials",
         ],
         items: [
           {
-            name: "Easily Add a Timer Bar to your Shopify E-commerce Website - No App",
+            name: "Easily Add a Sale Timer Bar to your Shopify E-commerce Website - No App",
             description:
-              "Learn how to build a customizable timer bar for your Shopify store using RDC Lab without using any Shopify app.",
-            url: "/pages/tutorials/shopify-timer-bar-tutorial/",
+              "Learn how to build a customizable sale timer bar for your Shopify store using RDC Lab without using any Shopify app.",
+            url: "/pages/tutorials/shopify-sale-timer-bar-tutorial/",
           },
         ],
       }),
@@ -640,24 +640,24 @@ const rdcLabSeoConfig = {
       }),
     },
 
-    timerBarGenerator: {
-      title: "Timer Bar HTML, CSS & JS Code Generator | RDC Lab",
+    saleTimerBarGenerator: {
+      title: "Sale Timer Bar HTML, CSS & JS Code Generator | RDC Lab",
       description:
-        "Create countdown timer bars with HTML/CSS/JS for offers, launches, and campaigns. Copy production-ready code and refine it with AI prompts, perfect for your e-commerce store.",
-      path: "/gens/timer-bar/",
+        "Create sale timer bars with HTML/CSS/JS for offers, launches, and campaigns. Copy production-ready code and refine it with AI prompts, perfect for your e-commerce store.",
+      path: "/gens/sale-timer-bar/",
       schema: createRdcLabGeneratorSchema({
-        name: "Timer Bar Generator",
+        name: "Sale Timer Bar Generator",
         description:
-          "Create countdown timer bars with HTML/CSS/JS for offers, launches, and campaigns. Copy production-ready code and refine it with AI prompts, perfect for your e-commerce store.",
-        path: "/gens/timer-bar/",
+          "Create sale timer bars with HTML/CSS/JS for offers, launches, and campaigns. Copy production-ready code and refine it with AI prompts, perfect for your e-commerce store.",
+        path: "/gens/sale-timer-bar/",
         featureList: [
           "Countdown text, date, and CTA controls",
-          "Timer bar radius and style settings",
+          "Sale timer bar radius and style settings",
           "Copyable HTML, CSS, and JavaScript",
           "Built-in AI enhancement prompts",
         ],
         keywords: [
-          "timer bar generator",
+          "sale timer bar generator",
           "countdown bar HTML",
           "campaign timer",
         ],
@@ -686,13 +686,13 @@ const rdcLabSeoConfig = {
   },
 
   manualTutorialPages: {
-    "shopify-timer-bar-tutorial": {
+    "shopify-sale-timer-bar-tutorial": {
       // Add optional overrides here. Values in this section win over dynamic tutorial data.
       // title: "Manual Tutorial SEO Title | RDC Lab",
       // description: "Manual meta description for this tutorial.",
       // image: "/assets/images/manual-og-image.jpg",
       // imageAlt: "Manual image alt text for the tutorial preview image",
-      // canonicalUrl: "/pages/tutorials/shopify-timer-bar-tutorial/",
+      // canonicalUrl: "/pages/tutorials/shopify-sale-timer-bar-tutorial/",
       // howToSteps: [
       //   { name: "Manual step title", text: "Manual step description." },
       // ],

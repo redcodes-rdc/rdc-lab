@@ -365,14 +365,14 @@ const helpCenterPage = {
     items: [
       {
         image:
-          "/assets/images/rdc-lab-timer-bar-shopify-ecommerce-tutorial-thumbnail.jpg",
+          "/assets/images/rdc-lab-sale-timer-bar-shopify-ecommerce-tutorial-thumbnail.jpg",
         duration: "22 min",
         title:
-          "Easily Add a Timer Bar to your Shopify E-commerce Website - No App",
+          "Easily Add a Sale Timer Bar to your Shopify E-commerce Website - No App",
         description:
-          "Build a customizable timer bar for your Shopify store without using any Shopify app.",
+          "Build a customizable sale timer bar for your Shopify store without using any Shopify app.",
         level: "Beginner",
-        href: "/pages/tutorials/shopify-timer-bar-tutorial/",
+        href: "/pages/tutorials/shopify-sale-timer-bar-tutorial/",
       },
     ],
   },

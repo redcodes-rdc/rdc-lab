@@ -4,37 +4,37 @@ const rdclTimerBarTutorialCheckIcon = `<svg viewBox="0 0 16 16" fill="none" aria
 </svg>`;
 
 window.rdclTutorialPage = {
-  id: "shopify-timer-bar-tutorial",
-  title: "Easily Add a Timer Bar to your Shopify E-commerce Website - No App",
-  eyebrow: "Shopify Timer Bar",
+  id: "shopify-sale-timer-bar-tutorial",
+  title: "Easily Add a Sale Timer Bar to your Shopify E-commerce Website - No App",
+  eyebrow: "Shopify Sale Timer Bar",
   description:
-    "Learn how to build a customizable timer bar for your Shopify store using RDC Lab. We'll generate the component, customize it with AI, install it into your theme, and test everything from start to finish—without using any Shopify app.",
+    "Learn how to build a customizable sale timer bar for your Shopify store using RDC Lab. We'll generate the component, customize it with AI, install it into your theme, and test everything from start to finish—without using any Shopify app.",
   backLink: {
     label: "Back to Tutorials",
     href: "/pages/tutorials/",
   },
   categories: ["shopify"],
-  tags: ["shopify", "timer-bar", "ecommerce", "ai"],
+  tags: ["shopify", "sale-timer-bar", "ecommerce", "ai"],
   headerAction: {
-    label: "Open Timer Bar Generator",
+    label: "Open Sale Timer Bar Generator",
     nickname: "",
-    href: "/gens/timer-bar/",
+    href: "/gens/sale-timer-bar/",
   },
   seo: {
     title:
-      "Shopify Timer Bar Tutorial - No App Needed | RDC Lab",
+      "Shopify Sale Timer Bar Tutorial - No App Needed | RDC Lab",
     description:
-      "Learn how to create a Shopify timer bar with Shopify Magic or RDC Lab, convert it into a dynamic Shopify section with AI, add the Liquid, CSS, and JavaScript files, and test it without using an app.",
+      "Learn how to create a Shopify sale timer bar with Shopify Magic or RDC Lab, convert it into a dynamic Shopify section with AI, add the Liquid, CSS, and JavaScript files, and test it without using an app.",
     image:
-      "/assets/images/rdc-lab-timer-bar-shopify-ecommerce-tutorial-thumbnail.jpg",
+      "/assets/images/rdc-lab-sale-timer-bar-shopify-ecommerce-tutorial-thumbnail.jpg",
     imageAlt:
-      "RDC Lab tutorial thumbnail showing how to build a timer bar for a Shopify e-commerce website without apps.",
-    canonicalUrl: "/pages/tutorials/shopify-timer-bar-tutorial/",
+      "RDC Lab tutorial thumbnail showing how to build a sale timer bar for a Shopify e-commerce website without apps.",
+    canonicalUrl: "/pages/tutorials/shopify-sale-timer-bar-tutorial/",
   },
   video: {
-    title: "Easily Add a Timer Bar to your Shopify E-commerce Website - No App",
+    title: "Easily Add a Sale Timer Bar to your Shopify E-commerce Website - No App",
     image:
-      "/assets/images/rdc-lab-timer-bar-shopify-ecommerce-tutorial-thumbnail.jpg",
+      "/assets/images/rdc-lab-sale-timer-bar-shopify-ecommerce-tutorial-thumbnail.jpg",
     embedUrl: shopifyTimerBarTutorialVideoUrl,
     uploadDate: "2026-08-07",
     duration: "22 min",
@@ -52,7 +52,7 @@ window.rdclTutorialPage = {
         hideTitle: true,
         html: `
           <h2 class="rdc-fs-24 rdc-fw-700 rdc-m-t0">Using Shopify Magic</h2>
-          <p class="rdcl-tutorial-copy rdc-lh-1-5">Shopify Magic is the quickest option when you simply need a working timer bar and do not need much control over how the code is structured.</p>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">Shopify Magic is the quickest option when you simply need a working sale timer bar and do not need much control over how the code is structured.</p>
 
           <h3 class="rdc-ff-baij rdc-fw-700">1. Open Shopify Magic</h3>
           <p class="rdcl-tutorial-copy rdc-lh-1-5">From the Shopify Theme Editor:</p>
@@ -67,7 +67,7 @@ window.rdclTutorialPage = {
           <p class="rdcl-tutorial-copy rdc-lh-1-5">You can write the requirements in a notepad, then give them to ChatGPT and ask it to turn them into a detailed prompt for Shopify Magic.</p>
           <p class="rdcl-tutorial-copy rdc-lh-1-5">Include details such as:</p>
           <ul class="rdcl-tutorial-check-list rdc-ls-none rdc-p-0">
-            <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span>The timer bar text</span></li>
+            <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span>The sale timer bar text</span></li>
             <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span>The sale or discount</span></li>
             <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span>Start and end dates</span></li>
             <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span>Button text and destination</span></li>
@@ -115,7 +115,7 @@ window.rdclTutorialPage = {
           <h2 class="rdc-fs-24 rdc-fw-700">Step 1 – Gather the Tools</h2>
           <p class="rdcl-tutorial-copy rdc-lh-1-5">Prepare the following tools before starting:</p>
           <ul class="rdcl-tutorial-check-list rdc-ls-none rdc-p-0">
-            <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span><strong>RDC Lab</strong> for generating the timer bar and AI prompt</span></li>
+            <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span><strong>RDC Lab</strong> for generating the sale timer bar and AI prompt</span></li>
             <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span><strong>Antigravity, Codex, or another AI coding tool</strong></span></li>
             <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span>Shopify Code Editor</span></li>
             <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span>Access to your Shopify Theme Editor</span></li>
@@ -129,7 +129,7 @@ window.rdclTutorialPage = {
             <li>Open the theme’s code editor.</li>
             <li>In the left panel, open the <strong>Sections</strong> folder.</li>
             <li>Click the option to create a new file.</li>
-            <li>Give the section a descriptive name, such as <code>rdc-timer-bar.liquid</code>.</li>
+            <li>Give the section a descriptive name, such as <code>rdc-sale-timer-bar.liquid</code>.</li>
             <li>Save the new file.</li>
           </ol>
           <p class="rdcl-tutorial-copy rdc-lh-1-5">Using a duplicate theme is recommended when testing changes on a live store.</p>
@@ -138,15 +138,15 @@ window.rdclTutorialPage = {
       {
         id: "step-2-generate-the-timer-bar-with-rdc-lab",
         label: "Step 2",
-        title: "Step 2 – Generate the Timer Bar with RDC Lab",
+        title: "Step 2 – Generate the Sale Timer Bar with RDC Lab",
         includeInHowTo: true,
         navIndent: true,
         hideTitle: true,
         html: `
-          <h2 class="rdc-fs-24 rdc-fw-700">Step 2 – Generate the Timer Bar with RDC Lab</h2>
-          <p class="rdcl-tutorial-copy rdc-lh-1-5">Open RDC Lab and select the <a class="rdcl-tutorial-inline-link" href="/gens/timer-bar/">Timer Bar Generator</a>.</p>
+          <h2 class="rdc-fs-24 rdc-fw-700">Step 2 – Generate the Sale Timer Bar with RDC Lab</h2>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">Open RDC Lab and select the <a class="rdcl-tutorial-inline-link" href="/gens/sale-timer-bar/">Sale Timer Bar Generator</a>.</p>
 
-          <h3 class="rdc-ff-baij rdc-fw-700">1. Set the timer bar content</h3>
+          <h3 class="rdc-ff-baij rdc-fw-700">1. Set the sale timer bar content</h3>
           <p class="rdcl-tutorial-copy rdc-lh-1-5">Enter the promotional information you want to display.</p>
           <p class="rdcl-tutorial-copy rdc-lh-1-5">For example:</p>
           <ul class="rdcl-tutorial-check-list rdc-ls-none rdc-p-0">
@@ -174,12 +174,12 @@ window.rdclTutorialPage = {
           <p class="rdcl-tutorial-copy rdc-lh-1-5">Once the component looks right, click the copy button.</p>
           <p class="rdcl-tutorial-copy rdc-lh-1-5">The generated output already includes:</p>
           <ul class="rdcl-tutorial-check-list rdc-ls-none rdc-p-0">
-            <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span>HTML for the timer bar structure</span></li>
+            <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span>HTML for the sale timer bar structure</span></li>
             <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span>CSS for the styling</span></li>
             <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span>JavaScript for the countdown behavior</span></li>
           </ul>
           <p class="rdcl-tutorial-copy rdc-lh-1-5">At this stage, the content and settings inside the component are still hardcoded.</p>
-          <p class="rdcl-tutorial-copy rdc-lh-1-5">That may be enough for a static website, but Shopify requires Liquid and section schema settings if you want to manage the timer bar through the Theme Editor.</p>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">That may be enough for a static website, but Shopify requires Liquid and section schema settings if you want to manage the sale timer bar through the Theme Editor.</p>
         `,
       },
       {
@@ -191,7 +191,7 @@ window.rdclTutorialPage = {
         hideTitle: true,
         html: `
           <h2 class="rdc-fs-24 rdc-fw-700">Step 3 – Generate the AI Prompt</h2>
-          <p class="rdcl-tutorial-copy rdc-lh-1-5">Scroll to <a class="rdcl-tutorial-inline-link" href="/gens/timer-bar/">RDC Lab's AI Prompt Generator</a> below the component generator.</p>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">Scroll to <a class="rdcl-tutorial-inline-link" href="/gens/sale-timer-bar/">RDC Lab's AI Prompt Generator</a> below the component generator.</p>
           <p class="rdcl-tutorial-copy rdc-lh-1-5">This tool combines your generated code with structured instructions for the AI coding assistant.</p>
 
           <h3 class="rdc-ff-baij rdc-fw-700">1. Select the enhancements</h3>
@@ -225,10 +225,10 @@ window.rdclTutorialPage = {
             <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span>Your industry or niche</span></li>
             <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span>Your Shopify theme</span></li>
             <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span>Your preferred CSS conventions</span></li>
-            <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span>Where the timer bar will appear</span></li>
+            <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span>Where the sale timer bar will appear</span></li>
             <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span>Any behavior that must be preserved</span></li>
           </ul>
-          <p class="rdcl-tutorial-copy rdc-lh-1-5">The generator automatically includes the timer bar code in the completed AI prompt, so the AI receives the actual structure and layout you created.</p>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">The generator automatically includes the sale timer bar code in the completed AI prompt, so the AI receives the actual structure and layout you created.</p>
 
           <h3 class="rdc-ff-baij rdc-fw-700">4. Copy the prompt</h3>
           <p class="rdcl-tutorial-copy rdc-lh-1-5">After reviewing the instructions, click <strong>Copy Prompt</strong>.</p>
@@ -251,7 +251,7 @@ window.rdclTutorialPage = {
           <p class="rdcl-tutorial-copy rdc-lh-1-5">If your workflow provides the code separately, include both:</p>
           <ol class="rdcl-tutorial-number-list rdc-lh-1-5">
             <li>The AI enhancement prompt</li>
-            <li>The generated timer bar code</li>
+            <li>The generated sale timer bar code</li>
           </ol>
 
           <h3 class="rdc-ff-baij rdc-fw-700">2. Let the AI convert the component</h3>
@@ -295,7 +295,7 @@ window.rdclTutorialPage = {
 
           <h3 class="rdc-ff-baij rdc-fw-700">1. Add the Liquid section</h3>
           <p class="rdcl-tutorial-copy rdc-lh-1-5">Open the section file you created earlier, such as:</p>
-          <pre class="rdcl-tutorial-code rdc-lab-border-4 rdc-p-20"><code>rdc-timer-bar.liquid</code></pre>
+          <pre class="rdcl-tutorial-code rdc-lab-border-4 rdc-p-20"><code>rdc-sale-timer-bar.liquid</code></pre>
           <p class="rdcl-tutorial-copy rdc-lh-1-5">Paste the generated Shopify Liquid markup and section schema into this file.</p>
           <p class="rdcl-tutorial-copy rdc-lh-1-5">Keep any Liquid variables or dynamic values that connect the Theme Editor settings to the component.</p>
           <p class="rdcl-tutorial-copy rdc-lh-1-5">Some small style or script-related values may need to remain in the section when they depend directly on Liquid settings.</p>
@@ -330,16 +330,16 @@ window.rdclTutorialPage = {
       {
         id: "step-6-test-the-timer-bar",
         label: "Step 6",
-        title: "Step 6 – Test the Timer Bar",
+        title: "Step 6 – Test the Sale Timer Bar",
         includeInHowTo: true,
         navIndent: true,
         hideTitle: true,
         html: `
-          <h2 class="rdc-fs-24 rdc-fw-700">Step 6 – Test the Timer Bar</h2>
-          <p class="rdcl-tutorial-copy rdc-lh-1-5">Open the Shopify Theme Editor and add the new timer bar section.</p>
+          <h2 class="rdc-fs-24 rdc-fw-700">Step 6 – Test the Sale Timer Bar</h2>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">Open the Shopify Theme Editor and add the new sale timer bar section.</p>
 
           <h3 class="rdc-ff-baij rdc-fw-700">1. Add the section</h3>
-          <p class="rdcl-tutorial-copy rdc-lh-1-5">Choose where the timer bar should appear.</p>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">Choose where the sale timer bar should appear.</p>
           <p class="rdcl-tutorial-copy rdc-lh-1-5">For example, you can place it:</p>
           <ul class="rdcl-tutorial-check-list rdc-ls-none rdc-p-0">
             <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span>Above the announcement bar</span></li>
@@ -347,7 +347,7 @@ window.rdclTutorialPage = {
             <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span>At the top of a page template</span></li>
             <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span>Inside another supported section group</span></li>
           </ul>
-          <p class="rdcl-tutorial-copy rdc-lh-1-5">You may hide the theme’s existing announcement bar if the timer bar will replace it.</p>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">You may hide the theme’s existing announcement bar if the sale timer bar will replace it.</p>
 
           <h3 class="rdc-ff-baij rdc-fw-700">2. Test the Theme Editor settings</h3>
           <p class="rdcl-tutorial-copy rdc-lh-1-5">Change each available option and confirm that the preview updates correctly.</p>
@@ -395,9 +395,9 @@ window.rdclTutorialPage = {
             <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span>Theme Editor settings still update the section.</span></li>
             <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span>The countdown works after refreshing.</span></li>
             <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span>The layout works on desktop and mobile.</span></li>
-            <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span>The timer bar does not break other theme sections.</span></li>
+            <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span>The sale timer bar does not break other theme sections.</span></li>
           </ul>
-          <p class="rdcl-tutorial-copy rdc-lh-1-5">Once all checks pass, the timer bar is ready to use for Black Friday, product launches, limited-time discounts, or other store promotions.</p>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">Once all checks pass, the sale timer bar is ready to use for Black Friday, product launches, limited-time discounts, or other store promotions.</p>
         `,
       },
       {
@@ -408,7 +408,7 @@ window.rdclTutorialPage = {
         html: `
           <h2 class="rdc-fs-24 rdc-fw-700">Why Use RDC Lab?</h2>
           <p class="rdcl-tutorial-copy rdc-lh-1-5">RDC Lab gives your AI coding assistant a concrete starting point.</p>
-          <p class="rdcl-tutorial-copy rdc-lh-1-5">The generated HTML already defines the intended layout, while the generated prompt explains how that layout should be enhanced. This gives the AI more useful context than a general request to build a timer bar from scratch.</p>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">The generated HTML already defines the intended layout, while the generated prompt explains how that layout should be enhanced. This gives the AI more useful context than a general request to build a sale timer bar from scratch.</p>
           <p class="rdcl-tutorial-copy rdc-lh-1-5">Other advantages include:</p>
           <ul class="rdcl-tutorial-check-list rdc-ls-none rdc-p-0">
             <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span>A working visual starting point</span></li>
@@ -421,7 +421,7 @@ window.rdclTutorialPage = {
             <li class="rdc-d-flex rdc-ai-cen rdc-m-b10"><span class="rdcl-tutorial-check rdc-d-iflex rdc-ai-cen rdc-jc-cen rdc-m-r10" aria-hidden="true">${rdclTimerBarTutorialCheckIcon}</span><span>More consistent components across projects</span></li>
           </ul>
           <p class="rdcl-tutorial-copy rdc-lh-1-5">The initial result does not limit your customization. You can still ask the AI to add background images, new layouts, additional settings, animations, accessibility improvements, or other enhancements.</p>
-          <p class="rdcl-tutorial-copy rdc-lh-1-5">The same workflow can also be used with other RDC Lab generators: build the starting component, generate the AI prompt with tools like the <a class="rdcl-tutorial-inline-link" href="/gens/timer-bar/">Timer Bar Generator</a>, convert it for your platform, add the files, and test the result.</p>
+          <p class="rdcl-tutorial-copy rdc-lh-1-5">The same workflow can also be used with other RDC Lab generators: build the starting component, generate the AI prompt with tools like the <a class="rdcl-tutorial-inline-link" href="/gens/sale-timer-bar/">Sale Timer Bar Generator</a>, convert it for your platform, add the files, and test the result.</p>
         `,
       },
     ],
@@ -431,14 +431,14 @@ window.rdclTutorialPage = {
     description: "Questions related to this tutorial.",
     items: [
       {
-        question: "Can I use this timer bar on any Shopify theme?",
+        question: "Can I use this sale timer bar on any Shopify theme?",
         answer:
           "Yes. The workflow shown in this tutorial is designed to work with most Shopify themes. Since the component is converted into a standard Shopify section, you can add and customize it through the Theme Editor just like any other section.",
       },
       {
         question: "Is this tutorial only for Shopify?",
         answer:
-          'No. While this tutorial demonstrates how to convert the component into a Shopify section, the <a class="rdcl-tutorial-inline-link" href="/gens/timer-bar/">Timer Bar Generator</a> itself is platform-independent. The generated HTML, CSS, and JavaScript can be used on virtually any website. The Shopify-specific steps only apply when converting the component into a dynamic Shopify section using AI.',
+          'No. While this tutorial demonstrates how to convert the component into a Shopify section, the <a class="rdcl-tutorial-inline-link" href="/gens/sale-timer-bar/">Sale Timer Bar Generator</a> itself is platform-independent. The generated HTML, CSS, and JavaScript can be used on virtually any website. The Shopify-specific steps only apply when converting the component into a dynamic Shopify section using AI.',
       },
       {
         question: "Do I need to know how to code?",

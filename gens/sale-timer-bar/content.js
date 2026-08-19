@@ -1,8 +1,8 @@
 const generatorContent = {
   leftView: {
-    title: "Timer Bar Generator",
+    title: "Sale Timer Bar Generator",
     description:
-      "Build countdown timer bars with HTML/CSS/JS for launches, limited-time offers, promos, and campaign pages. Customize text, dates, CTA, and radius, then refine with AI prompts.",
+      "Build sale timer bars with HTML/CSS/JS for launches, limited-time offers, promos, and campaign pages. Customize text, dates, CTA, and radius, then refine with AI prompts.",
     callouts: [
       {
         icon: `<img src="/assets/icons/overline-co-icon.svg" alt="">`,
@@ -39,8 +39,8 @@ const generatorContent = {
     },
     tutorialLinks: [
       {
-        label: "Timer Bar Tutorial",
-        href: "/pages/tutorials/shopify-timer-bar-tutorial/",
+        label: "Sale Timer Bar Tutorial",
+        href: "/pages/tutorials/shopify-sale-timer-bar-tutorial/",
       },
     ],
     outputId: "timerOutput",
@@ -104,7 +104,7 @@ const generatorContent = {
           },
           {
             type: "text",
-            label: "Timer Bar Radius",
+            label: "Sale Timer Bar Radius",
             id: "timer-bar-radius",
             placeholder: "0 / 2 / 4 / 10 / full",
           },
@@ -113,7 +113,7 @@ const generatorContent = {
     ],
     generatorCssDownload: {
       href: "",
-      fileName: "timer-bar-generator.css",
+      fileName: "sale-timer-bar-generator.css",
       label: `Download This Generator's CSS File`,
     },
     globalCssDownload: {

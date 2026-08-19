@@ -1,4 +1,4 @@
-const timerBarTutorialUrl = "/pages/tutorials/shopify-timer-bar-tutorial/";
+const timerBarTutorialUrl = "/pages/tutorials/shopify-sale-timer-bar-tutorial/";
 const scrollProgressBarTutorialUrl =
   "/pages/tutorials/shopify-scroll-progress-bar-tutorial/";
 
@@ -33,7 +33,7 @@ const tutorialsCollectionPage = {
   popularTagsTitle: "Popular Tags",
   popularTags: [
     { label: "Shopify", value: "shopify" },
-    { label: "Timer Bar", value: "timer-bar" },
+    { label: "Sale Timer Bar", value: "sale-timer-bar" },
     { label: "Scroll Progress Bar", value: "scroll-progress-bar" },
     { label: "E-commerce", value: "ecommerce" },
     { label: "AI", value: "ai" },
@@ -58,18 +58,18 @@ const tutorialsCollectionPage = {
     },
     {
       title:
-        "Easily Add a Timer Bar to your Shopify E-commerce Website - No App",
+        "Easily Add a Sale Timer Bar to your Shopify E-commerce Website - No App",
       description:
-        "Learn how to build a customizable timer bar for your Shopify store using RDC Lab. We'll generate the component, customize it with AI, install it into your theme, and test everything from start to finish—without using any Shopify app.",
+        "Learn how to build a customizable sale timer bar for your Shopify store using RDC Lab. We'll generate the component, customize it with AI, install it into your theme, and test everything from start to finish—without using any Shopify app.",
       href: timerBarTutorialUrl,
       image:
-        "/assets/images/rdc-lab-timer-bar-shopify-ecommerce-tutorial-thumbnail.jpg",
+        "/assets/images/rdc-lab-sale-timer-bar-shopify-ecommerce-tutorial-thumbnail.jpg",
       imageAlt:
-        "RDC Lab tutorial thumbnail showing how to easily build a timer bar for a Shopify e-commerce website without apps.",
+        "RDC Lab tutorial thumbnail showing how to easily build a sale timer bar for a Shopify e-commerce website without apps.",
       duration: "22 min",
       level: "Beginner",
       categories: ["shopify"],
-      tags: ["shopify", "timer-bar", "ecommerce", "ai"],
+      tags: ["shopify", "sale-timer-bar", "ecommerce", "ai"],
     },
   ],
 };

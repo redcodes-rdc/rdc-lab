@@ -1,1 +1,6 @@
+/gens/timer-bar /gens/sale-timer-bar/ 301!
+/gens/timer-bar/ /gens/sale-timer-bar/ 301!
+/gens/timer-bar/* /gens/sale-timer-bar/:splat 301!
+/pages/tutorials/shopify-timer-bar-tutorial /pages/tutorials/shopify-sale-timer-bar-tutorial/ 301!
+/pages/tutorials/shopify-timer-bar-tutorial/ /pages/tutorials/shopify-sale-timer-bar-tutorial/ 301!
 https://rdc-lab.netlify.app/* https://lab.reddelacruz.dev/:splat 301!
