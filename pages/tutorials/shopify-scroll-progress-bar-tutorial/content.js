@@ -1,4 +1,6 @@
 const shopifyScrollProgressTutorialVideoUrl = "";
+const shopifyScrollProgressTutorialCover =
+  "/assets/images/rdc-lab-shopify-scroll-progress-bar-tutorial-cover.jpg";
 const rdclScrollProgressTutorialCheckIcon = `<svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
   <path d="M3.5 8.2L6.5 11.2L12.8 4.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>`;
@@ -26,18 +28,18 @@ window.rdclTutorialPage = {
       "Shopify Scroll Progress Bar Tutorial - No Apps Needed | RDC Lab",
     description:
       "Learn how to create a Shopify page scroll progress bar with RDC Lab, add the Liquid, CSS, and JavaScript files, limit it to blog posts, and customize it through the Theme Editor with AI.",
-    image:
-      "/assets/images/rdc-lab-page-progress-bar-generator-sample-ai-prompt-output.jpg",
+    image: shopifyScrollProgressTutorialCover,
     imageAlt:
-      "RDC Lab page scroll progress bar generator preview for Shopify and e-commerce tutorials.",
+      "RDC Lab tutorial cover showing how to easily build a page scroll progress bar for a Shopify or e-commerce website.",
     canonicalUrl:
       "/pages/tutorials/shopify-scroll-progress-bar-tutorial/",
   },
   video: {
     title:
       "Easily Add a Page Scroll Progress Bar to your Shopify/Ecommerce Website - No Apps",
-    image:
-      "/assets/images/rdc-lab-page-progress-bar-generator-sample-ai-prompt-output.jpg",
+    image: shopifyScrollProgressTutorialCover,
+    imageAlt:
+      "RDC Lab tutorial cover showing how to easily build a page scroll progress bar for a Shopify or e-commerce website.",
     embedUrl: shopifyScrollProgressTutorialVideoUrl,
     uploadDate: "2026-08-19",
     duration: "26 min",
@@ -334,29 +336,29 @@ window.rdclTutorialPage = {
     description: "Questions related to this tutorial.",
     items: [
       {
-        question: "Can I use this scroll progress bar on any Shopify theme?",
+        question: "Why do I need to set an offset for the scroll progress bar?",
         answer:
-          "Yes. The basic workflow should work with most Shopify themes, but you may need to adjust the offset if your theme has a sticky header or a different header height.",
+          "The offset helps position the progress bar correctly when your theme has a sticky header or navigation bar. For example, the tutorial uses a 68px offset to account for the height of Horizon's sticky navigation so the progress bar appears below it instead of being covered by it.",
       },
       {
-        question: "Does the progress bar have to appear on every page?",
+        question: "Can I show the scroll progress bar only on blog posts?",
         answer:
-          "No. In the tutorial, the first version is manually limited to article templates by checking for the blog post template before loading the section.",
+          "Yes. In the basic implementation, you can wrap the progress bar section in a Liquid condition that checks whether the current template is an article. This keeps the progress bar on blog posts without displaying it across the rest of your store.",
       },
       {
-        question: "Why convert the progress bar to Shopify Liquid?",
+        question: "Do I have to use AI to create the scroll progress bar?",
         answer:
-          "The basic generated version works, but converting it to a Shopify Liquid section allows you to add schema settings and customize the design from the Theme Editor.",
+          "No. The RDC Lab generator already gives you a working basic version that you can use as-is. The AI portion of the tutorial is an optional next step for creating a more customized design and converting the section to Shopify Liquid so its settings can be managed through the Theme Editor.",
       },
       {
-        question: "Can I change the colors without using AI?",
+        question: "Can I customize the progress bar from the Shopify Theme Editor?",
         answer:
-          "Yes. For the basic version, you can edit the bar and fill colors directly in the CSS file. The AI workflow is mainly useful when you want Theme Editor controls and a more advanced design.",
+          "Yes. The tutorial shows how AI can convert the basic generated code into a Shopify Liquid section with schema settings. This allows things like the colors, bar height, border radius, icon, and icon size to be adjusted from the Theme Editor instead of repeatedly editing the CSS.",
       },
       {
-        question: "Can I use a different AI coding tool instead of Antigravity?",
+        question: "What if the AI-generated progress bar isn't exactly right?",
         answer:
-          "Yes. The video uses Antigravity, but the same prompt can be used with Codex or another AI coding tool that is designed to work with code.",
+          "AI-generated code may still need small adjustments. In the tutorial, for example, the generated icon needed its position adjusted in the CSS and an unwanted drop shadow was removed manually. You can make small fixes yourself or return to your coding AI for larger changes.",
       },
     ],
   },

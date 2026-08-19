@@ -48,9 +48,9 @@ const tutorialsCollectionPage = {
         "Learn how to add a lightweight page scroll progress bar to a Shopify blog post template using RDC Lab, then convert it into a customizable Shopify section with AI.",
       href: scrollProgressBarTutorialUrl,
       image:
-        "/assets/images/rdc-lab-page-progress-bar-generator-sample-ai-prompt-output.jpg",
+        "/assets/images/rdc-lab-shopify-scroll-progress-bar-tutorial-cover.jpg",
       imageAlt:
-        "RDC Lab page scroll progress bar generator preview for Shopify and e-commerce tutorials.",
+        "RDC Lab tutorial cover showing how to easily build a page scroll progress bar for a Shopify or e-commerce website.",
       duration: "26 min",
       level: "Beginner",
       categories: ["shopify"],

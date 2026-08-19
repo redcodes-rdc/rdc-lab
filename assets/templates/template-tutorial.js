@@ -266,6 +266,22 @@ function renderVideoEmbed(video) {
 }
 
 function renderVideoPlaceholder(video) {
+  if (video.image) {
+    const altText =
+      video.imageAlt ||
+      video.alt ||
+      `${video.title || "Tutorial"} cover image`;
+
+    return `
+      <img
+        class="rdcl-tutorial-video-cover rdc-w-full"
+        src="${video.image}"
+        alt="${escapeHtml(altText)}"
+        loading="lazy"
+      />
+    `;
+  }
+
   return renderVideoEmbed({
     ...video,
     embedUrl: video.placeholderEmbedUrl || rdclTutorialPlaceholderVideoUrl,

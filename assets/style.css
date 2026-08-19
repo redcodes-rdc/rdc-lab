@@ -645,6 +645,14 @@ button,
   min-height: 360px;
 }
 
+.rdcl-tutorial-video-cover {
+  aspect-ratio: 16 / 9;
+  display: block;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+}
+
 .rdcl-tutorial-video-fallback {
   display: none;
   width: fit-content;
@@ -1738,6 +1746,10 @@ body#rlab-generator .rdcl-help-work-cta {
   }
 
   .rdcl-tutorial-video-frame {
+    min-height: unset;
+  }
+
+  .rdcl-tutorial-video-cover {
     min-height: unset;
   }
 
