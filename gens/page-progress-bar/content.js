@@ -39,6 +39,12 @@ const generatorContent = {
 `,
       text: "Create scroll-based progress bars that work across all devices.",
     },
+    tutorialLinks: [
+      {
+        label: "Scroll Progress Bar Tutorial",
+        href: "/pages/tutorials/shopify-scroll-progress-bar-tutorial/",
+      },
+    ],
     output: {
       element: "pre",
       codeId: "rpOutput",
@@ -202,6 +208,7 @@ function renderLeftView(content) {
       <p>${content.description}</p>
       ${renderUseCases(content.useCases)}
       ${renderUseCta(content.useCta)}
+      ${renderTutorialLinks(content.tutorialLinks)}
       <${content.output.element}><code${content.output.codeId ? ` id="${content.output.codeId}"` : ""}>${escapeHtml(content.output.code || "")}</code></${content.output.element}>
     </div>
   `;
@@ -278,6 +285,32 @@ function insertSettings(content) {
         ${renderCssDownloads(content)}
       </div>
     </div>
+  `;
+}
+
+function renderTutorialLinks(links = []) {
+  if (!links.length) return "";
+
+  return `
+    <div class="rdcl-gen-tutorial-links rdc-m-b10">
+      ${links.map(renderTutorialLink).join("")}
+    </div>
+  `;
+}
+
+function renderTutorialLink(link) {
+  if (!link || !link.href || !link.label) return "";
+
+  return `
+    <a class="rdcl-gen-tutorial-link rdc-d-iflex rdc-ai-cen rdc-ff-baij rdc-fw-600 rdc-fs-14" href="${link.href}">
+      <span>${link.label}</span>
+      <span class="rdc-m-l5 rdc-d-iflex" aria-hidden="true">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 17L17 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8 7H17V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+    </a>
   `;
 }
 

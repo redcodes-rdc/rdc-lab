@@ -45,7 +45,7 @@ const rdcAiPreviewImages = {
     src: "/assets/images/rdc-lab-tabs-generator-sample-ai-prompt-output.jpg",
     alt: "AI-enhanced preview of a modern product tabs section created using the RDC Lab Tabs Generator.",
   },
-  timerBarGenerator: {
+  saleTimerBarGenerator: {
     src: "/assets/images/rdc-lab-sale-timer-bar-generator-sample-ai-prompt-output.jpg",
     alt: "AI-enhanced preview of a promotional countdown sale timer bar generated with the RDC Lab Sale Timer Bar Generator.",
   },

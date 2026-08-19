@@ -1,4 +1,5 @@
-const shopifyScrollProgressTutorialVideoUrl = "";
+const shopifyScrollProgressTutorialVideoUrl =
+  "https://www.youtube.com/watch?v=hmq1iLy18B0";
 const shopifyScrollProgressTutorialCover =
   "/assets/images/rdc-lab-shopify-scroll-progress-bar-tutorial-cover.jpg";
 const rdclScrollProgressTutorialCheckIcon = `<svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
